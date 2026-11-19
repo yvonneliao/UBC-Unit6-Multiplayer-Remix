@@ -26,11 +26,29 @@ public class NetworkedPlayerController : NetworkBehaviour
     [Header("Components")]
     public GameObject cam;
     private NetworkStats stats;
-    public Material mat_localPlayer;
+    [SerializeField] private Material[] _playerMaterials;
 
     // - Networked Variables
     private readonly NetworkVariable<float> turretAngle = new NetworkVariable<float>(
         0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+
+    public override void OnNetworkSpawn()
+    {
+        _applyPlayerColor();
+    }
+
+    private void _applyPlayerColor()
+    {
+        if (_playerMaterials == null || _playerMaterials.Length == 0)
+            return;
+
+        int _index = (int)(OwnerClientId % (ulong)_playerMaterials.Length);
+        MeshRenderer _renderer = GetComponentInChildren<MeshRenderer>();
+        if (_renderer != null)
+        {
+            _renderer.material = _playerMaterials[_index];
+        }
+    }
 
     private void Start()
     {
@@ -41,8 +59,6 @@ public class NetworkedPlayerController : NetworkBehaviour
             cam.SetActive(false);
             return;
         }
-            
-        GetComponentInChildren<MeshRenderer>().material = mat_localPlayer;
     }
 
     private void Update()

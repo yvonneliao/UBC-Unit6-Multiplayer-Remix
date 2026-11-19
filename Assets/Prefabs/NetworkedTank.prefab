@@ -462,7 +462,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 563732593915081973, guid: 9577a14c7e792204bbb04c5dd81f8e71, type: 3}
   fireCooldown: 0.8
   cam: {fileID: 122449361414368520}
-  mat_localPlayer: {fileID: 2100000, guid: c361b5933ae3c2c42ad374f74aaac18c, type: 2}
+  _playerMaterials:
+  - {fileID: 2100000, guid: 55e4fc249f438418badfc2a3539a956a, type: 2}
+  - {fileID: 2100000, guid: 233b48f9b18e44b19aae78a265507d2e, type: 2}
+  - {fileID: 2100000, guid: 9849055d88659413185198a1fda6edf7, type: 2}
+  - {fileID: 2100000, guid: e0a5e1aa909be4db694d5905a06d45ce, type: 2}
 --- !u!114 &5137609183414220760
 MonoBehaviour:
   m_ObjectHideFlags: 0

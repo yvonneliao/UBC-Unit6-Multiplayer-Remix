@@ -12,6 +12,9 @@ using Unity.Services.Relay.Models;
 
 using TMPro;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+
+#endif
 
 public class RelayLauncher : MonoBehaviour
 {
@@ -25,7 +28,22 @@ public class RelayLauncher : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] TMP_InputField codeInputField;
+    [SerializeField] private GameObject _startHostButton;
+    [SerializeField] private GameObject _startClientButton;
     // ============================================
+
+    private void Start()
+    {
+        bool _isHostPlayer = true;
+#if UNITY_EDITOR
+        _isHostPlayer = Unity.Multiplayer.PlayMode.CurrentPlayer.IsMainEditor;
+#endif
+        if (_startHostButton != null)
+            _startHostButton.SetActive(_isHostPlayer);
+
+        if (_startClientButton != null)
+            _startClientButton.SetActive(!_isHostPlayer);
+    }
 
     private async Task InitializeServices()
     {

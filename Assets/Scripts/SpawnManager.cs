@@ -6,12 +6,38 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager Instance { get; private set; }
 
     [SerializeField] Transform[] spawnPoints;
+    [SerializeField] float _maxSpawnRadius = 9.5f;
+    [SerializeField] float _minSpawnRadius = 6f;
     private readonly List<int> _availableIndices = new List<int>();
 
     private void Awake()
     {
         Instance = this;
+        _arrangeSpawnPoints();
         _refillIndices();
+    }
+
+    private void _arrangeSpawnPoints()
+    {
+        if (spawnPoints == null || spawnPoints.Length == 0) return;
+
+        float _baseAngle = Random.Range(0f, 360f);
+        float _step = 360f / spawnPoints.Length;
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            if (spawnPoints[i] == null) continue;
+
+            float _angleRad = (_baseAngle + _step * i) * Mathf.Deg2Rad;
+            float _radius = Random.Range(_minSpawnRadius, _maxSpawnRadius);
+            float _y = spawnPoints[i].position.y;
+
+            spawnPoints[i].position = new Vector3(
+                Mathf.Cos(_angleRad) * _radius,
+                _y,
+                Mathf.Sin(_angleRad) * _radius
+            );
+        }
     }
 
     private void _refillIndices()

@@ -162,8 +162,8 @@ public class NetworkStats : NetworkBehaviour
             yield break;
 
         SpawnManager.Instance.GetSpawn(out Vector3 _spawnPosition, out Quaternion _spawnRotation);
-        transform.SetPositionAndRotation(_spawnPosition, _spawnRotation);
-        TeleportOwnerRpc(_spawnPosition, _spawnRotation);
+        transform.SetPositionAndRotation(_spawnPosition, transform.rotation);
+        TeleportOwnerRpc(_spawnPosition, transform.rotation);
     }
 
     [Rpc(SendTo.Owner)]
@@ -177,6 +177,31 @@ public class NetworkStats : NetworkBehaviour
         {
             transform.SetPositionAndRotation(newPosition, newRotation);
         }
+
+        StartCoroutine(_rotateTowardCenterRoutine(2f));
+    }
+
+    private IEnumerator _rotateTowardCenterRoutine(float _duration)
+    {
+        Vector3 _direction = Vector3.zero - transform.position;
+        _direction.y = 0f;
+
+        if (_direction.sqrMagnitude < 0.001f)
+            yield break;
+
+        Quaternion _startRotation = transform.rotation;
+        Quaternion _targetRotation = Quaternion.LookRotation(_direction.normalized, Vector3.up);
+
+        float _elapsed = 0f;
+        while (_elapsed < _duration)
+        {
+            _elapsed += Time.deltaTime;
+            float _t = Mathf.Clamp01(_elapsed / _duration);
+            transform.rotation = Quaternion.Slerp(_startRotation, _targetRotation, _t);
+            yield return null;
+        }
+
+        transform.rotation = _targetRotation;
     }
 
 

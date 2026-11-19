@@ -34,6 +34,8 @@ public class NetworkedPlayerController : NetworkBehaviour
 
     private void Start()
     {
+        stats = GetComponent<NetworkStats>();
+
         if (!IsSpawned || !IsOwner)
         {
             cam.SetActive(false);
@@ -41,7 +43,6 @@ public class NetworkedPlayerController : NetworkBehaviour
         }
             
         GetComponentInChildren<MeshRenderer>().material = mat_localPlayer;
-        stats = GetComponent<NetworkStats>();
     }
 
     private void Update()
@@ -109,6 +110,7 @@ public class NetworkedPlayerController : NetworkBehaviour
     private void ShootRpc(ulong ownerId)
     {
         if (stats == null || !stats.IsAlive.Value)
+            return;
 
         if (muzzlePoint == null || projectilePrefab == null)
             return;

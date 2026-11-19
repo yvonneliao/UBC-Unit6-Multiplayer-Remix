@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 public class NetworkStats : NetworkBehaviour
@@ -39,6 +40,7 @@ public class NetworkStats : NetworkBehaviour
         {
             CurrentHealth.Value = MaxHealth;
             IsAlive.Value = true;
+            StartCoroutine(_initialSpawnRoutine());
         }
 
 
@@ -128,22 +130,10 @@ public class NetworkStats : NetworkBehaviour
 
         if (Lives.Value <= 0) yield break;
 
-        Vector3 spawnPosition = Vector3.zero;
-        Quaternion spawnRotation = Quaternion.identity;
-
-        if (SpawnManager.Instance != null)
-        {
-            SpawnManager.Instance.GetSpawn(out spawnPosition, out spawnRotation);
-        }
-
-        transform.SetPositionAndRotation(spawnPosition, spawnRotation);
-        TeleportOwnerRpc(spawnPosition, spawnRotation);
-
         CurrentHealth.Value = MaxHealth;
         IsAlive.Value = true;
         Lives.Value -= 1;
         ToggleSmokeRpc(false);
-
     }
 
     [Rpc(SendTo.Everyone)]
@@ -164,10 +154,29 @@ public class NetworkStats : NetworkBehaviour
 
    
 
+    private IEnumerator _initialSpawnRoutine()
+    {
+        yield return null;
+
+        if (!IsSpawned || SpawnManager.Instance == null)
+            yield break;
+
+        SpawnManager.Instance.GetSpawn(out Vector3 _spawnPosition, out Quaternion _spawnRotation);
+        transform.SetPositionAndRotation(_spawnPosition, _spawnRotation);
+        TeleportOwnerRpc(_spawnPosition, _spawnRotation);
+    }
+
     [Rpc(SendTo.Owner)]
     public void TeleportOwnerRpc(Vector3 newPosition, Quaternion newRotation)
     {
-        transform.SetPositionAndRotation(newPosition, newRotation);
+        if (TryGetComponent(out NetworkTransform _netTransform))
+        {
+            _netTransform.Teleport(newPosition, newRotation, transform.localScale);
+        }
+        else
+        {
+            transform.SetPositionAndRotation(newPosition, newRotation);
+        }
     }
 
 

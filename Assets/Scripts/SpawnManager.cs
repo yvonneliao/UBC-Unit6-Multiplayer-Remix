@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -5,10 +6,23 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager Instance { get; private set; }
 
     [SerializeField] Transform[] spawnPoints;
+    private readonly List<int> _availableIndices = new List<int>();
 
     private void Awake()
     {
         Instance = this;
+        _refillIndices();
+    }
+
+    private void _refillIndices()
+    {
+        _availableIndices.Clear();
+        if (spawnPoints == null) return;
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            _availableIndices.Add(i);
+        }
     }
 
     public void GetSpawn(out Vector3 position, out Quaternion rotation)
@@ -17,12 +31,19 @@ public class SpawnManager : MonoBehaviour
         {
             position = Vector3.zero;
             rotation = Quaternion.identity;
+            return;
         }
 
-        // - Returns a number between minimum and maximum (not included / exclusive)
-        // - 0, 10 =>  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        Transform selected = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        if (_availableIndices.Count == 0)
+        {
+            _refillIndices();
+        }
 
+        int _pick = Random.Range(0, _availableIndices.Count);
+        int _spawnIndex = _availableIndices[_pick];
+        _availableIndices.RemoveAt(_pick);
+
+        Transform selected = spawnPoints[_spawnIndex];
         position = selected.position;
         rotation = selected.rotation;
     }

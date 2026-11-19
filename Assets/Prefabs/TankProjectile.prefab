@@ -216,7 +216,7 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
-  ToggleServerAuthoritative: 0
+  ToggleServerAuthoritative: 1
 --- !u!114 &8846054868083489337
 MonoBehaviour:
   m_ObjectHideFlags: 0

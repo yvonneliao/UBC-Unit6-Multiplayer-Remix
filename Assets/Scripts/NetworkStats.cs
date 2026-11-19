@@ -112,7 +112,10 @@ public class NetworkStats : NetworkBehaviour
         if (playerObject == null) return;
         
         // - Server updates the score directly.
-        AddScore(100);
+        if (playerObject.TryGetComponent(out NetworkStats shooterStats))
+        {
+            shooterStats.AddScore(amount);
+        }
 
         Debug.Log($"Awarded {amount} points to Client {shooterId}");
     }

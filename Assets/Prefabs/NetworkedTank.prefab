@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 9117641768703595926}
   - component: {fileID: 8316625939886529465}
   - component: {fileID: 2377726440191044405}
+  - component: {fileID: 4237283909727749869}
   m_Layer: 0
   m_Name: TurretBarrel
   m_TagString: Untagged
@@ -228,6 +229,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4237283909727749869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308635175600345877}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.00000023841858, y: 0.00000023841858, z: 0}
 --- !u!1 &2832956978933746076
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +292,7 @@ GameObject:
   - component: {fileID: 7074705115080452739}
   - component: {fileID: 2391386651980218656}
   - component: {fileID: 8533683454694621663}
+  - component: {fileID: 459733043406951164}
   m_Layer: 0
   m_Name: TurretPivot
   m_TagString: Untagged
@@ -351,6 +374,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &459733043406951164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643016713288546761}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4875289874807007770
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +636,7 @@ GameObject:
   - component: {fileID: 922993847565391141}
   - component: {fileID: 2593111767436442454}
   - component: {fileID: 1568873842372236626}
+  - component: {fileID: 8189132935714523364}
   m_Layer: 0
   m_Name: BodyMesh
   m_TagString: Untagged
@@ -671,6 +716,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8189132935714523364
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5196779997762791994}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3975146267169697859
 PrefabInstance:
   m_ObjectHideFlags: 0

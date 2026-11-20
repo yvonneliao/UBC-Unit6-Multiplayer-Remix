@@ -7,6 +7,7 @@ public class NetworkStats : NetworkBehaviour
 {
     public int MaxHealth = 100;
     public float RespawnDelay = 5f;
+    [SerializeField] private int _damageScoreLoss = 20;
 
     public NetworkVariable<float> CurrentHealth = new NetworkVariable<float>(
         100, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
@@ -86,6 +87,12 @@ public class NetworkStats : NetworkBehaviour
             return;
 
         CurrentHealth.Value = Mathf.Max(0, CurrentHealth.Value - amount);
+        Score.Value = Mathf.Max(0, Score.Value - _damageScoreLoss);
+
+        if (TryGetComponent(out myFoodDropper _dropper))
+        {
+            _dropper._dropRandomFood(OwnerClientId);
+        }
 
         if (CurrentHealth.Value == 0)
         {

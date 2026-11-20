@@ -365,6 +365,7 @@ GameObject:
   - component: {fileID: -6797450454173509814}
   - component: {fileID: 5137609183414220760}
   - component: {fileID: 8834339683292031429}
+  - component: {fileID: 2503600278530706323}
   m_Layer: 0
   m_Name: NetworkedTank
   m_TagString: Untagged
@@ -529,6 +530,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   MaxHealth: 100
   RespawnDelay: 5
+  _damageScoreLoss: 20
   CurrentHealth:
     UpdateTraits:
       MinSecondsBetweenUpdates: 0
@@ -550,6 +552,35 @@ MonoBehaviour:
       MaxSecondsBetweenUpdates: 0
     m_InternalValue: 0
   smoke_vfx: {fileID: 9124526447565335446}
+--- !u!114 &2503600278530706323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875289874807007770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f775c2e8b1d04cf8974f4094d19fe7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myFoodDropper
+  ShowTopMostFoldoutHeaderGroup: 1
+  _foodPrefabs:
+  - {fileID: -3150771052899420652, guid: e6139376bf14ce144b7584ca3e26d24b, type: 3}
+  - {fileID: 6837490949255087317, guid: c4dc818a3d0107c43a6ad73bdfca8766, type: 3}
+  - {fileID: 3450496212496438980, guid: 96d2057686904ad4baef89b50eb9c9e8, type: 3}
+  - {fileID: 6506208324932080841, guid: f52a5629a2062924bafe8d5ad7a3c5f5, type: 3}
+  - {fileID: 4320768332082085890, guid: 1c0370843c27f3241b125cb9187073d6, type: 3}
+  - {fileID: 5166003375420459764, guid: c2226e896b2ff804a8d2d3398574b20f, type: 3}
+  - {fileID: 1311743706384817523, guid: 6f80e919ce3f15944905cac373e3b447, type: 3}
+  - {fileID: 6062779931840908943, guid: bbeea2c2f3731224a87bb3cd9dba8e47, type: 3}
+  - {fileID: 8849308654092284492, guid: eba1f7ece2536204bb30cc7ab64ae8bf, type: 3}
+  - {fileID: 5436735687066604543, guid: 44cce66fc039e314183f60c57567cd3c, type: 3}
+  - {fileID: 1518138860085944516, guid: 94ee31a3d58997f4788e26bcab5a03dc, type: 3}
+  - {fileID: 8767452118978822873, guid: fe6f11fc019ec62418161c178bc03c9b, type: 3}
+  _spawnHeightOffset: 1.5
+  _upwardForce: 5
+  _outwardForce: 4
 --- !u!1 &5196779997762791994
 GameObject:
   m_ObjectHideFlags: 0

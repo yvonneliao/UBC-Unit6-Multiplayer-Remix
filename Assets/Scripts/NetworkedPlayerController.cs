@@ -83,8 +83,17 @@ public class NetworkedPlayerController : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!IsSpawned || !IsOwner || stats == null || !stats.IsAlive.Value)
+        if (!IsSpawned || !IsOwner || stats == null)
             return;
+
+        if (!stats.IsAlive.Value)
+        {
+            if (_rb != null && !_rb.isKinematic)
+            {
+                _rb.linearVelocity = Vector3.zero;
+            }
+            return;
+        }
 
         HandleMovement();
     }
@@ -98,7 +107,9 @@ public class NetworkedPlayerController : NetworkBehaviour
 
         if (_rb != null && !_rb.isKinematic)
         {
-            _rb.MovePosition(_rb.position + transform.forward * move * moveSpeed * Time.fixedDeltaTime);
+            Vector3 _velocity = transform.forward * (move * moveSpeed);
+            _velocity.y = _rb.linearVelocity.y;
+            _rb.linearVelocity = _velocity;
             _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0f, rot * rotationSpeed * Time.fixedDeltaTime, 0f));
         }
         else

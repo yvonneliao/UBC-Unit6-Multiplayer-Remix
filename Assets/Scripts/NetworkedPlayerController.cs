@@ -27,6 +27,7 @@ public class NetworkedPlayerController : NetworkBehaviour
     public GameObject cam;
     [SerializeField] private MeshRenderer _bodyRenderer;
     private NetworkStats stats;
+    private Rigidbody _rb;
     [SerializeField] private Material[] _playerMaterials;
 
     // - Networked Variables
@@ -36,6 +37,7 @@ public class NetworkedPlayerController : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         stats = GetComponent<NetworkStats>();
+        _rb = GetComponent<Rigidbody>();
         if (cam != null)
         {
             cam.SetActive(IsOwner);
@@ -69,7 +71,6 @@ public class NetworkedPlayerController : NetworkBehaviour
 
         if (IsOwner && stats.IsAlive.Value)
         {
-            HandleMovement();
             HandleTurret();
             HandleShooting();
         }
@@ -77,8 +78,16 @@ public class NetworkedPlayerController : NetworkBehaviour
         if (!IsOwner && turretPivot != null)
         {
             turretPivot.localRotation = Quaternion.Euler(0f, turretAngle.Value, 0f);
-        }               
-    }   
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!IsSpawned || !IsOwner || stats == null || !stats.IsAlive.Value)
+            return;
+
+        HandleMovement();
+    }
 
     private void HandleMovement()
     {
@@ -87,9 +96,16 @@ public class NetworkedPlayerController : NetworkBehaviour
         float move = moveInput.y;
         float rot = moveInput.x;
 
-        // - Forward Direction * Move Input * Speed * Time/s
-        transform.position += transform.forward * move * moveSpeed * Time.deltaTime;
-        transform.Rotate(transform.up * rot * rotationSpeed * Time.deltaTime);
+        if (_rb != null && !_rb.isKinematic)
+        {
+            _rb.MovePosition(_rb.position + transform.forward * move * moveSpeed * Time.fixedDeltaTime);
+            _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0f, rot * rotationSpeed * Time.fixedDeltaTime, 0f));
+        }
+        else
+        {
+            transform.position += transform.forward * move * moveSpeed * Time.fixedDeltaTime;
+            transform.Rotate(transform.up * rot * rotationSpeed * Time.fixedDeltaTime);
+        }
     }
 
     private void HandleTurret()

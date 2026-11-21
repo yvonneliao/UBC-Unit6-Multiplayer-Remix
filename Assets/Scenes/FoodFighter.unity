@@ -2424,7 +2424,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1611405630702498, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
       propertyPath: m_Name
-      value: SM_PolygonPrototype_Icon_Letter_Question_01 (1)
+      value: Question_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4218284341781176, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
       propertyPath: m_LocalScale.x
@@ -3871,7 +3871,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1611405630702498, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
       propertyPath: m_Name
-      value: SM_PolygonPrototype_Icon_Letter_Question_01
+      value: Question_01
       objectReference: {fileID: 0}
     - target: {fileID: 4218284341781176, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
       propertyPath: m_LocalScale.x
@@ -13993,10 +13993,10 @@ Transform:
   - {fileID: 1123216838}
   - {fileID: 610361290}
   - {fileID: 741946761156255915}
+  - {fileID: 84212889}
   - {fileID: 1386658471}
   - {fileID: 421753647}
   - {fileID: 110532182}
-  - {fileID: 84212889}
   - {fileID: 784174544}
   - {fileID: 1929048705}
   - {fileID: 913604082}

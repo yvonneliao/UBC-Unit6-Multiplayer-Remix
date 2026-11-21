@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] Transform[] spawnPoints;
     [SerializeField] float _maxSpawnRadius = 9.5f;
     [SerializeField] float _minSpawnRadius = 6f;
+    [SerializeField] float _spawnY = -0.27f;
     private readonly List<int> _availableIndices = new List<int>();
 
     private void Awake()
@@ -30,11 +31,10 @@ public class SpawnManager : MonoBehaviour
 
             float _angleRad = (_baseAngle + _step * i) * Mathf.Deg2Rad;
             float _radius = Random.Range(_minSpawnRadius, _maxSpawnRadius);
-            float _y = spawnPoints[i].position.y;
 
             spawnPoints[i].position = new Vector3(
                 Mathf.Cos(_angleRad) * _radius,
-                _y,
+                _spawnY,
                 Mathf.Sin(_angleRad) * _radius
             );
         }

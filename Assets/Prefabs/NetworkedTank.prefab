@@ -499,7 +499,7 @@ MonoBehaviour:
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   shootAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   turretRotationAction: {fileID: 7676471842710793691, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  moveSpeed: 8
+  moveSpeed: 12
   rotationSpeed: 120
   turretRotationSpeed: 150
   turretPivot: {fileID: 7074705115080452739}

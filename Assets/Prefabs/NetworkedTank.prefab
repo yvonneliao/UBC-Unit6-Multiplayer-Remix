@@ -161,15 +161,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184706145088118571}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.016981207, z: 0, w: 0.9998558}
-  m_LocalPosition: {x: 1.34, y: 0.41, z: 0.37}
+  m_LocalRotation: {x: -0.011311702, y: 0.016980119, z: 0.0001921141, w: 0.99979186}
+  m_LocalPosition: {x: 1.4, y: 0.41, z: 0.368}
   m_LocalScale: {x: 1.39, y: 1.2420651, z: 1.2420651}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8031280233405573837}
   - {fileID: 9117641768703595926}
   m_Father: {fileID: 7074705115080452739}
-  m_LocalEulerAnglesHint: {x: 0, y: 1.946, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.296, y: 1.946, z: 0}
 --- !u!1 &2308635175600345877
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,9 +553,9 @@ GameObject:
   - component: {fileID: 9044746100887729406}
   - component: {fileID: 1874949372952839369}
   - component: {fileID: 8652781199775999968}
-  - component: {fileID: -6797450454173509814}
   - component: {fileID: 5137609183414220760}
   - component: {fileID: 8834339683292031429}
+  - component: {fileID: -6797450454173509814}
   - component: {fileID: 8785905883472934551}
   - component: {fileID: 2503600278530706323}
   - component: {fileID: -4086943362771987443}
@@ -633,36 +633,6 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &-6797450454173509814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4875289874807007770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86f30a935dda1e408a5a9be87673cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NetworkedPlayerController
-  ShowTopMostFoldoutHeaderGroup: 1
-  moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  shootAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  turretRotationAction: {fileID: 7676471842710793691, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  moveSpeed: 15
-  rotationSpeed: 40
-  turretRotationSpeed: 60
-  turretPivot: {fileID: 7074705115080452739}
-  muzzlePoint: {fileID: 209145275619173999}
-  projectilePrefab: {fileID: 563732593915081973, guid: 9577a14c7e792204bbb04c5dd81f8e71, type: 3}
-  fireCooldown: 0.8
-  cam: {fileID: 122449361414368520}
-  _bodyRenderer: {fileID: 1568873842372236626}
-  _playerMaterials:
-  - {fileID: 2100000, guid: 55e4fc249f438418badfc2a3539a956a, type: 2}
-  - {fileID: 2100000, guid: 9849055d88659413185198a1fda6edf7, type: 2}
-  - {fileID: 2100000, guid: 233b48f9b18e44b19aae78a265507d2e, type: 2}
-  - {fileID: 2100000, guid: 515faf00ba53bcf49bab300fd8c2cd6e, type: 2}
 --- !u!114 &5137609183414220760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,6 +717,36 @@ MonoBehaviour:
       MaxSecondsBetweenUpdates: 0
     m_InternalValue: 0
   smoke_vfx: {fileID: 9124526447565335446}
+--- !u!114 &-6797450454173509814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875289874807007770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86f30a935dda1e408a5a9be87673cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedPlayerController
+  ShowTopMostFoldoutHeaderGroup: 1
+  moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  shootAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  turretRotationAction: {fileID: 7676471842710793691, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  moveSpeed: 25
+  rotationSpeed: 150
+  turretRotationSpeed: 150
+  turretPivot: {fileID: 7074705115080452739}
+  muzzlePoint: {fileID: 209145275619173999}
+  projectilePrefab: {fileID: 563732593915081973, guid: 9577a14c7e792204bbb04c5dd81f8e71, type: 3}
+  fireCooldown: 0.8
+  cam: {fileID: 122449361414368520}
+  _bodyRenderer: {fileID: 1568873842372236626}
+  _playerMaterials:
+  - {fileID: 2100000, guid: 55e4fc249f438418badfc2a3539a956a, type: 2}
+  - {fileID: 2100000, guid: 9849055d88659413185198a1fda6edf7, type: 2}
+  - {fileID: 2100000, guid: 233b48f9b18e44b19aae78a265507d2e, type: 2}
+  - {fileID: 2100000, guid: 515faf00ba53bcf49bab300fd8c2cd6e, type: 2}
 --- !u!114 &8785905883472934551
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class myFoodPickup : NetworkBehaviour
 {
-    [SerializeField] private int _scoreValue = 20;
+    [SerializeField] private int _scoreValue = 200;
     [SerializeField] private float _pickupDelay = 0.4f;
     [SerializeField] private float _lifetime = 25f;
 

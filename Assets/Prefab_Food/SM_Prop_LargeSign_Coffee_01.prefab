@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::myFoodPickup
   ShowTopMostFoldoutHeaderGroup: 1
-  _scoreValue: 20
+  _scoreValue: 200
   _pickupDelay: 0.4
   _lifetime: 25
 --- !u!54 &2606415830261151795

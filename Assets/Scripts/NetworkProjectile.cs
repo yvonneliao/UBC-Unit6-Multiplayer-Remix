@@ -58,10 +58,13 @@ public class NetworkProjectile : NetworkBehaviour
             NetworkStats _hitPlayer = hit.collider.GetComponentInParent<NetworkStats>();
             if (_hitPlayer != null)
             {
-                if (_hitPlayer.OwnerClientId != OwnerClientId)
+                if (_hitPlayer.OwnerClientId == OwnerClientId)
                 {
-                    _awardShooter(100);
+                    transform.position += transform.forward * distance;
+                    return;
                 }
+
+                _awardShooter(100);
                 _hitPlayer.TakeDamage(damage, OwnerClientId);
             }
             else

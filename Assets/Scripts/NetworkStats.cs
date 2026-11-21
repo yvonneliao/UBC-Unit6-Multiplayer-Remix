@@ -83,7 +83,7 @@ public class NetworkStats : NetworkBehaviour
 
     public void TakeDamage(float amount, ulong shooterId)
     {
-        if (!IsServer || !IsAlive.Value)
+        if (!IsServer || !IsAlive.Value || shooterId == OwnerClientId)
             return;
 
         CurrentHealth.Value = Mathf.Max(0, CurrentHealth.Value - amount);

@@ -55,18 +55,25 @@ public class NetworkProjectile : NetworkBehaviour
             );
 
 
-            if (hit.collider.TryGetComponent(out NetworkStats health))
+            NetworkStats _hitPlayer = hit.collider.GetComponentInParent<NetworkStats>();
+            if (_hitPlayer != null)
             {
-                health.TakeDamage(damage, OwnerClientId);
+                if (_hitPlayer.OwnerClientId != OwnerClientId)
+                {
+                    _awardShooter(100);
+                }
+                _hitPlayer.TakeDamage(damage, OwnerClientId);
             }
-
             else
             {
-                NetworkStats parentHealth = hit.collider.GetComponentInParent<NetworkStats>();
-
-                if (parentHealth != null)
+                myScoreValue _scoreObj = hit.collider.GetComponentInParent<myScoreValue>();
+                if (_scoreObj != null)
                 {
-                    parentHealth.TakeDamage(damage, OwnerClientId);
+                    _awardShooter(_scoreObj._getPoints());
+                }
+                else if (hit.collider.CompareTag("Reward"))
+                {
+                    _awardShooter(100);
                 }
             }
 
@@ -77,6 +84,19 @@ public class NetworkProjectile : NetworkBehaviour
         }
 
         transform.position += transform.forward * distance;        
+    }
+
+    private void _awardShooter(int _points)
+    {
+        if (!IsServer || _points == 0)
+            return;
+
+        if (NetworkManager.Singleton.ConnectedClients.TryGetValue(OwnerClientId, out NetworkClient _shooter)
+            && _shooter.PlayerObject != null
+            && _shooter.PlayerObject.TryGetComponent(out NetworkStats _shooterStats))
+        {
+            _shooterStats._modifyScore(_points);
+        }
     }    
 
     private void TriggerExplosion()

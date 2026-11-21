@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 15833797}
   m_Layer: 0
   m_Name: SM_Bld_Wall_02 (6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,12 +309,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 22172710}
+  - component: {fileID: 22172714}
   - component: {fileID: 22172713}
   - component: {fileID: 22172712}
   - component: {fileID: 22172711}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Target_03 (5)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -413,6 +414,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22172709}
   m_Mesh: {fileID: 4300000, guid: 8332f017cfb13984196e491ffb1aaf3f, type: 3}
+--- !u!114 &22172714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22172709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 100
 --- !u!1001 &23766974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,6 +438,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
       propertyPath: m_Name
       value: GroundLevel (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
       propertyPath: m_LocalScale.x
@@ -496,12 +514,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 36966767}
+  - component: {fileID: 36966772}
   - component: {fileID: 36966770}
   - component: {fileID: 36966769}
-  - component: {fileID: 36966768}
+  - component: {fileID: 36966771}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (8)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -521,28 +540,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 421753647}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!64 &36966768
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36966766}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
 --- !u!23 &36966769
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -600,6 +597,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36966766}
   m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
+--- !u!65 &36966771
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36966766}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.380213, y: 17.380209, z: 0.6950163}
+  m_Center: {x: 0.0000019073486, y: -0.00000071525574, z: -0.0000038146973}
+--- !u!114 &36966772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36966766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!1 &76613340
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +698,7 @@ GameObject:
   - component: {fileID: 84212889}
   m_Layer: 0
   m_Name: Cones
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -786,6 +817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundLevel (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5733001
@@ -865,7 +900,7 @@ GameObject:
   - component: {fileID: 129778275}
   m_Layer: 0
   m_Name: SM_Bld_Wall_01 (5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -974,6 +1009,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
       propertyPath: m_Name
       value: GroundLevel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
       propertyPath: m_LocalScale.x
@@ -1120,7 +1159,7 @@ GameObject:
   - component: {fileID: 219734157}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01 (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1231,6 +1270,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fences 3
       objectReference: {fileID: 0}
+    - target: {fileID: 561771247034723064, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 967143758413928672, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586560008828932955, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007502256855638687, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298661400091143384, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3415940605363508593, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.42
@@ -1271,6 +1330,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5995935478705675000, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367515539194761185, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372603396579992512, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010233151714627665, guid: c37b4f9fe1c724991b708e2bc33d1a81, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1295,7 +1370,7 @@ GameObject:
   - component: {fileID: 245697701}
   m_Layer: 0
   m_Name: Fences2
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1581,12 +1656,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 371294935}
+  - component: {fileID: 371294940}
   - component: {fileID: 371294938}
   - component: {fileID: 371294937}
-  - component: {fileID: 371294936}
+  - component: {fileID: 371294939}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (10)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1606,28 +1682,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 421753647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &371294936
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371294934}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
 --- !u!23 &371294937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1685,6 +1739,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371294934}
   m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
+--- !u!65 &371294939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371294934}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.380209, y: 17.380209, z: 0.69501615}
+  m_Center: {x: 0.0000019073486, y: -0.00000071525574, z: -0.000005722046}
+--- !u!114 &371294940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371294934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!1 &402961154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,7 +1787,7 @@ GameObject:
   - component: {fileID: 402961156}
   m_Layer: 0
   m_Name: SM_Bld_Wall_02 (8)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1935,7 +2023,7 @@ GameObject:
   - component: {fileID: 421753647}
   m_Layer: 0
   m_Name: RainbowRings
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2122,6 +2210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Generic_Small_Rocks_04
       objectReference: {fileID: 0}
+    - target: {fileID: 1825960760633310, guid: 097c26aede8f73e41a32d546bd00e97f, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4423381248071784, guid: 097c26aede8f73e41a32d546bd00e97f, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.9544754
@@ -2206,7 +2298,7 @@ GameObject:
   - component: {fileID: 514452655}
   m_Layer: 0
   m_Name: SM_Bld_Fence_07 (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2316,6 +2408,10 @@ PrefabInstance:
     - target: {fileID: 103760, guid: 4a6798a16f218f44e9d82cdb16502a98, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Barrel_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 103760, guid: 4a6798a16f218f44e9d82cdb16502a98, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 425394, guid: 4a6798a16f218f44e9d82cdb16502a98, type: 3}
       propertyPath: m_LocalScale.x
@@ -2756,7 +2852,7 @@ GameObject:
   - component: {fileID: 742598545}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (17)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3003,7 +3099,7 @@ GameObject:
   - component: {fileID: 784174544}
   m_Layer: 0
   m_Name: Crate-Barrel-Chest
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3339,7 +3435,7 @@ GameObject:
   - component: {fileID: 913604082}
   m_Layer: 0
   m_Name: StoneWalls
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3572,7 +3668,7 @@ GameObject:
   - component: {fileID: 980981129}
   m_Layer: 0
   m_Name: SM_Bld_Fence_07 (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3763,7 +3859,7 @@ GameObject:
   - component: {fileID: 1027823074}
   m_Layer: 0
   m_Name: SM_Bld_Wall_02 (7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3958,7 +4054,7 @@ GameObject:
   - component: {fileID: 1142787906}
   m_Layer: 0
   m_Name: SM_Bld_Wall_01 (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4468,7 +4564,7 @@ GameObject:
   - component: {fileID: 1240823743}
   m_Layer: 0
   m_Name: SM_Bld_Fence_07 (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4581,7 +4677,7 @@ GameObject:
   - component: {fileID: 1248308526}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (16)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4746,7 +4842,7 @@ GameObject:
   - component: {fileID: 1267370533}
   m_Layer: 0
   m_Name: SM_Prop_Crate_01 (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5031,7 +5127,7 @@ GameObject:
   - component: {fileID: 1386658471}
   m_Layer: 0
   m_Name: BullsEye-Target
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5065,12 +5161,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1422590172}
+  - component: {fileID: 1422590177}
   - component: {fileID: 1422590175}
   - component: {fileID: 1422590174}
-  - component: {fileID: 1422590173}
+  - component: {fileID: 1422590176}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (9)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5090,28 +5187,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 421753647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1422590173
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1422590171}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
 --- !u!23 &1422590174
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5169,6 +5244,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422590171}
   m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
+--- !u!65 &1422590176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422590171}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.380209, y: 17.380209, z: 0.69501615}
+  m_Center: {x: 0, y: -0.00000071525574, z: -0.00000333786}
+--- !u!114 &1422590177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422590171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!1001 &1453268532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5180,6 +5289,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
       propertyPath: m_Name
       value: GroundLevel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
       propertyPath: m_LocalScale.x
@@ -5336,9 +5449,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 784174544}
     m_Modifications:
+    - target: {fileID: 133354, guid: 1c64fbe146825d4439e21d3a3c64b4fb, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 158026, guid: 1c64fbe146825d4439e21d3a3c64b4fb, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Chest_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 158026, guid: 1c64fbe146825d4439e21d3a3c64b4fb, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 473108, guid: 1c64fbe146825d4439e21d3a3c64b4fb, type: 3}
       propertyPath: m_LocalScale.x
@@ -5416,7 +5537,7 @@ GameObject:
   - component: {fileID: 1543564771}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5524,12 +5645,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1566397425}
+  - component: {fileID: 1566397430}
   - component: {fileID: 1566397428}
   - component: {fileID: 1566397427}
-  - component: {fileID: 1566397426}
+  - component: {fileID: 1566397429}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (6)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5549,28 +5671,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 421753647}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!64 &1566397426
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566397424}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
 --- !u!23 &1566397427
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5628,6 +5728,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566397424}
   m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
+--- !u!65 &1566397429
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566397424}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.380215, y: 17.380209, z: 0.6950163}
+  m_Center: {x: 0.0000019073486, y: -0.00000071525574, z: 0.0000038146973}
+--- !u!114 &1566397430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566397424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!1 &1572482527
 GameObject:
   m_ObjectHideFlags: 0
@@ -5642,7 +5776,7 @@ GameObject:
   - component: {fileID: 1572482530}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01 (5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5888,6 +6022,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundLevel (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5733006
@@ -6132,7 +6270,7 @@ GameObject:
   - component: {fileID: 1706345257}
   m_Layer: 0
   m_Name: SM_Bld_Wall_01 (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6245,7 +6383,7 @@ GameObject:
   - component: {fileID: 1793736447}
   m_Layer: 0
   m_Name: SM_Bld_Fence_07 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6358,7 +6496,7 @@ GameObject:
   - component: {fileID: 1810425916}
   m_Layer: 0
   m_Name: SM_Prop_Crate_01 (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6466,19 +6604,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1808265353395088, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
       propertyPath: m_Name
-      value: SM_PolygonPrototype_Primitive_Sphere_01P (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0263572
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.026357
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.0263572
+      value: Sphere_01PBALL2
       objectReference: {fileID: 0}
     - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6520,59 +6646,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 7.529
       objectReference: {fileID: 0}
-    - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23216627478296634, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 382781f3eb846ba4992cfb4e635c76ed, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1808265353395088, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1880521150}
+      insertIndex: 3
+      addedObject: {fileID: 1880521155}
   m_SourcePrefab: {fileID: 100100000, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
 --- !u!1 &1880521149 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1808265353395088, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
   m_PrefabInstance: {fileID: 1880521148}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1880521150
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880521149}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &1880521151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
   m_PrefabInstance: {fileID: 1880521148}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1880521155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880521149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: -20
 --- !u!1 &1915130821
 GameObject:
   m_ObjectHideFlags: 0
@@ -6582,12 +6686,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1915130822}
+  - component: {fileID: 1915130827}
   - component: {fileID: 1915130825}
   - component: {fileID: 1915130824}
-  - component: {fileID: 1915130823}
+  - component: {fileID: 1915130826}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (7)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6607,28 +6712,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 421753647}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!64 &1915130823
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915130821}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
 --- !u!23 &1915130824
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6686,6 +6769,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915130821}
   m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
+--- !u!65 &1915130826
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915130821}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.380215, y: 17.380209, z: 0.6950163}
+  m_Center: {x: 0.0000009536743, y: -0.00000071525574, z: 0}
+--- !u!114 &1915130827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915130821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!1 &1929048704
 GameObject:
   m_ObjectHideFlags: 0
@@ -6697,7 +6814,7 @@ GameObject:
   - component: {fileID: 1929048705}
   m_Layer: 0
   m_Name: Rocks
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6732,12 +6849,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1936511110}
+  - component: {fileID: 1936511115}
   - component: {fileID: 1936511113}
   - component: {fileID: 1936511112}
-  - component: {fileID: 1936511111}
+  - component: {fileID: 1936511114}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (3)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6757,28 +6875,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 421753647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1936511111
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936511109}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
 --- !u!23 &1936511112
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6836,6 +6932,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936511109}
   m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
+--- !u!65 &1936511114
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936511109}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.380209, y: 17.380209, z: 0.69501615}
+  m_Center: {x: 0.0000019073486, y: -0.00000071525574, z: -0.0000038146973}
+--- !u!114 &1936511115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936511109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!1 &1985581453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
@@ -6904,7 +7034,7 @@ GameObject:
   - component: {fileID: 2025532824}
   m_Layer: 0
   m_Name: CubeRocks
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6997,6 +7127,10 @@ PrefabInstance:
     - target: {fileID: 1825960760633310, guid: 097c26aede8f73e41a32d546bd00e97f, type: 3}
       propertyPath: m_Name
       value: SM_Generic_Small_Rocks_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825960760633310, guid: 097c26aede8f73e41a32d546bd00e97f, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4423381248071784, guid: 097c26aede8f73e41a32d546bd00e97f, type: 3}
       propertyPath: m_LocalScale.x
@@ -7229,7 +7363,7 @@ GameObject:
   - component: {fileID: 2116084494}
   m_Layer: 0
   m_Name: SM_Bld_Wall_02 (5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7337,19 +7471,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1808265353395088, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
       propertyPath: m_Name
-      value: SM_PolygonPrototype_Primitive_Sphere_01P (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0263572
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.026357
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.0263572
+      value: Sphere_01PBALL
       objectReference: {fileID: 0}
     - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7391,59 +7513,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 7.529
       objectReference: {fileID: 0}
-    - target: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23216627478296634, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 382781f3eb846ba4992cfb4e635c76ed, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1808265353395088, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2140438526}
+      insertIndex: 3
+      addedObject: {fileID: 2140438531}
   m_SourcePrefab: {fileID: 100100000, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
 --- !u!1 &2140438525 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1808265353395088, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
   m_PrefabInstance: {fileID: 2140438524}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &2140438526
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140438525}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &2140438527 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4813550475596240, guid: 296b6c6ad62626c48aef7fa6c5e2a9a8, type: 3}
   m_PrefabInstance: {fileID: 2140438524}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140438531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140438525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: -20
 --- !u!1 &1016621056496587
 GameObject:
   m_ObjectHideFlags: 0
@@ -7665,7 +7765,7 @@ GameObject:
   - component: {fileID: 84815719226031039}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7805,7 +7905,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -7926,12 +8026,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234979428402082407}
+  - component: {fileID: 263513455576989526}
   - component: {fileID: 232508896707479111}
   - component: {fileID: 225179183899444593}
   - component: {fileID: 263513455576989525}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Target_03 (2)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8072,6 +8173,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8332f017cfb13984196e491ffb1aaf3f, type: 3}
+--- !u!114 &263513455576989526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236714764850067133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 100
 --- !u!23 &265990510934669523
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8176,7 +8290,7 @@ GameObject:
   - component: {fileID: 278491608540498100}
   m_Layer: 0
   m_Name: SM_Bld_Wall_01 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8288,7 +8402,7 @@ GameObject:
   - component: {fileID: 218162755742121619}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (12)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8337,7 +8451,7 @@ GameObject:
   - component: {fileID: 356855888962464981}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (16)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8413,7 +8527,7 @@ GameObject:
   - component: {fileID: 5675348277849925666}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8433,7 +8547,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -8526,7 +8640,7 @@ GameObject:
   - component: {fileID: 413172405043862906}
   m_Layer: 0
   m_Name: SM_Bld_Wall_01 (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8799,7 +8913,7 @@ GameObject:
   - component: {fileID: 713292686010130118}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (15)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8913,7 +9027,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -9034,7 +9148,7 @@ GameObject:
   - component: {fileID: 832913917995158862}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (14)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9436,7 +9550,7 @@ GameObject:
   - component: {fileID: 1071267064682844054}
   m_Layer: 0
   m_Name: SM_Bld_Wall_01
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9641,7 +9755,7 @@ GameObject:
   - component: {fileID: 1099846678579846883}
   m_Layer: 0
   m_Name: SM_Prop_Crate_02 (5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9717,7 +9831,7 @@ GameObject:
   - component: {fileID: 651724778873029062}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01 (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9984,7 +10098,7 @@ GameObject:
   - component: {fileID: 1288244824565593310}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (10)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10453,12 +10567,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1441493631563364747}
+  - component: {fileID: 1507534134959928506}
   - component: {fileID: 1475473984800837035}
   - component: {fileID: 1467075203092696733}
   - component: {fileID: 1507534134959928505}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Target_03
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10557,7 +10672,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -10745,6 +10860,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8332f017cfb13984196e491ffb1aaf3f, type: 3}
+--- !u!114 &1507534134959928506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444279486945574225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 100
 --- !u!4 &1509829140826555280
 Transform:
   m_ObjectHideFlags: 0
@@ -10782,7 +10910,7 @@ GameObject:
   - component: {fileID: 1581740325620655649}
   m_Layer: 0
   m_Name: SM_Bld_Fence_06
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11075,12 +11203,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671111954028382671}
+  - component: {fileID: 1688281410852319935}
   - component: {fileID: 1677647338359025437}
   - component: {fileID: 1688281410852319933}
-  - component: {fileID: 1718186464955132553}
+  - component: {fileID: 1688281410852319934}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (4)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11157,6 +11286,40 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1688281410852319934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673115518875995869}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.380209, y: 17.380209, z: 0.69501615}
+  m_Center: {x: 0.00000023841858, y: -0.00000071525574, z: 0}
+--- !u!114 &1688281410852319935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673115518875995869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!1 &1689471665229328972
 GameObject:
   m_ObjectHideFlags: 0
@@ -11171,7 +11334,7 @@ GameObject:
   - component: {fileID: 1699034550292378946}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (8)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11198,28 +11361,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 10f4e51254da985418a112d2dfe124f0, type: 3}
---- !u!64 &1718186464955132553
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673115518875995869}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
 --- !u!4 &1731694523528457062
 Transform:
   m_ObjectHideFlags: 0
@@ -11249,7 +11390,7 @@ GameObject:
   - component: {fileID: 1800530646212937734}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (13)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11434,7 +11575,7 @@ GameObject:
   - component: {fileID: 1844284215187797936}
   m_Layer: 0
   m_Name: SM_Bld_Wall_02 (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11526,12 +11667,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1979406626343586318}
+  - component: {fileID: 1986829924570105661}
   - component: {fileID: 1945725193841524270}
   - component: {fileID: 1956088476399975704}
   - component: {fileID: 1986829924570105660}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Target_03 (1)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11595,6 +11737,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8332f017cfb13984196e491ffb1aaf3f, type: 3}
+--- !u!114 &1986829924570105661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977759246549765844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 100
 --- !u!1 &1987481764300179811
 GameObject:
   m_ObjectHideFlags: 0
@@ -12091,7 +12246,7 @@ GameObject:
   - component: {fileID: 2258087628166750532}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12261,7 +12416,7 @@ GameObject:
   - component: {fileID: 2431916122226843485}
   m_Layer: 0
   m_Name: SM_Bld_Wall_02
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12280,7 +12435,7 @@ GameObject:
   - component: {fileID: 5081905662736793212}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01 (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12482,7 +12637,7 @@ GameObject:
   - component: {fileID: 1476063849179524575}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (7)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12793,7 +12948,7 @@ GameObject:
   - component: {fileID: 2877783498599689001}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (12)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13109,7 +13264,7 @@ GameObject:
   - component: {fileID: 2288851151121466295}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13263,7 +13418,7 @@ GameObject:
   - component: {fileID: 3050820419128814282}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (11)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13432,7 +13587,7 @@ GameObject:
   - component: {fileID: 3249583960029149821}
   m_Layer: 0
   m_Name: SM_Prop_Crate_01 (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13614,7 +13769,7 @@ GameObject:
   - component: {fileID: 3357671667777297704}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13824,7 +13979,7 @@ GameObject:
   - component: {fileID: 3504651431284936215}
   m_Layer: 0
   m_Name: SM_Prop_Crate_01
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13993,10 +14148,10 @@ Transform:
   - {fileID: 1123216838}
   - {fileID: 610361290}
   - {fileID: 741946761156255915}
-  - {fileID: 84212889}
   - {fileID: 1386658471}
   - {fileID: 421753647}
   - {fileID: 110532182}
+  - {fileID: 84212889}
   - {fileID: 784174544}
   - {fileID: 1929048705}
   - {fileID: 913604082}
@@ -14312,7 +14467,7 @@ GameObject:
   - component: {fileID: 3822363969824649494}
   m_Layer: 0
   m_Name: SM_Env_Rock_09
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14472,7 +14627,7 @@ GameObject:
   - component: {fileID: 3950443217187762061}
   m_Layer: 0
   m_Name: SM_Prop_Crate_02 (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14650,12 +14805,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3964493489642866520}
+  - component: {fileID: 3998209076357144972}
   - component: {fileID: 3998209076357144970}
   - component: {fileID: 3988417246437915690}
-  - component: {fileID: 4029727543279920158}
+  - component: {fileID: 3998209076357144971}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (5)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14780,7 +14936,7 @@ GameObject:
   - component: {fileID: 4003492256283454387}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (18)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14793,6 +14949,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3966641123833299018}
   m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
+--- !u!65 &3998209076357144971
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966641123833299018}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.380209, y: 17.380209, z: 0.69501615}
+  m_Center: {x: 0.00000047683716, y: -0.00000071525574, z: -0.0000019073486}
+--- !u!114 &3998209076357144972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966641123833299018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!4 &3998542747584720513
 Transform:
   m_ObjectHideFlags: 0
@@ -14823,35 +15013,13 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: b00a06e965af79a4c917d2b450d64c54, type: 3}
---- !u!64 &4029727543279920158
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3966641123833299018}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
 --- !u!4 &4035821215171528682
 Transform:
   m_ObjectHideFlags: 0
@@ -14881,7 +15049,7 @@ GameObject:
   - component: {fileID: 4099579168556520342}
   m_Layer: 0
   m_Name: SM_Env_Rock_09 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15317,7 +15485,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -15338,7 +15506,7 @@ GameObject:
   - component: {fileID: 4261262101519884035}
   m_Layer: 0
   m_Name: SM_Prop_Crate_01 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15429,7 +15597,7 @@ GameObject:
   - component: {fileID: 7748337107868535819}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15595,7 +15763,7 @@ GameObject:
   - component: {fileID: 4505442743145771039}
   m_Layer: 0
   m_Name: SM_Prop_Crate_02 (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15875,7 +16043,7 @@ GameObject:
   - component: {fileID: 4561400282557484361}
   m_Layer: 0
   m_Name: SM_Bld_Wall_02 (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16918,7 +17086,7 @@ GameObject:
   - component: {fileID: 5005740096643047524}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17200,7 +17368,7 @@ GameObject:
   - component: {fileID: 8706948013673343890}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (8)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17408,7 +17576,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -17429,7 +17597,7 @@ GameObject:
   - component: {fileID: 5506319756446006259}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (17)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17520,7 +17688,7 @@ GameObject:
   - component: {fileID: 5684065919829889401}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17855,7 +18023,7 @@ GameObject:
   - component: {fileID: 5807045970469041837}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (11)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17875,7 +18043,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -17896,7 +18064,7 @@ GameObject:
   - component: {fileID: 7725870290176761409}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (1)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17915,7 +18083,7 @@ GameObject:
   - component: {fileID: 7774049599573109141}
   m_Layer: 0
   m_Name: SM_Bld_Fence_07
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18344,7 +18512,7 @@ GameObject:
   - component: {fileID: 6283866079263275307}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (15)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18377,10 +18545,10 @@ GameObject:
   - component: {fileID: 6359968583390339394}
   - component: {fileID: 6359968583391802246}
   - component: {fileID: 6387683864180839798}
-  - component: {fileID: 6388265559044927040}
+  - component: {fileID: 6387683864180839799}
   m_Layer: 0
   m_Name: SM_Prop_RoadSign_01
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18479,28 +18647,33 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43348403264331508, guid: 4bd965536bc3fd043afffb92eb4ef0a5, type: 2}
---- !u!64 &6388265559044927040
-MeshCollider:
+--- !u!54 &6387683864180839799
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6359968583389479242}
-  m_Material: {fileID: 0}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43847140304600080, guid: 4bd965536bc3fd043afffb92eb4ef0a5, type: 2}
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &6402925856828948165
 Transform:
   m_ObjectHideFlags: 0
@@ -18572,7 +18745,7 @@ GameObject:
   - component: {fileID: 8352104802910977036}
   m_Layer: 0
   m_Name: Fences
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18768,7 +18941,7 @@ GameObject:
   - component: {fileID: 6655392288165185219}
   m_Layer: 0
   m_Name: SM_Bld_Wall_02 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18866,7 +19039,7 @@ GameObject:
   - component: {fileID: 6987767095433738015}
   m_Layer: 0
   m_Name: SM_Prop_Crate_02 (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18945,12 +19118,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6942587446807863305}
+  - component: {fileID: 6968166911830666556}
   - component: {fileID: 6927063340734845993}
   - component: {fileID: 6918700772051654431}
   - component: {fileID: 6968166911830666555}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Target_03 (4)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18992,6 +19166,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8332f017cfb13984196e491ffb1aaf3f, type: 3}
+--- !u!114 &6968166911830666556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6940939998292468947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 100
 --- !u!65 &6987767095433738015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19027,7 +19214,7 @@ GameObject:
   - component: {fileID: 7057802702036867247}
   m_Layer: 0
   m_Name: SM_Prop_Crate_02 (6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19218,7 +19405,7 @@ GameObject:
   - component: {fileID: 7108955494982253420}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19282,7 +19469,7 @@ GameObject:
   - component: {fileID: 7187468765141666579}
   m_Layer: 0
   m_Name: SM_Env_Rock_010
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20042,7 +20229,7 @@ GameObject:
   - component: {fileID: 4282261677837272656}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (9)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20076,7 +20263,7 @@ GameObject:
   - component: {fileID: 7501735302991216805}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (9)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20100,10 +20287,11 @@ GameObject:
   - component: {fileID: 7655069072493883044}
   - component: {fileID: 7657400199321618550}
   - component: {fileID: 7665484229394404822}
-  - component: {fileID: 7697925856892423650}
+  - component: {fileID: 7665484229394404824}
+  - component: {fileID: 7665484229394404823}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (1)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20180,8 +20368,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7697925856892423650
-MeshCollider:
+--- !u!65 &7665484229394404823
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20195,13 +20383,25 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 17.380209, y: 17.380209, z: 0.69501615}
+  m_Center: {x: 0.00000047683716, y: -0.00000071525574, z: 0}
+--- !u!114 &7665484229394404824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652924218624633270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!23 &7713436232539297719
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20274,7 +20474,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -20303,28 +20503,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 508d8b94335d22a4f876f140c7c5540a, type: 3}
---- !u!64 &7730624358292600427
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7757609970258399807}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8d1177ba3d7335442be5de9e2472ae26, type: 3}
 --- !u!4 &7732296862261942693
 Transform:
   m_ObjectHideFlags: 0
@@ -20354,7 +20532,7 @@ GameObject:
   - component: {fileID: 7762605884888365765}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Prop_Cone_01 (5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20374,7 +20552,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -20477,12 +20655,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7755326026020721965}
+  - component: {fileID: 7781501514437406305}
   - component: {fileID: 7771167608066225151}
   - component: {fileID: 7781501514437406303}
-  - component: {fileID: 7730624358292600427}
+  - component: {fileID: 7781501514437406304}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (2)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20697,6 +20876,40 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7781501514437406304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757609970258399807}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.380209, y: 17.380209, z: 0.69501615}
+  m_Center: {x: 0.00000047683716, y: -0.00000071525574, z: -0.000002861023}
+--- !u!114 &7781501514437406305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757609970258399807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 50
 --- !u!23 &8000788258120720925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20761,7 +20974,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -20895,7 +21108,7 @@ GameObject:
   - component: {fileID: 8003634733414120528}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (14)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21029,7 +21242,7 @@ GameObject:
   - component: {fileID: 8100489263777220376}
   m_Layer: 0
   m_Name: SM_Prop_Crate_02 (7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21139,7 +21352,7 @@ GameObject:
   - component: {fileID: 7077308389136996989}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01 (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21159,7 +21372,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -21405,7 +21618,7 @@ GameObject:
   - component: {fileID: 8289769810609208880}
   m_Layer: 0
   m_Name: SM_PolygonPrototype_Icon_Coin_01 (13)
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21496,7 +21709,7 @@ GameObject:
   - component: {fileID: 8430309313704706886}
   m_Layer: 0
   m_Name: SM_Prop_Crate_02 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21551,7 +21764,7 @@ GameObject:
   - component: {fileID: 1216010768730782661}
   m_Layer: 0
   m_Name: SM_Bld_Fence_07 (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21664,7 +21877,7 @@ GameObject:
   - component: {fileID: 8507749258387158683}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22008,7 +22221,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -22186,7 +22399,7 @@ GameObject:
   - component: {fileID: 8745905328624106683}
   m_Layer: 0
   m_Name: SM_Env_Rock_010 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22292,7 +22505,7 @@ GameObject:
   - component: {fileID: 8733977841332871841}
   m_Layer: 0
   m_Name: SM_Prop_Crate_02
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22894,7 +23107,7 @@ GameObject:
   - component: {fileID: 3693574908857756190}
   m_Layer: 0
   m_Name: SM_Bld_Fence_07 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22910,7 +23123,7 @@ GameObject:
   - component: {fileID: 741946761156255915}
   m_Layer: 0
   m_Name: Coins2
-  m_TagString: Untagged
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

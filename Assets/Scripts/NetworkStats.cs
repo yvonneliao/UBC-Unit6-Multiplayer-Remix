@@ -220,6 +220,14 @@ public class NetworkStats : NetworkBehaviour
         Score.Value += amount;
     }
 
+    public void _modifyScore(int _delta)
+    {
+        if (!IsServer)
+            return;
+
+        Score.Value = Mathf.Max(0, Score.Value + _delta);
+    }
+
     public void LoseLife()
     {
         if (!IsServer)

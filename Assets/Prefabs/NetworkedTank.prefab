@@ -558,6 +558,8 @@ GameObject:
   - component: {fileID: 8834339683292031429}
   - component: {fileID: 8785905883472934551}
   - component: {fileID: 2503600278530706323}
+  - component: {fileID: -4086943362771987443}
+  - component: {fileID: -9214910048438279000}
   m_Layer: 0
   m_Name: NetworkedTank
   m_TagString: Untagged
@@ -793,6 +795,49 @@ MonoBehaviour:
   _spawnHeightOffset: 1.5
   _upwardForce: 5
   _outwardForce: 4
+--- !u!114 &-4086943362771987443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875289874807007770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96174581bf1014361a255d2f7b57d7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myTankCollisionScore
+  ShowTopMostFoldoutHeaderGroup: 1
+  _hitCooldown: 1
+  _defaultRewardPoints: 10
+  _defaultObstaclePenalty: -10
+--- !u!54 &-9214910048438279000
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875289874807007770}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5196779997762791994
 GameObject:
   m_ObjectHideFlags: 0

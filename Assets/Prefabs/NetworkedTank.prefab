@@ -162,8 +162,8 @@ Transform:
   m_GameObject: {fileID: 184706145088118571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.161, y: 0.41, z: 0.38}
-  m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
+  m_LocalPosition: {x: 1.084, y: 0.41, z: 0.38}
+  m_LocalScale: {x: 1.21, y: 1.21, z: 1.21}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8031280233405573837}
@@ -461,8 +461,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0.28, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.24, y: 1.24, z: 1.24}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3096857023480520930}
   - {fileID: 7074705115080452739}
@@ -488,8 +488,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3640747, y: 1.2697392, z: 1.5002841}
-  m_Center: {x: 0.18203735, y: 0.28664088, z: 0.21884483}
+  m_Size: {x: 1.3640747, y: 0.9145004, z: 1.1835734}
+  m_Center: {x: 0.18203734, y: 0.46426067, z: 0.0604879}
 --- !u!114 &8652781199775999968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,6 +541,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 563732593915081973, guid: 9577a14c7e792204bbb04c5dd81f8e71, type: 3}
   fireCooldown: 0.8
   cam: {fileID: 122449361414368520}
+  _bodyRenderer: {fileID: 1568873842372236626}
   _playerMaterials:
   - {fileID: 2100000, guid: 55e4fc249f438418badfc2a3539a956a, type: 2}
   - {fileID: 2100000, guid: 9849055d88659413185198a1fda6edf7, type: 2}
@@ -706,8 +707,8 @@ Transform:
   m_GameObject: {fileID: 5196779997762791994}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.60311997, z: 0.038}
-  m_LocalScale: {x: 1.2125, y: 0.7, z: 1}
+  m_LocalPosition: {x: 0, y: 0.53, z: -0.023}
+  m_LocalScale: {x: 1.09, y: 1.14, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9044746100887729406}

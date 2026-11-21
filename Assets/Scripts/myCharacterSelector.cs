@@ -86,5 +86,10 @@ public class myCharacterSelector : NetworkBehaviour
         _spawnedCharacter = Instantiate(_prefab, _turretPivot);
         _spawnedCharacter.transform.localPosition = Vector3.zero;
         _spawnedCharacter.transform.localRotation = Quaternion.identity;
+
+        if (TryGetComponent(out NetworkedPlayerController _controller))
+        {
+            _controller._applyPlayerColor(_index);
+        }
     }
 }

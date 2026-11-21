@@ -25,6 +25,7 @@ public class NetworkedPlayerController : NetworkBehaviour
 
     [Header("Components")]
     public GameObject cam;
+    [SerializeField] private MeshRenderer _bodyRenderer;
     private NetworkStats stats;
     [SerializeField] private Material[] _playerMaterials;
 
@@ -39,19 +40,17 @@ public class NetworkedPlayerController : NetworkBehaviour
         {
             cam.SetActive(IsOwner);
         }
-        _applyPlayerColor();
     }
 
-    private void _applyPlayerColor()
+    public void _applyPlayerColor(int _index)
     {
-        if (_playerMaterials == null || _playerMaterials.Length == 0)
+        if (_playerMaterials == null || _playerMaterials.Length == 0 || _index < 0)
             return;
 
-        int _index = (int)(OwnerClientId % (ulong)_playerMaterials.Length);
-        MeshRenderer _renderer = GetComponentInChildren<MeshRenderer>();
+        MeshRenderer _renderer = _bodyRenderer != null ? _bodyRenderer : GetComponentInChildren<MeshRenderer>();
         if (_renderer != null)
         {
-            _renderer.material = _playerMaterials[_index];
+            _renderer.material = _playerMaterials[_index % _playerMaterials.Length];
         }
     }
 

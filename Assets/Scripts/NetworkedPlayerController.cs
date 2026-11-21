@@ -34,6 +34,11 @@ public class NetworkedPlayerController : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        stats = GetComponent<NetworkStats>();
+        if (cam != null)
+        {
+            cam.SetActive(IsOwner);
+        }
         _applyPlayerColor();
     }
 
@@ -52,12 +57,9 @@ public class NetworkedPlayerController : NetworkBehaviour
 
     private void Start()
     {
-        stats = GetComponent<NetworkStats>();
-
-        if (!IsSpawned || !IsOwner)
+        if (stats == null)
         {
-            cam.SetActive(false);
-            return;
+            stats = GetComponent<NetworkStats>();
         }
     }
 

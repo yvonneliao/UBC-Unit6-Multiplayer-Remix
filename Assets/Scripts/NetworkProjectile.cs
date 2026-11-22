@@ -40,53 +40,85 @@ public class NetworkProjectile : NetworkBehaviour
         float distance = speed * Time.fixedDeltaTime;
 
         // - Handle Collision Detection (COMPLETELY SERVER SIDED)
-        if (Physics.SphereCast(transform.position, radius, transform.forward, out RaycastHit hit, distance))
+        if (_tryGetHit(distance, out Collider _hitCollider))
         {
-            NetworkObject hitNetworkObject =
-            hit.collider.GetComponentInParent<NetworkObject>();
+            NetworkObject hitNetworkObject = _hitCollider.GetComponentInParent<NetworkObject>();
 
             Debug.LogWarning(
                 $"PROJECTILE COLLISION\n" +
                 $"Source NetworkId: {NetworkObjectId}\n" +
-                $"Hit Object: {hit.collider.name}\n" +
+                $"Hit Object: {_hitCollider.name}\n" +
                 $"Hit NetworkId: " +
                 $"{(hitNetworkObject != null ? hitNetworkObject.NetworkObjectId.ToString() : "NONE")}\n" +
                 $"Same Object: {hitNetworkObject == NetworkObject}"
             );
 
-
-            NetworkStats _hitPlayer = hit.collider.GetComponentInParent<NetworkStats>();
+            NetworkStats _hitPlayer = _hitCollider.GetComponentInParent<NetworkStats>();
             if (_hitPlayer != null)
             {
-                if (_hitPlayer.OwnerClientId == OwnerClientId)
-                {
-                    transform.position += transform.forward * distance;
-                    return;
-                }
-
                 _awardShooter(100);
                 _hitPlayer.TakeDamage(damage, OwnerClientId);
             }
             else
             {
-                myScoreValue _scoreObj = hit.collider.GetComponentInParent<myScoreValue>();
+                myScoreValue _scoreObj = _hitCollider.GetComponentInParent<myScoreValue>();
                 if (_scoreObj != null)
                 {
                     _awardShooter(_scoreObj._getPoints());
                 }
-                else if (hit.collider.CompareTag("Reward"))
+                else if (_hitCollider.CompareTag("Reward"))
                 {
                     _awardShooter(100);
                 }
             }
 
-            Debug.Log("SPHERECAST HIT: " + hit.collider.name);
+            Debug.Log("SPHERECAST HIT: " + _hitCollider.name);
             TriggerExplosion();
             NetworkObject.Despawn();
             return;
         }
 
         transform.position += transform.forward * distance;        
+    }
+
+    private bool _tryGetHit(float _distance, out Collider _hitCollider)
+    {
+        Collider[] _overlaps = Physics.OverlapSphere(transform.position, radius);
+        foreach (Collider _col in _overlaps)
+        {
+            if (_isValidHit(_col))
+            {
+                _hitCollider = _col;
+                return true;
+            }
+        }
+
+        RaycastHit[] _hits = Physics.SphereCastAll(transform.position, radius, transform.forward, _distance);
+        float _closestDist = float.MaxValue;
+        _hitCollider = null;
+
+        foreach (RaycastHit _hit in _hits)
+        {
+            if (_hit.distance < _closestDist && _isValidHit(_hit.collider))
+            {
+                _closestDist = _hit.distance;
+                _hitCollider = _hit.collider;
+            }
+        }
+
+        return _hitCollider != null;
+    }
+
+    private bool _isValidHit(Collider _col)
+    {
+        if (_col == null)
+            return false;
+
+        NetworkStats _stats = _col.GetComponentInParent<NetworkStats>();
+        if (_stats != null && _stats.OwnerClientId == OwnerClientId)
+            return false;
+
+        return true;
     }
 
     private void _awardShooter(int _points)

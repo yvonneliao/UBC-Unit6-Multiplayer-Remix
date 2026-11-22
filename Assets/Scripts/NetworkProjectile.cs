@@ -111,7 +111,7 @@ public class NetworkProjectile : NetworkBehaviour
 
     private bool _isValidHit(Collider _col)
     {
-        if (_col == null)
+        if (_col == null || _col.transform.IsChildOf(transform) || _col.isTrigger)
             return false;
 
         NetworkStats _stats = _col.GetComponentInParent<NetworkStats>();

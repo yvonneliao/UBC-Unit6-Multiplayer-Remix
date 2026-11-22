@@ -92,4 +92,12 @@ public class myCharacterSelector : NetworkBehaviour
             _controller._applyPlayerColor(_index);
         }
     }
+
+    public void _hideCharacter()
+    {
+        if (_spawnedCharacter != null)
+        {
+            _spawnedCharacter.SetActive(false);
+        }
+    }
 }

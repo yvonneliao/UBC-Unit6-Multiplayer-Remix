@@ -21,7 +21,12 @@ public class NetworkStats : NetworkBehaviour
     public NetworkVariable<int> Score = new NetworkVariable<int>(
         0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
-    public ParticleSystem smoke_vfx = null;  
+    public ParticleSystem smoke_vfx = null;
+
+    [Header("Elimination")]
+    [SerializeField] private GameObject _pumpkinPrefab;
+    [SerializeField] private GameObject[] _tankVisualsToHide;
+    private GameObject _spawnedPumpkin;
 
     PlayerStatusUI status_ui;
 
@@ -42,6 +47,11 @@ public class NetworkStats : NetworkBehaviour
             CurrentHealth.Value = MaxHealth;
             IsAlive.Value = true;
             StartCoroutine(_initialSpawnRoutine());
+        }
+
+        if (Lives.Value <= 0 && !IsAlive.Value)
+        {
+            _applyPumpkinVisuals();
         }
 
 
@@ -96,10 +106,19 @@ public class NetworkStats : NetworkBehaviour
 
         if (CurrentHealth.Value == 0)
         {
-            ToggleSmokeRpc(true);
             IsAlive.Value = false;
+            Lives.Value = Mathf.Max(0, Lives.Value - 1);
             AwardKill(100, shooterId);
-            StartCoroutine(RespawnRoutine());
+
+            if (Lives.Value > 0)
+            {
+                ToggleSmokeRpc(true);
+                StartCoroutine(RespawnRoutine());
+            }
+            else
+            {
+                _turnIntoPumpkinRpc();
+            }
         }
     }
 
@@ -133,14 +152,47 @@ public class NetworkStats : NetworkBehaviour
     {
         yield return new WaitForSeconds(RespawnDelay);
 
-        if (!IsSpawned) yield break;
-
-        if (Lives.Value <= 0) yield break;
+        if (!IsSpawned || Lives.Value <= 0) yield break;
 
         CurrentHealth.Value = MaxHealth;
         IsAlive.Value = true;
-        Lives.Value -= 1;
         ToggleSmokeRpc(false);
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void _turnIntoPumpkinRpc()
+    {
+        _applyPumpkinVisuals();
+    }
+
+    private void _applyPumpkinVisuals()
+    {
+        if (smoke_vfx != null)
+        {
+            smoke_vfx.Stop();
+            smoke_vfx.gameObject.SetActive(false);
+        }
+
+        if (_tankVisualsToHide != null)
+        {
+            foreach (GameObject _visual in _tankVisualsToHide)
+            {
+                if (_visual != null)
+                    _visual.SetActive(false);
+            }
+        }
+
+        if (TryGetComponent(out myCharacterSelector _selector))
+        {
+            _selector._hideCharacter();
+        }
+
+        if (_pumpkinPrefab != null && _spawnedPumpkin == null)
+        {
+            _spawnedPumpkin = Instantiate(_pumpkinPrefab, transform);
+            _spawnedPumpkin.transform.localPosition = Vector3.zero;
+            _spawnedPumpkin.transform.localRotation = Quaternion.identity;
+        }
     }
 
     [Rpc(SendTo.Everyone)]

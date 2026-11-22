@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 184706145088118571}
   serializedVersion: 2
   m_LocalRotation: {x: -0.011311702, y: 0.016980119, z: 0.0001921141, w: 0.99979186}
-  m_LocalPosition: {x: 1.4, y: 0.41, z: 0.368}
+  m_LocalPosition: {x: 1.4, y: 0.87, z: 0.36}
   m_LocalScale: {x: 1.39, y: 1.2420651, z: 1.2420651}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -717,6 +717,10 @@ MonoBehaviour:
       MaxSecondsBetweenUpdates: 0
     m_InternalValue: 0
   smoke_vfx: {fileID: 9124526447565335446}
+  _pumpkinPrefab: {fileID: 4685777046467792633, guid: 0dc6f7618be594009b3d3f23c435abae, type: 3}
+  _tankVisualsToHide:
+  - {fileID: 184706145088118571}
+  - {fileID: 5196779997762791994}
 --- !u!114 &-6797450454173509814
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -37,8 +37,15 @@ public class myTankCollisionScore : NetworkBehaviour
         if (_stats == null || !_stats.IsAlive.Value)
             return;
 
-        if (_other.GetComponentInParent<NetworkStats>() != null)
+        NetworkStats _otherStats = _other.GetComponentInParent<NetworkStats>();
+        if (_otherStats != null)
+        {
+            if (_otherStats != _stats && _other.CompareTag("Reward") && _otherStats._tryCollectPumpkin())
+            {
+                _stats._modifyScore(_otherStats._getPumpkinRewardPoints());
+            }
             return;
+        }
 
         if (!_tryGetPoints(_other, out int _points, out int _targetId))
             return;

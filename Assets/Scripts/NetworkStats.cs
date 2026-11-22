@@ -26,7 +26,9 @@ public class NetworkStats : NetworkBehaviour
     [Header("Elimination")]
     [SerializeField] private GameObject _pumpkinPrefab;
     [SerializeField] private GameObject[] _tankVisualsToHide;
+    [SerializeField] private int _pumpkinRewardPoints = 300;
     private GameObject _spawnedPumpkin;
+    private bool _pumpkinCollected;
 
     PlayerStatusUI status_ui;
 
@@ -187,11 +189,39 @@ public class NetworkStats : NetworkBehaviour
             _selector._hideCharacter();
         }
 
-        if (_pumpkinPrefab != null && _spawnedPumpkin == null)
+        if (_pumpkinPrefab != null && _spawnedPumpkin == null && !_pumpkinCollected)
         {
             _spawnedPumpkin = Instantiate(_pumpkinPrefab, transform);
             _spawnedPumpkin.transform.localPosition = Vector3.zero;
             _spawnedPumpkin.transform.localRotation = Quaternion.identity;
+        }
+    }
+
+    public bool _tryCollectPumpkin()
+    {
+        if (!IsServer || _spawnedPumpkin == null || _pumpkinCollected)
+            return false;
+
+        if (IsAlive.Value || Lives.Value > 0)
+            return false;
+
+        _pumpkinCollected = true;
+        _hidePumpkinRpc();
+        return true;
+    }
+
+    public int _getPumpkinRewardPoints()
+    {
+        return _pumpkinRewardPoints;
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void _hidePumpkinRpc()
+    {
+        if (_spawnedPumpkin != null)
+        {
+            Destroy(_spawnedPumpkin);
+            _spawnedPumpkin = null;
         }
     }
 

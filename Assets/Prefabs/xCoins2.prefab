@@ -236,7 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4371077415501397655}
   m_Layer: 0
-  m_Name: Coins2
+  m_Name: xCoins2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

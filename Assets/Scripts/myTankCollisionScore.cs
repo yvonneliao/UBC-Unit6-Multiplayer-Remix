@@ -50,6 +50,16 @@ public class myTankCollisionScore : NetworkBehaviour
         if (!_tryGetHitData(_other, out int _points, out int _targetId, out Vector3 _popupPos, out bool _moveDownward))
             return;
 
+        myRespawnableReward _respawnable = _other.GetComponentInParent<myRespawnableReward>();
+        if (_respawnable != null)
+        {
+            if (!_respawnable._tryCollect())
+                return;
+
+            _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward);
+            return;
+        }
+
         if (_cooldowns.TryGetValue(_targetId, out float _readyTime) && Time.time < _readyTime)
             return;
 

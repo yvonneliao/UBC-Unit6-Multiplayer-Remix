@@ -3955,14 +3955,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2989524136
       objectReference: {fileID: 0}
-    - target: {fileID: 927201841433716148, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
-      propertyPath: SceneMigrationSynchronization
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 927201841433716148, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 921216151
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7300,18 +7292,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 320116328377469806, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 320116328377469806, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.314
-      objectReference: {fileID: 0}
-    - target: {fileID: 320116328377469806, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.03
-      objectReference: {fileID: 0}
     - target: {fileID: 927201841433716148, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
       propertyPath: m_InScenePlaced
       value: 1
@@ -7320,17 +7300,8 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3363265300
       objectReference: {fileID: 0}
-    - target: {fileID: 927201841433716148, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
-      propertyPath: SceneMigrationSynchronization
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 927201841433716148, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 921216151
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8593698121550297920, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a38eb871bfa7c646bc59c4f2eeea64b, type: 3}

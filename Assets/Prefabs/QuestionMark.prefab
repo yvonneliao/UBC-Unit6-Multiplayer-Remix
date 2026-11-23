@@ -150,14 +150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3363265300
+  GlobalObjectIdHash: 921216151
   InScenePlacedSourceGlobalObjectIdHash: 921216151
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  m_InScenePlaced: 1
+  m_InScenePlaced: 0
   ActiveSceneSynchronization: 0
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
@@ -179,4 +179,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myQuestionTransform
   ShowTopMostFoldoutHeaderGroup: 1
   _cheesePrefab: {fileID: 178364, guid: 419d48a3ccca1474ab18ed62c87ead45, type: 3}
-  _cheeseHeightOffset: 0.5
+  _upwardForce: 2
+  _outwardForce: 0

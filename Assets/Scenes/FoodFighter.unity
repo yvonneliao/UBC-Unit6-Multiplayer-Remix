@@ -458,6 +458,8 @@ MonoBehaviour:
   _points: 1670
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &23766974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -670,7 +672,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &36966773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1139,6 +1143,8 @@ MonoBehaviour:
   _points: -20
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &129778270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,7 +2407,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &371294941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,6 +2542,8 @@ MonoBehaviour:
   _points: -20
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &402961154
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,7 +3242,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1 &435368867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,7 +3388,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1001 &438663381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4800,7 +4814,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1 &690485522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5979,7 +5995,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1001 &779848898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6798,7 +6816,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1 &853796309
 GameObject:
   m_ObjectHideFlags: 0
@@ -6942,7 +6962,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1001 &863514816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7457,7 +7479,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1001 &911116628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8265,7 +8289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &1003619200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8752,6 +8778,8 @@ MonoBehaviour:
   _points: -20
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1123216837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10779,7 +10807,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &1422590178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11256,7 +11286,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1 &1543564769
 GameObject:
   m_ObjectHideFlags: 0
@@ -11497,7 +11529,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &1566397431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12350,7 +12384,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1 &1695457513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1825960760633310, guid: 097c26aede8f73e41a32d546bd00e97f, type: 3}
@@ -12866,7 +12902,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1001 &1756981422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14077,6 +14115,8 @@ MonoBehaviour:
   _points: -20
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!135 &1880521157
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14335,7 +14375,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &1915130828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14516,7 +14558,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &1936511116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14675,7 +14719,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1 &1944313467
 GameObject:
   m_ObjectHideFlags: 0
@@ -14819,7 +14865,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!1001 &1950359499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16268,6 +16316,8 @@ MonoBehaviour:
   _points: -20
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!135 &2140438536
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17078,6 +17128,8 @@ MonoBehaviour:
   _points: 1670
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!23 &265990510934669523
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20086,6 +20138,8 @@ MonoBehaviour:
   _points: 1670
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1509829140826555280
 Transform:
   m_ObjectHideFlags: 0
@@ -20923,6 +20977,8 @@ MonoBehaviour:
   _points: 1670
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1987481764300179811
 GameObject:
   m_ObjectHideFlags: 0
@@ -24682,7 +24738,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &3998209076357144973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29540,6 +29598,8 @@ MonoBehaviour:
   _points: 1670
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!65 &6987767095433738015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31011,7 +31071,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &7665484229394404825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31566,7 +31628,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
   _points: 990
   _popupOrigin: 2
-  _centerOffsetRatio: 0.7
+  _centerOffsetRatio: 0.65
+  _useCustomPopupColor: 1
+  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
 --- !u!114 &7781501514437406306
 MonoBehaviour:
   m_ObjectHideFlags: 0

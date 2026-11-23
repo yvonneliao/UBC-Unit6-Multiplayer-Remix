@@ -60,6 +60,16 @@ public class myTankCollisionScore : NetworkBehaviour
             return;
         }
 
+        mySingleUseReward _singleUse = _other.GetComponentInParent<mySingleUseReward>();
+        if (_singleUse != null)
+        {
+            if (!_singleUse._tryCollect())
+                return;
+
+            _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward);
+            return;
+        }
+
         if (_cooldowns.TryGetValue(_targetId, out float _readyTime) && Time.time < _readyTime)
             return;
 

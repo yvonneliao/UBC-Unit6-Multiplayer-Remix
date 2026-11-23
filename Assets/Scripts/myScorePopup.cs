@@ -23,7 +23,7 @@ public class myScorePopup : MonoBehaviour
         _mainCamera = Camera.main;
     }
 
-    public void _initialize(int _points, bool _moveDownward = false)
+    public void _initialize(int _points, bool _moveDownward = false, bool _useCustomColor = false, Color _customColor = default)
     {
         if (_text == null)
             _text = GetComponentInChildren<TMP_Text>();
@@ -34,7 +34,9 @@ public class myScorePopup : MonoBehaviour
         if (_text != null)
         {
             _text.text = _points >= 0 ? $"+{_points}" : _points.ToString();
-            _baseColor = _points >= 0 ? _positiveColor : _negativeColor;
+            _baseColor = _useCustomColor
+                ? _customColor
+                : (_points >= 0 ? _positiveColor : _negativeColor);
             _text.color = _baseColor;
         }
     }

@@ -13,10 +13,18 @@ public class myScoreValue : MonoBehaviour
     [SerializeField] private myPopupOrigin _popupOrigin = myPopupOrigin.TopSurface;
     [Range(-1f, 1f)]
     [SerializeField] private float _centerOffsetRatio = 0.6f;
+    [SerializeField] private bool _useCustomPopupColor;
+    [SerializeField] private Color _customPopupColor = Color.white;
 
     public int _getPoints()
     {
         return _points;
+    }
+
+    public void _getPopupColor(out bool _useCustomColor, out Color _customColor)
+    {
+        _useCustomColor = _useCustomPopupColor;
+        _customColor = _customPopupColor;
     }
 
     public void _getPopupData(Collider _col, out Vector3 _position, out bool _moveDownward)

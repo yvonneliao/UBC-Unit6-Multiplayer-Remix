@@ -47,7 +47,7 @@ public class myTankCollisionScore : NetworkBehaviour
             return;
         }
 
-        if (!_tryGetHitData(_other, out int _points, out int _targetId, out Vector3 _popupPos, out bool _moveDownward))
+        if (!_tryGetHitData(_other, out int _points, out int _targetId, out Vector3 _popupPos, out bool _moveDownward, out bool _useCustomColor, out Color _customColor))
             return;
 
         myRespawnableReward _respawnable = _other.GetComponentInParent<myRespawnableReward>();
@@ -56,7 +56,7 @@ public class myTankCollisionScore : NetworkBehaviour
             if (!_respawnable._tryCollect())
                 return;
 
-            _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward);
+            _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward, _useCustomColor, _customColor);
             return;
         }
 
@@ -66,7 +66,7 @@ public class myTankCollisionScore : NetworkBehaviour
             if (!_singleUse._tryCollect())
                 return;
 
-            _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward);
+            _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward, _useCustomColor, _customColor);
             return;
         }
 
@@ -74,10 +74,17 @@ public class myTankCollisionScore : NetworkBehaviour
             return;
 
         _cooldowns[_targetId] = Time.time + _hitCooldown;
-        _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward);
+        _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward, _useCustomColor, _customColor);
     }
 
-    private bool _tryGetHitData(Collider _other, out int _points, out int _targetId, out Vector3 _popupPos, out bool _moveDownward)
+    private bool _tryGetHitData(
+        Collider _other,
+        out int _points,
+        out int _targetId,
+        out Vector3 _popupPos,
+        out bool _moveDownward,
+        out bool _useCustomColor,
+        out Color _customColor)
     {
         myScoreValue _scoreObj = _other.GetComponent<myScoreValue>();
         if (_scoreObj == null)
@@ -88,8 +95,12 @@ public class myTankCollisionScore : NetworkBehaviour
             _points = _scoreObj._getPoints();
             _targetId = _scoreObj.gameObject.GetInstanceID();
             _scoreObj._getPopupData(_other, out _popupPos, out _moveDownward);
+            _scoreObj._getPopupColor(out _useCustomColor, out _customColor);
             return true;
         }
+
+        _useCustomColor = false;
+        _customColor = default;
 
         if (_other.CompareTag("Reward"))
         {

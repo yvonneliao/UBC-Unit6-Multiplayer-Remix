@@ -314,23 +314,23 @@ public class NetworkStats : NetworkBehaviour
         Score.Value = Mathf.Max(0, Score.Value + _delta);
     }
 
-    public void _modifyScoreWithPopup(int _delta, Vector3 _popupPosition, bool _moveDownward = false)
+    public void _modifyScoreWithPopup(int _delta, Vector3 _popupPosition, bool _moveDownward = false, bool _useCustomColor = false, Color _customColor = default)
     {
         if (!IsServer)
             return;
 
         _modifyScore(_delta);
-        _spawnScorePopupRpc(_delta, _popupPosition, _moveDownward);
+        _spawnScorePopupRpc(_delta, _popupPosition, _moveDownward, _useCustomColor, _customColor);
     }
 
     [Rpc(SendTo.Everyone)]
-    public void _spawnScorePopupRpc(int _delta, Vector3 _popupPosition, bool _moveDownward)
+    public void _spawnScorePopupRpc(int _delta, Vector3 _popupPosition, bool _moveDownward, bool _useCustomColor = false, Color _customColor = default)
     {
         if (_scorePopupPrefab == null || _delta == 0)
             return;
 
         myScorePopup _popup = Instantiate(_scorePopupPrefab, _popupPosition, Quaternion.identity);
-        _popup._initialize(_delta, _moveDownward);
+        _popup._initialize(_delta, _moveDownward, _useCustomColor, _customColor);
     }
 
     private Vector3 _getTopSurfacePosition()

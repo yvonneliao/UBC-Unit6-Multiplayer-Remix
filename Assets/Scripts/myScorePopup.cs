@@ -49,7 +49,7 @@ public class myScorePopup : MonoBehaviour
         if (_mainCamera == null)
             _mainCamera = Camera.main;
 
-        Quaternion _spin = Quaternion.Euler(0f, 0f, _rotateAngle * _progress);
+        Quaternion _spin = Quaternion.Euler(0f, -_rotateAngle * _progress, 0f);
         transform.rotation = _mainCamera != null
             ? _mainCamera.transform.rotation * _spin
             : _spin;

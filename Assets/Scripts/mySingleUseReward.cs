@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class mySingleUseReward : NetworkBehaviour
 
     private bool _collected;
     private float _spawnTime;
+    private Action _onCollected;
 
     public override void OnNetworkSpawn()
     {
@@ -15,6 +17,11 @@ public class mySingleUseReward : NetworkBehaviour
             _spawnTime = Time.time;
             _collected = false;
         }
+    }
+
+    public void _setOnCollected(Action _callback)
+    {
+        _onCollected = _callback;
     }
 
     public bool _tryCollect()
@@ -26,6 +33,7 @@ public class mySingleUseReward : NetworkBehaviour
             return false;
 
         _collected = true;
+        _onCollected?.Invoke();
         NetworkObject.Despawn(true);
         return true;
     }

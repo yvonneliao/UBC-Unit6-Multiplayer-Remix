@@ -1,17 +1,39 @@
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
 public class myQuestionTransform : NetworkBehaviour
 {
-    [SerializeField] private GameObject _cheesePrefab;
-    [SerializeField] private float _upwardForce = 4f;
-    [SerializeField] private float _outwardForce = 3f;
+    [SerializeField] private GameObject[] _foodPrefabs;
+    [SerializeField] private float _respawnDelay = 8f;
+    [SerializeField] private float _upwardForce = 0f;
+    [SerializeField] private float _outwardForce = 0f;
 
-    private bool _triggered;
+    private readonly NetworkVariable<bool> _isAvailable = new NetworkVariable<bool>(
+        true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+
+    private Renderer[] _renderers;
+    private Collider[] _colliders;
+    private Vector3 _initialPosition;
+    private Quaternion _initialRotation;
+
+    private void Awake()
+    {
+        _renderers = GetComponentsInChildren<Renderer>(true);
+        _colliders = GetComponentsInChildren<Collider>(true);
+        _initialPosition = transform.position;
+        _initialRotation = transform.rotation;
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        _isAvailable.OnValueChanged += _onAvailabilityChanged;
+        _applyAvailability(_isAvailable.Value);
+    }
 
     public override void OnNetworkDespawn()
     {
-        gameObject.SetActive(false);
+        _isAvailable.OnValueChanged -= _onAvailabilityChanged;
     }
 
     private void OnTriggerEnter(Collider _other)
@@ -26,35 +48,95 @@ public class myQuestionTransform : NetworkBehaviour
 
     private void _tryTransform(Collider _other)
     {
-        if (!IsServer || !IsSpawned || _triggered || _other == null)
+        if (!IsServer || !IsSpawned || !_isAvailable.Value || _other == null)
             return;
 
         NetworkStats _stats = _other.GetComponentInParent<NetworkStats>();
         if (_stats == null || !_stats.IsAlive.Value)
             return;
 
-        _triggered = true;
+        _isAvailable.Value = false;
 
-        if (_cheesePrefab != null)
+        bool _waitingForPickup = false;
+
+        if (_foodPrefabs != null && _foodPrefabs.Length > 0)
         {
-            GameObject _cheeseObj = Instantiate(_cheesePrefab, transform.position, Random.rotation);
-            if (_cheeseObj.TryGetComponent(out NetworkObject _cheeseNetObj))
+            GameObject _selectedPrefab = _foodPrefabs[Random.Range(0, _foodPrefabs.Length)];
+            if (_selectedPrefab != null)
             {
-                _cheeseNetObj.Spawn(true);
-            }
+                GameObject _foodObj = Instantiate(_selectedPrefab, transform.position, Random.rotation);
+                if (_foodObj.TryGetComponent(out NetworkObject _foodNetObj))
+                {
+                    _foodNetObj.Spawn(true);
+                }
 
-            if (_cheeseObj.TryGetComponent(out Rigidbody _rb))
-            {
-                Vector2 _randomCircle = Random.insideUnitCircle.normalized;
-                if (_randomCircle.sqrMagnitude < 0.01f)
-                    _randomCircle = Vector2.right;
+                if (_foodObj.TryGetComponent(out mySingleUseReward _singleUse))
+                {
+                    _singleUse._setOnCollected(_handleFoodCollected);
+                    _waitingForPickup = true;
+                }
 
-                Vector3 _impulse = new Vector3(_randomCircle.x, 0f, _randomCircle.y) * _outwardForce
-                                   + Vector3.up * _upwardForce;
-                _rb.AddForce(_impulse, ForceMode.Impulse);
+                if (_foodObj.TryGetComponent(out Rigidbody _rb) && (_upwardForce != 0f || _outwardForce != 0f))
+                {
+                    Vector2 _randomCircle = Random.insideUnitCircle.normalized;
+                    if (_randomCircle.sqrMagnitude < 0.01f)
+                        _randomCircle = Vector2.right;
+
+                    Vector3 _impulse = new Vector3(_randomCircle.x, 0f, _randomCircle.y) * _outwardForce
+                                       + Vector3.up * _upwardForce;
+                    _rb.AddForce(_impulse, ForceMode.Impulse);
+                }
             }
         }
 
-        NetworkObject.Despawn(false);
+        if (!_waitingForPickup)
+        {
+            StartCoroutine(_respawnRoutine());
+        }
+    }
+
+    private void _handleFoodCollected()
+    {
+        if (!IsServer || !IsSpawned)
+            return;
+
+        StartCoroutine(_respawnRoutine());
+    }
+
+    private IEnumerator _respawnRoutine()
+    {
+        yield return new WaitForSeconds(_respawnDelay);
+
+        if (!IsServer || !IsSpawned)
+            yield break;
+
+        transform.SetPositionAndRotation(_initialPosition, _initialRotation);
+        _isAvailable.Value = true;
+    }
+
+    private void _onAvailabilityChanged(bool _previous, bool _current)
+    {
+        _applyAvailability(_current);
+    }
+
+    private void _applyAvailability(bool _available)
+    {
+        if (_renderers != null)
+        {
+            foreach (Renderer _renderer in _renderers)
+            {
+                if (_renderer != null)
+                    _renderer.enabled = _available;
+            }
+        }
+
+        if (_colliders != null)
+        {
+            foreach (Collider _collider in _colliders)
+            {
+                if (_collider != null)
+                    _collider.enabled = _available;
+            }
+        }
     }
 }

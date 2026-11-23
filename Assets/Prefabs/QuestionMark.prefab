@@ -150,14 +150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 2989524136
+  GlobalObjectIdHash: 921216151
   InScenePlacedSourceGlobalObjectIdHash: 921216151
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  m_InScenePlaced: 1
+  m_InScenePlaced: 0
   ActiveSceneSynchronization: 0
   SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
@@ -178,6 +178,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::myQuestionTransform
   ShowTopMostFoldoutHeaderGroup: 1
-  _cheesePrefab: {fileID: 178364, guid: 419d48a3ccca1474ab18ed62c87ead45, type: 3}
+  _foodPrefabs:
+  - {fileID: 105638, guid: eb1084389c6861649a52c10577c7d77e, type: 3}
+  - {fileID: 125560, guid: 5489de3ba8de3204983754afa325efc5, type: 3}
+  - {fileID: 149324, guid: c64c1c913095fb64db3fd1ac114e9b80, type: 3}
+  - {fileID: 178364, guid: 419d48a3ccca1474ab18ed62c87ead45, type: 3}
+  - {fileID: 187170, guid: 43578e9321cdf104991a337104abcf84, type: 3}
+  _respawnDelay: 8
   _upwardForce: 2
   _outwardForce: 0

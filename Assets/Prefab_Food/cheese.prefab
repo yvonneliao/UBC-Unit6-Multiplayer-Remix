@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3498911905
+  GlobalObjectIdHash: 1879266373
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -172,8 +172,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.2
-  m_Center: {x: -0.025996983, y: 0.10528889, z: 0.008157283}
+  m_Radius: 0.23568797
+  m_Center: {x: -0.03619352, y: 0.10528889, z: 0.008157283}
 --- !u!65 &7801571237654074173
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -193,8 +193,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.22179496, y: 0.21057859, z: 0.29685622}
-  m_Center: {x: -0.0000001937151, y: 0.105289295, z: 0.000000074505806}
+  m_Size: {x: 0.17693013, y: 0.21057859, z: 0.17653695}
+  m_Center: {x: -0.002039507, y: 0.105289295, z: -0.012235787}
 --- !u!54 &4594720115434651792
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178364}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

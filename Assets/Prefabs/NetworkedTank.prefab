@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3671539308
+  GlobalObjectIdHash: 2831858207
   InScenePlacedSourceGlobalObjectIdHash: 2831858207
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NetworkStats
   ShowTopMostFoldoutHeaderGroup: 1
-  MaxHealth: 10000
+  MaxHealth: 100000
   RespawnDelay: 5
   _damageScoreLoss: 20
   _scorePopupPrefab: {fileID: 2678082287639569630, guid: 1039d807b146941dcb2397137e583845, type: 3}
@@ -722,7 +722,7 @@ MonoBehaviour:
   _tankVisualsToHide:
   - {fileID: 184706145088118571}
   - {fileID: 5196779997762791994}
-  _pumpkinRewardPoints: 300
+  _pumpkinRewardPoints: 10000
 --- !u!114 &-6797450454173509814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,8 +767,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myTankCollisionScore
   ShowTopMostFoldoutHeaderGroup: 1
   _hitCooldown: 1
-  _defaultRewardPoints: 10
-  _defaultObstaclePenalty: -10
+  _defaultRewardPoints: 150
+  _defaultObstaclePenalty: -30
 --- !u!114 &8785905883472934551
 MonoBehaviour:
   m_ObjectHideFlags: 0

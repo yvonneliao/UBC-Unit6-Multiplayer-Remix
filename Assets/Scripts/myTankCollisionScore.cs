@@ -42,22 +42,22 @@ public class myTankCollisionScore : NetworkBehaviour
         {
             if (_otherStats != _stats && _other.CompareTag("Reward") && _otherStats._tryCollectPumpkin())
             {
-                _stats._modifyScore(_otherStats._getPumpkinRewardPoints());
+                _stats._modifyScoreWithPopup(_otherStats._getPumpkinRewardPoints(), _getTopSurface(_other));
             }
             return;
         }
 
-        if (!_tryGetPoints(_other, out int _points, out int _targetId))
+        if (!_tryGetHitData(_other, out int _points, out int _targetId, out Vector3 _popupPos, out bool _moveDownward))
             return;
 
         if (_cooldowns.TryGetValue(_targetId, out float _readyTime) && Time.time < _readyTime)
             return;
 
         _cooldowns[_targetId] = Time.time + _hitCooldown;
-        _stats._modifyScore(_points);
+        _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward);
     }
 
-    private bool _tryGetPoints(Collider _other, out int _points, out int _targetId)
+    private bool _tryGetHitData(Collider _other, out int _points, out int _targetId, out Vector3 _popupPos, out bool _moveDownward)
     {
         myScoreValue _scoreObj = _other.GetComponent<myScoreValue>();
         if (_scoreObj == null)
@@ -67,6 +67,7 @@ public class myTankCollisionScore : NetworkBehaviour
         {
             _points = _scoreObj._getPoints();
             _targetId = _scoreObj.gameObject.GetInstanceID();
+            _scoreObj._getPopupData(_other, out _popupPos, out _moveDownward);
             return true;
         }
 
@@ -74,6 +75,8 @@ public class myTankCollisionScore : NetworkBehaviour
         {
             _points = _defaultRewardPoints;
             _targetId = _other.gameObject.GetInstanceID();
+            _popupPos = _getTopSurface(_other);
+            _moveDownward = false;
             return true;
         }
 
@@ -81,11 +84,21 @@ public class myTankCollisionScore : NetworkBehaviour
         {
             _points = _defaultObstaclePenalty;
             _targetId = _other.gameObject.GetInstanceID();
+            _popupPos = _getTopSurface(_other);
+            _moveDownward = false;
             return true;
         }
 
         _points = 0;
         _targetId = 0;
+        _popupPos = Vector3.zero;
+        _moveDownward = false;
         return false;
+    }
+
+    private Vector3 _getTopSurface(Collider _col)
+    {
+        Bounds _bounds = _col.bounds;
+        return new Vector3(_bounds.center.x, _bounds.max.y, _bounds.center.z);
     }
 }

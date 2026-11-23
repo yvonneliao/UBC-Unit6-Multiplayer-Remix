@@ -64,7 +64,17 @@ public class myFoodPickup : NetworkBehaviour
             return;
 
         _collected = true;
-        _stats.AddScore(_scoreValue);
+        _stats._modifyScoreWithPopup(_scoreValue, _getTopSurface());
         NetworkObject.Despawn();
+    }
+
+    private Vector3 _getTopSurface()
+    {
+        Collider _col = GetComponentInChildren<Collider>();
+        if (_col == null)
+            return transform.position;
+
+        Bounds _bounds = _col.bounds;
+        return new Vector3(_bounds.center.x, _bounds.max.y, _bounds.center.z);
     }
 }

@@ -9,6 +9,9 @@ public class NetworkStats : NetworkBehaviour
     public float RespawnDelay = 5f;
     [SerializeField] private int _damageScoreLoss = 20;
 
+    [Header("Score Popup")]
+    [SerializeField] private myScorePopup _scorePopupPrefab;
+
     public NetworkVariable<float> CurrentHealth = new NetworkVariable<float>(
         100, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
@@ -100,6 +103,7 @@ public class NetworkStats : NetworkBehaviour
 
         CurrentHealth.Value = Mathf.Max(0, CurrentHealth.Value - amount);
         Score.Value = Mathf.Max(0, Score.Value - _damageScoreLoss);
+        _spawnScorePopupRpc(-_damageScoreLoss, _getTopSurfacePosition(), false);
 
         if (TryGetComponent(out myFoodDropper _dropper))
         {
@@ -144,7 +148,7 @@ public class NetworkStats : NetworkBehaviour
         // - Server updates the score directly.
         if (playerObject.TryGetComponent(out NetworkStats shooterStats))
         {
-            shooterStats.AddScore(amount);
+            shooterStats._modifyScoreWithPopup(amount, _getTopSurfacePosition());
         }
 
         Debug.Log($"Awarded {amount} points to Client {shooterId}");
@@ -308,6 +312,35 @@ public class NetworkStats : NetworkBehaviour
             return;
 
         Score.Value = Mathf.Max(0, Score.Value + _delta);
+    }
+
+    public void _modifyScoreWithPopup(int _delta, Vector3 _popupPosition, bool _moveDownward = false)
+    {
+        if (!IsServer)
+            return;
+
+        _modifyScore(_delta);
+        _spawnScorePopupRpc(_delta, _popupPosition, _moveDownward);
+    }
+
+    [Rpc(SendTo.Everyone)]
+    public void _spawnScorePopupRpc(int _delta, Vector3 _popupPosition, bool _moveDownward)
+    {
+        if (_scorePopupPrefab == null || _delta == 0)
+            return;
+
+        myScorePopup _popup = Instantiate(_scorePopupPrefab, _popupPosition, Quaternion.identity);
+        _popup._initialize(_delta, _moveDownward);
+    }
+
+    private Vector3 _getTopSurfacePosition()
+    {
+        Collider _col = GetComponentInChildren<Collider>();
+        if (_col == null)
+            return transform.position + Vector3.up * 1.5f;
+
+        Bounds _bounds = _col.bounds;
+        return new Vector3(_bounds.center.x, _bounds.max.y, _bounds.center.z);
     }
 
     public void LoseLife()

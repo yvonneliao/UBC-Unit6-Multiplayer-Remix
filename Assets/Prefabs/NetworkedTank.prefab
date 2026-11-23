@@ -556,9 +556,9 @@ GameObject:
   - component: {fileID: 5137609183414220760}
   - component: {fileID: 8834339683292031429}
   - component: {fileID: -6797450454173509814}
+  - component: {fileID: -4086943362771987443}
   - component: {fileID: 8785905883472934551}
   - component: {fileID: 2503600278530706323}
-  - component: {fileID: -4086943362771987443}
   - component: {fileID: -9214910048438279000}
   m_Layer: 0
   m_Name: NetworkedTank
@@ -693,9 +693,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NetworkStats
   ShowTopMostFoldoutHeaderGroup: 1
-  MaxHealth: 100
+  MaxHealth: 10000
   RespawnDelay: 5
   _damageScoreLoss: 20
+  _scorePopupPrefab: {fileID: 2678082287639569630, guid: 1039d807b146941dcb2397137e583845, type: 3}
   CurrentHealth:
     UpdateTraits:
       MinSecondsBetweenUpdates: 0
@@ -752,6 +753,22 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 9849055d88659413185198a1fda6edf7, type: 2}
   - {fileID: 2100000, guid: 233b48f9b18e44b19aae78a265507d2e, type: 2}
   - {fileID: 2100000, guid: 515faf00ba53bcf49bab300fd8c2cd6e, type: 2}
+--- !u!114 &-4086943362771987443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875289874807007770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96174581bf1014361a255d2f7b57d7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myTankCollisionScore
+  ShowTopMostFoldoutHeaderGroup: 1
+  _hitCooldown: 1
+  _defaultRewardPoints: 10
+  _defaultObstaclePenalty: -10
 --- !u!114 &8785905883472934551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,22 +817,6 @@ MonoBehaviour:
   _spawnHeightOffset: 1.5
   _upwardForce: 5
   _outwardForce: 4
---- !u!114 &-4086943362771987443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4875289874807007770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96174581bf1014361a255d2f7b57d7fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::myTankCollisionScore
-  ShowTopMostFoldoutHeaderGroup: 1
-  _hitCooldown: 1
-  _defaultRewardPoints: 10
-  _defaultObstaclePenalty: -10
 --- !u!54 &-9214910048438279000
 Rigidbody:
   m_ObjectHideFlags: 0

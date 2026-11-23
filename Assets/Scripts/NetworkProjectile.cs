@@ -56,7 +56,7 @@ public class NetworkProjectile : NetworkBehaviour
             NetworkStats _hitPlayer = _hitCollider.GetComponentInParent<NetworkStats>();
             if (_hitPlayer != null)
             {
-                _awardShooter(100);
+                _awardShooter(100, _getTopSurface(_hitCollider), false);
                 _hitPlayer.TakeDamage(damage, OwnerClientId);
             }
             else
@@ -64,11 +64,12 @@ public class NetworkProjectile : NetworkBehaviour
                 myScoreValue _scoreObj = _hitCollider.GetComponentInParent<myScoreValue>();
                 if (_scoreObj != null)
                 {
-                    _awardShooter(_scoreObj._getPoints());
+                    _scoreObj._getPopupData(_hitCollider, out Vector3 _popupPos, out bool _moveDownward);
+                    _awardShooter(_scoreObj._getPoints(), _popupPos, _moveDownward);
                 }
                 else if (_hitCollider.CompareTag("Reward"))
                 {
-                    _awardShooter(100);
+                    _awardShooter(100, _getTopSurface(_hitCollider), false);
                 }
             }
 
@@ -121,7 +122,7 @@ public class NetworkProjectile : NetworkBehaviour
         return true;
     }
 
-    private void _awardShooter(int _points)
+    private void _awardShooter(int _points, Vector3 _popupPos, bool _moveDownward)
     {
         if (!IsServer || _points == 0)
             return;
@@ -130,9 +131,15 @@ public class NetworkProjectile : NetworkBehaviour
             && _shooter.PlayerObject != null
             && _shooter.PlayerObject.TryGetComponent(out NetworkStats _shooterStats))
         {
-            _shooterStats._modifyScore(_points);
+            _shooterStats._modifyScoreWithPopup(_points, _popupPos, _moveDownward);
         }
-    }    
+    }
+
+    private Vector3 _getTopSurface(Collider _col)
+    {
+        Bounds _bounds = _col.bounds;
+        return new Vector3(_bounds.center.x, _bounds.max.y, _bounds.center.z);
+    }
 
     private void TriggerExplosion()
     {

@@ -5,11 +5,14 @@ public class myScoreValue : MonoBehaviour
     public enum myPopupOrigin
     {
         TopSurface,
-        BottomSurface
+        BottomSurface,
+        CenterOffset
     }
 
     [SerializeField] private int _points = 10;
     [SerializeField] private myPopupOrigin _popupOrigin = myPopupOrigin.TopSurface;
+    [Range(-1f, 1f)]
+    [SerializeField] private float _centerOffsetRatio = 0.6f;
 
     public int _getPoints()
     {
@@ -26,15 +29,25 @@ public class myScoreValue : MonoBehaviour
         }
 
         Bounds _bounds = _col.bounds;
-        if (_popupOrigin == myPopupOrigin.BottomSurface)
+        switch (_popupOrigin)
         {
-            _position = new Vector3(_bounds.center.x, _bounds.min.y, _bounds.center.z);
-            _moveDownward = true;
-        }
-        else
-        {
-            _position = new Vector3(_bounds.center.x, _bounds.max.y, _bounds.center.z);
-            _moveDownward = false;
+            case myPopupOrigin.BottomSurface:
+                _position = new Vector3(_bounds.center.x, _bounds.min.y, _bounds.center.z);
+                _moveDownward = true;
+                break;
+
+            case myPopupOrigin.CenterOffset:
+                _position = new Vector3(
+                    _bounds.center.x,
+                    _bounds.center.y + _bounds.extents.y * _centerOffsetRatio,
+                    _bounds.center.z);
+                _moveDownward = false;
+                break;
+
+            default:
+                _position = new Vector3(_bounds.center.x, _bounds.max.y, _bounds.center.z);
+                _moveDownward = false;
+                break;
         }
     }
 }

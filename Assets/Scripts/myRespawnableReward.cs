@@ -5,6 +5,7 @@ using UnityEngine;
 public class myRespawnableReward : NetworkBehaviour
 {
     [SerializeField] private float _respawnDelay = 5f;
+    [SerializeField] private float _spinSpeed = 90f;
 
     private readonly NetworkVariable<bool> _isAvailable = new NetworkVariable<bool>(
         true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
@@ -31,6 +32,14 @@ public class myRespawnableReward : NetworkBehaviour
     public override void OnNetworkDespawn()
     {
         _isAvailable.OnValueChanged -= _onAvailabilityChanged;
+    }
+
+    private void Update()
+    {
+        if (!IsSpawned || !_isAvailable.Value)
+            return;
+
+        transform.Rotate(Vector3.up, -_spinSpeed * Time.deltaTime, Space.World);
     }
 
     public bool _tryCollect()
@@ -61,6 +70,12 @@ public class myRespawnableReward : NetworkBehaviour
 
     private void _applyAvailability(bool _available)
     {
+        if (_available)
+        {
+            transform.SetPositionAndRotation(_initialPosition, _initialRotation);
+            transform.Rotate(Vector3.up, Random.Range(0f, 360f), Space.World);
+        }
+
         if (_renderers != null)
         {
             foreach (Renderer _renderer in _renderers)

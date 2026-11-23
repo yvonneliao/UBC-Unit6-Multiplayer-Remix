@@ -1539,6 +1539,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2328045199718870261, guid: d9cdcc905769a40bca984ff2c26d1d55, type: 3}
+      propertyPath: _respawnDelay
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3733783530378663083, guid: d9cdcc905769a40bca984ff2c26d1d55, type: 3}
       propertyPath: m_InScenePlaced
       value: 1

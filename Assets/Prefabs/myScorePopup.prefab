@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3786795405182651014}
   - component: {fileID: 1438486064307783000}
-  - component: {fileID: 7064532703676239789}
   - component: {fileID: 2678082287639569630}
+  - component: {fileID: 7064532703676239789}
   m_Layer: 0
   m_Name: myScorePopup
   m_TagString: Untagged
@@ -87,6 +87,24 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2678082287639569630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871020988177015472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f51a443c6274cc1a58d339c0bade64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScorePopup
+  _text: {fileID: 7064532703676239789}
+  _floatSpeed: 1.5
+  _duration: 1.3
+  _rotateAngle: 300
+  _positiveColor: {r: 0.58616376, g: 1, b: 0, a: 1}
+  _negativeColor: {r: 1, g: 0.4554239, b: 0.25098038, a: 1}
 --- !u!114 &7064532703676239789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,20 +200,3 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1438486064307783000}
   m_maskType: 0
---- !u!114 &2678082287639569630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5871020988177015472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21f51a443c6274cc1a58d339c0bade64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::myScorePopup
-  _text: {fileID: 7064532703676239789}
-  _floatSpeed: 1.5
-  _duration: 0.9
-  _positiveColor: {r: 1, g: 0, b: 0.1764706, a: 1}
-  _negativeColor: {r: 1, g: 0.25, b: 0.25, a: 1}

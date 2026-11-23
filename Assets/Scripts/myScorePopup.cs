@@ -6,6 +6,7 @@ public class myScorePopup : MonoBehaviour
     [SerializeField] private TMP_Text _text;
     [SerializeField] private float _floatSpeed = 1.5f;
     [SerializeField] private float _duration = 0.9f;
+    [SerializeField] private float _rotateAngle = 100f;
     [SerializeField] private Color _positiveColor = new Color(0.2f, 0.95f, 0.35f, 1f);
     [SerializeField] private Color _negativeColor = new Color(1f, 0.25f, 0.25f, 1f);
 
@@ -41,17 +42,21 @@ public class myScorePopup : MonoBehaviour
     private void Update()
     {
         _elapsed += Time.deltaTime;
+        float _progress = Mathf.Clamp01(_elapsed / _duration);
+
         transform.position += _moveDirection * (_floatSpeed * Time.deltaTime);
 
         if (_mainCamera == null)
             _mainCamera = Camera.main;
 
-        if (_mainCamera != null)
-            transform.rotation = _mainCamera.transform.rotation;
+        Quaternion _spin = Quaternion.Euler(0f, 0f, _rotateAngle * _progress);
+        transform.rotation = _mainCamera != null
+            ? _mainCamera.transform.rotation * _spin
+            : _spin;
 
         if (_text != null)
         {
-            float _alpha = Mathf.Clamp01(1f - (_elapsed / _duration));
+            float _alpha = Mathf.Clamp01(1f - _progress);
             _text.color = new Color(_baseColor.r, _baseColor.g, _baseColor.b, _alpha);
         }
 

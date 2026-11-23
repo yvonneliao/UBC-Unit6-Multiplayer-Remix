@@ -4,7 +4,8 @@ using UnityEngine;
 public class myQuestionTransform : NetworkBehaviour
 {
     [SerializeField] private GameObject _cheesePrefab;
-    [SerializeField] private float _cheeseHeightOffset = 0.5f;
+    [SerializeField] private float _upwardForce = 4f;
+    [SerializeField] private float _outwardForce = 3f;
 
     private bool _triggered;
 
@@ -36,15 +37,21 @@ public class myQuestionTransform : NetworkBehaviour
 
         if (_cheesePrefab != null)
         {
-            Vector3 _spawnPos = new Vector3(
-                transform.position.x,
-                _stats.transform.position.y + _cheeseHeightOffset,
-                transform.position.z);
-
-            GameObject _cheeseObj = Instantiate(_cheesePrefab, _spawnPos, Quaternion.identity);
+            GameObject _cheeseObj = Instantiate(_cheesePrefab, transform.position, Random.rotation);
             if (_cheeseObj.TryGetComponent(out NetworkObject _cheeseNetObj))
             {
                 _cheeseNetObj.Spawn(true);
+            }
+
+            if (_cheeseObj.TryGetComponent(out Rigidbody _rb))
+            {
+                Vector2 _randomCircle = Random.insideUnitCircle.normalized;
+                if (_randomCircle.sqrMagnitude < 0.01f)
+                    _randomCircle = Vector2.right;
+
+                Vector3 _impulse = new Vector3(_randomCircle.x, 0f, _randomCircle.y) * _outwardForce
+                                   + Vector3.up * _upwardForce;
+                _rb.AddForce(_impulse, ForceMode.Impulse);
             }
         }
 

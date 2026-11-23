@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 36966772}
   - component: {fileID: 36966770}
   - component: {fileID: 36966769}
+  - component: {fileID: 36966773}
   - component: {fileID: 36966771}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (8)
@@ -670,6 +671,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &36966773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36966766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!1 &76613340
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,6 +2285,7 @@ GameObject:
   - component: {fileID: 371294940}
   - component: {fileID: 371294938}
   - component: {fileID: 371294937}
+  - component: {fileID: 371294941}
   - component: {fileID: 371294939}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (10)
@@ -2385,6 +2402,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &371294941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371294934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!1001 &384167259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9467,6 +9499,7 @@ GameObject:
   - component: {fileID: 1422590177}
   - component: {fileID: 1422590175}
   - component: {fileID: 1422590174}
+  - component: {fileID: 1422590178}
   - component: {fileID: 1422590176}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (9)
@@ -9583,6 +9616,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &1422590178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422590171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!1001 &1453268532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10025,6 +10073,7 @@ GameObject:
   - component: {fileID: 1566397430}
   - component: {fileID: 1566397428}
   - component: {fileID: 1566397427}
+  - component: {fileID: 1566397431}
   - component: {fileID: 1566397429}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (6)
@@ -10141,6 +10190,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &1566397431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566397424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!1 &1572482527
 GameObject:
   m_ObjectHideFlags: 0
@@ -12559,6 +12623,7 @@ GameObject:
   - component: {fileID: 1915130827}
   - component: {fileID: 1915130825}
   - component: {fileID: 1915130824}
+  - component: {fileID: 1915130828}
   - component: {fileID: 1915130826}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (7)
@@ -12675,6 +12740,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &1915130828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915130821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!1 &1929048704
 GameObject:
   m_ObjectHideFlags: 0
@@ -12724,6 +12804,7 @@ GameObject:
   - component: {fileID: 1936511115}
   - component: {fileID: 1936511113}
   - component: {fileID: 1936511112}
+  - component: {fileID: 1936511116}
   - component: {fileID: 1936511114}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (3)
@@ -12840,6 +12921,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &1936511116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936511109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!1001 &1950359499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18438,6 +18534,7 @@ GameObject:
   - component: {fileID: 1688281410852319935}
   - component: {fileID: 1677647338359025437}
   - component: {fileID: 1688281410852319933}
+  - component: {fileID: 1688281410852319936}
   - component: {fileID: 1688281410852319934}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (4)
@@ -18554,6 +18651,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &1688281410852319936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673115518875995869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!1 &1689471665229328972
 GameObject:
   m_ObjectHideFlags: 0
@@ -22653,6 +22765,7 @@ GameObject:
   - component: {fileID: 3998209076357144972}
   - component: {fileID: 3998209076357144970}
   - component: {fileID: 3988417246437915690}
+  - component: {fileID: 3998209076357144973}
   - component: {fileID: 3998209076357144971}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (5)
@@ -22830,6 +22943,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &3998209076357144973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966641123833299018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!4 &3998542747584720513
 Transform:
   m_ObjectHideFlags: 0
@@ -29026,6 +29154,7 @@ GameObject:
   - component: {fileID: 7655069072493883044}
   - component: {fileID: 7657400199321618550}
   - component: {fileID: 7665484229394404822}
+  - component: {fileID: 7665484229394404825}
   - component: {fileID: 7665484229394404824}
   - component: {fileID: 7665484229394404823}
   m_Layer: 0
@@ -29143,6 +29272,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &7665484229394404825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652924218624633270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!23 &7713436232539297719
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29400,6 +29544,7 @@ GameObject:
   - component: {fileID: 7781501514437406305}
   - component: {fileID: 7771167608066225151}
   - component: {fileID: 7781501514437406303}
+  - component: {fileID: 7781501514437406306}
   - component: {fileID: 7781501514437406304}
   m_Layer: 0
   m_Name: SM_Prop_Plane_Ring_01 (2)
@@ -29682,6 +29827,21 @@ MonoBehaviour:
   _points: 990
   _popupOrigin: 2
   _centerOffsetRatio: 0.7
+--- !u!114 &7781501514437406306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757609970258399807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9363f8bb2b94646e68a134efa0f1b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myRingGlow
+  _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _emissionIntensity: 3
+  _glowDuration: 1
 --- !u!23 &8000788258120720925
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6388398908962209306}
   - component: {fileID: 1054865388105585210}
   - component: {fileID: -1385793621974059429}
-  - component: {fileID: 2936614452342964511}
+  - component: {fileID: 307116137603831028}
   - component: {fileID: 5226864124737466122}
   - component: {fileID: -5041116082954551583}
   - component: {fileID: 2374949989558297188}
@@ -220,8 +220,8 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!65 &2936614452342964511
-BoxCollider:
+--- !u!135 &307116137603831028
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -239,8 +239,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.17717849, y: 0.1807207, z: 0.15647933}
-  m_Center: {x: 0.0000003054738, y: 0.08504755, z: 0.0027930476}
+  m_Radius: 0.10177614
+  m_Center: {x: 0.00000028861197, y: 0.08504756, z: 0.0027930485}
 --- !u!135 &5226864124737466122
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -14,11 +14,13 @@ GameObject:
   - component: {fileID: 64849796509390824}
   - component: {fileID: -753745660523460425}
   - component: {fileID: -6338538462294019667}
-  - component: {fileID: 4802827536118347901}
-  - component: {fileID: 4454420949809899599}
-  - component: {fileID: 7573595556460917272}
   - component: {fileID: 1210660933098969332}
+  - component: {fileID: 4802827536118347901}
   - component: {fileID: -6576664197003370412}
+  - component: {fileID: 7573595556460917272}
+  - component: {fileID: 2731115844212071404}
+  - component: {fileID: 1746970252378325411}
+  - component: {fileID: 8605937935579770191}
   m_Layer: 0
   m_Name: cheeseRound
   m_TagString: Reward
@@ -140,7 +142,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -174,6 +176,21 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
+--- !u!114 &1210660933098969332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 999
+  _popupOrigin: 0
+  _centerOffsetRatio: 0.6
 --- !u!114 &4802827536118347901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,27 +237,20 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!65 &4454420949809899599
-BoxCollider:
+--- !u!114 &-6576664197003370412
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187170}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.62733096, y: 0.21057859, z: 0.5870459}
-  m_Center: {x: 0, y: 0.105289295, z: 0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67dc294fc9c446cbb153bab282b5413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::mySingleUseReward
+  ShowTopMostFoldoutHeaderGroup: 1
+  _pickupDelay: 0.5
 --- !u!135 &7573595556460917272
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -262,32 +272,70 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.31366548
   m_Center: {x: 0, y: 0.105289295, z: 0.00000008940697}
---- !u!114 &1210660933098969332
-MonoBehaviour:
+--- !u!136 &2731115844212071404
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187170}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
-  _points: 999
-  _popupOrigin: 0
-  _centerOffsetRatio: 0.6
---- !u!114 &-6576664197003370412
-MonoBehaviour:
+  serializedVersion: 2
+  m_Radius: 0.09635172
+  m_Height: 0.22415677
+  m_Direction: 1
+  m_Center: {x: -0.22589193, y: 0.10385952, z: 0.21731405}
+--- !u!136 &1746970252378325411
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187170}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67dc294fc9c446cbb153bab282b5413, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::mySingleUseReward
-  ShowTopMostFoldoutHeaderGroup: 1
-  _pickupDelay: 0.5
+  serializedVersion: 2
+  m_Radius: 0.10064082
+  m_Height: 0.20700042
+  m_Direction: 1
+  m_Center: {x: 0.22160292, y: 0.10671886, z: -0.21159473}
+--- !u!65 &8605937935579770191
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187170}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.49579915, y: 0.21057859, z: 0.4583737}
+  m_Center: {x: 0.0057189465, y: 0.105289295, z: -0.007148528}

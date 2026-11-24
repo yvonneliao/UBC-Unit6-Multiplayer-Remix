@@ -13,7 +13,6 @@ using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 
 using TMPro;
-using UnityEngine.UI;
 
 public class RelayLauncher : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class RelayLauncher : MonoBehaviour
     [SerializeField] private GameObject _startHostButton;
     [SerializeField] private GameObject _startClientButton;
     [SerializeField] private GameObject _loginMenu;
-    [SerializeField] private float _hostJoinCodeAlpha = 0.3f;
+    [SerializeField] private float _dimmedJoinCodeAlpha = 0.3f;
 
     private CanvasGroup _joinCodeCanvasGroup;
     private bool _isHostPlayer = true;
@@ -57,18 +56,9 @@ public class RelayLauncher : MonoBehaviour
             if (_joinCodeCanvasGroup == null)
                 _joinCodeCanvasGroup = codeInputField.gameObject.AddComponent<CanvasGroup>();
 
-            if (_isHostPlayer)
-            {
-                _joinCodeCanvasGroup.alpha = _hostJoinCodeAlpha;
-                _joinCodeCanvasGroup.interactable = false;
-                codeInputField.readOnly = true;
-            }
-            else
-            {
-                _joinCodeCanvasGroup.alpha = 1f;
-                _joinCodeCanvasGroup.interactable = true;
-                codeInputField.readOnly = false;
-            }
+            _joinCodeCanvasGroup.alpha = _dimmedJoinCodeAlpha;
+            _joinCodeCanvasGroup.interactable = !_isHostPlayer;
+            codeInputField.readOnly = _isHostPlayer;
         }
 
 #if UNITY_EDITOR
@@ -141,10 +131,7 @@ public class RelayLauncher : MonoBehaviour
                 Debug.Log("Host started successfully.");
                 Debug.Log("Relay Join Code: " + JoinCode);
 
-                if (_isHostPlayer && codeInputField != null)
-                {
-                    codeInputField.text = JoinCode;
-                }
+                _showJoinCode(JoinCode);
 
 #if UNITY_EDITOR
                 if (_isHostPlayer)
@@ -169,6 +156,15 @@ public class RelayLauncher : MonoBehaviour
         {
             isBusy = false;
         }
+    }
+
+    private void _showJoinCode(string _code)
+    {
+        if (codeInputField != null)
+            codeInputField.text = _code;
+
+        if (_joinCodeCanvasGroup != null)
+            _joinCodeCanvasGroup.alpha = 1f;
     }
 
     private void _onClientConnected(ulong _clientId)
@@ -240,16 +236,14 @@ public class RelayLauncher : MonoBehaviour
 #if UNITY_EDITOR
     private string _getSharedJoinCodePath()
     {
-        string _projectRoot = Directory.GetParent(Application.dataPath).FullName;
-        return Path.Combine(_projectRoot, "Temp", "relay_join_code.txt");
+        return Path.Combine(Path.GetTempPath(), "FoodFighter_RelayJoinCode.txt");
     }
 
     private void _writeSharedJoinCode(string _code)
     {
         try
         {
-            string _path = _getSharedJoinCodePath();
-            File.WriteAllText(_path, _code);
+            File.WriteAllText(_getSharedJoinCodePath(), _code);
         }
         catch (Exception _e)
         {
@@ -285,7 +279,7 @@ public class RelayLauncher : MonoBehaviour
                     string _code = File.ReadAllText(_path).Trim();
                     if (!string.IsNullOrEmpty(_code))
                     {
-                        codeInputField.text = _code;
+                        _showJoinCode(_code);
                         yield break;
                     }
                 }

@@ -4761,7 +4761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &655117560
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8341,7 +8341,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Grab the snacks
 
-    Score 5,000 to win!'
+    Score 10,000 to win!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f908eaf19de24d66955abaee6df493f, type: 2}
   m_sharedMaterial: {fileID: 7482365769612585163, guid: 5f908eaf19de24d66955abaee6df493f, type: 2}

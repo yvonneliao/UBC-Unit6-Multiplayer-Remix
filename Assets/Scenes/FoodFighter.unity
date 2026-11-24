@@ -16576,9 +16576,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
   m_Padding:
-    m_Left: 0
+    m_Left: 20
     m_Right: 0
-    m_Top: 0
+    m_Top: 20
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 10
@@ -27524,11 +27524,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4332268706094731696, guid: 14ccd2cc56f60445fa6a8e54d35131ff, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4332268706094731696, guid: 14ccd2cc56f60445fa6a8e54d35131ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4332268706094731696, guid: 14ccd2cc56f60445fa6a8e54d35131ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

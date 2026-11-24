@@ -889,6 +889,9 @@ MonoBehaviour:
   nameText: {fileID: 4725650252346488110}
   livesText: {fileID: 8240433150686908848}
   scoreText: {fileID: 3640129336275797587}
+  _scorePulseScale: 1.7
+  _scorePulseUpDuration: 0.3
+  _scorePulseDownDuration: 0
 --- !u!114 &2746538792795770364
 MonoBehaviour:
   m_ObjectHideFlags: 0

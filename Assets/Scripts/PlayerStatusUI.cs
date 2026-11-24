@@ -16,7 +16,8 @@ public class PlayerStatusUI : MonoBehaviour
 
     [Header("Score Pulse")]
     [SerializeField] private float _scorePulseScale = 1.7f;
-    [SerializeField] private float _scorePulseDuration = 0.3f;
+    [SerializeField] private float _scorePulseUpDuration = 0.3f;
+    [SerializeField] private float _scorePulseDownDuration = 0.1f;
 
     private NetworkStats stats;
     private NetworkedPlayerController _controller;
@@ -175,22 +176,23 @@ public class PlayerStatusUI : MonoBehaviour
     {
         RectTransform _rect = scoreText.rectTransform;
         Vector3 _peakScale = _scoreBaseScale * _scorePulseScale;
-        float _duration = Mathf.Max(0.01f, _scorePulseDuration);
+        float _upDuration = Mathf.Max(0.01f, _scorePulseUpDuration);
+        float _downDuration = Mathf.Max(0.01f, _scorePulseDownDuration);
 
         float _elapsed = 0f;
-        while (_elapsed < _duration)
+        while (_elapsed < _upDuration)
         {
             _elapsed += Time.deltaTime;
-            float _t = Mathf.Clamp01(_elapsed / _duration);
+            float _t = Mathf.Clamp01(_elapsed / _upDuration);
             _rect.localScale = Vector3.Lerp(_scoreBaseScale, _peakScale, _t);
             yield return null;
         }
 
         _elapsed = 0f;
-        while (_elapsed < _duration)
+        while (_elapsed < _downDuration)
         {
             _elapsed += Time.deltaTime;
-            float _t = Mathf.Clamp01(_elapsed / _duration);
+            float _t = Mathf.Clamp01(_elapsed / _downDuration);
             _rect.localScale = Vector3.Lerp(_peakScale, _scoreBaseScale, _t);
             yield return null;
         }

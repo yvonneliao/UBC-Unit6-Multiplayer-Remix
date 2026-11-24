@@ -75,11 +75,6 @@ public class RelayLauncher : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (NetworkManager.Singleton != null)
-        {
-            NetworkManager.Singleton.OnClientConnectedCallback -= _onClientConnected;
-        }
-
 #if UNITY_EDITOR
         if (_isHostPlayer)
         {
@@ -140,7 +135,7 @@ public class RelayLauncher : MonoBehaviour
                 }
 #endif
 
-                NetworkManager.Singleton.OnClientConnectedCallback += _onClientConnected;
+                _closeLoginMenu();
             }
             else
             {
@@ -165,18 +160,6 @@ public class RelayLauncher : MonoBehaviour
 
         if (_joinCodeCanvasGroup != null)
             _joinCodeCanvasGroup.alpha = 1f;
-    }
-
-    private void _onClientConnected(ulong _clientId)
-    {
-        if (!NetworkManager.Singleton.IsHost)
-            return;
-
-        if (_clientId != NetworkManager.Singleton.LocalClientId)
-        {
-            _closeLoginMenu();
-            NetworkManager.Singleton.OnClientConnectedCallback -= _onClientConnected;
-        }
     }
 
     public void _closeLoginMenu()
@@ -267,7 +250,7 @@ public class RelayLauncher : MonoBehaviour
 
     private IEnumerator _pollJoinCodeRoutine()
     {
-        WaitForSeconds _wait = new WaitForSeconds(0.5f);
+        WaitForSeconds _wait = new WaitForSeconds(0.25f);
         string _path = _getSharedJoinCodePath();
 
         while (NetworkManager.Singleton == null || !NetworkManager.Singleton.IsListening)

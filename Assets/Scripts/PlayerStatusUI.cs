@@ -69,8 +69,8 @@ public class PlayerStatusUI : MonoBehaviour
             healthText.text = $"{stats.CurrentHealth.Value} / {stats.MaxHealth}";
             healthbar.fillAmount = stats.CurrentHealth.Value / stats.MaxHealth;
 
-            livesText.text = $"Lives: {stats.Lives.Value}";
-            scoreText.text = $"Score: {stats.Score.Value}";
+            livesText.text = $"{stats.Lives.Value}";
+            scoreText.text = $"{stats.Score.Value}";
         }
     }
 
@@ -79,8 +79,8 @@ public class PlayerStatusUI : MonoBehaviour
         nameText.text = $"Player {name}";
         healthText.text = health + " / 100";
         healthbar.fillAmount = (float)health / 100f;
-        livesText.text = "Lives: " + lives.ToString();
-        scoreText.text = "Score: " + score.ToString();
+        livesText.text = lives.ToString();
+        scoreText.text = score.ToString();
     }
 
     private void OnDestroy()

@@ -13937,6 +13937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1825095356}
+  - component: {fileID: 1825095360}
   - component: {fileID: 1825095359}
   - component: {fileID: 1825095358}
   - component: {fileID: 1825095357}
@@ -14112,6 +14113,22 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _curveScale: 159.2
+--- !u!114 &1825095360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825095355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5134a0403f34f02a1c149ad5103a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myTextWave
+  _maxScale: 1.7
+  _waveSpeed: 12
+  _waveWidth: 3
+  _loopPause: 5
 --- !u!1001 &1829187949
 PrefabInstance:
   m_ObjectHideFlags: 0

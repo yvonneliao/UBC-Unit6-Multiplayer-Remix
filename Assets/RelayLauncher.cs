@@ -31,9 +31,12 @@ public class RelayLauncher : MonoBehaviour
     [SerializeField] private GameObject _loginMenu;
     [SerializeField] private float _dimmedJoinCodeAlpha = 0.3f;
     [SerializeField] private float _hostMenuCloseDelay = 2f;
+    [SerializeField] private float _menuFadeDuration = 1f;
 
     private CanvasGroup _joinCodeCanvasGroup;
+    private CanvasGroup _loginMenuCanvasGroup;
     private bool _isHostPlayer = true;
+    private bool _isClosingMenu;
     // ============================================
 
     private void Start()
@@ -50,6 +53,17 @@ public class RelayLauncher : MonoBehaviour
 
         if (_loginMenu == null && codeInputField != null && codeInputField.transform.parent != null)
             _loginMenu = codeInputField.transform.parent.gameObject;
+
+        if (_loginMenu != null)
+        {
+            _loginMenuCanvasGroup = _loginMenu.GetComponent<CanvasGroup>();
+            if (_loginMenuCanvasGroup == null)
+                _loginMenuCanvasGroup = _loginMenu.AddComponent<CanvasGroup>();
+
+            _loginMenuCanvasGroup.alpha = 1f;
+            _loginMenuCanvasGroup.interactable = true;
+            _loginMenuCanvasGroup.blocksRaycasts = true;
+        }
 
         if (codeInputField != null)
         {
@@ -171,8 +185,37 @@ public class RelayLauncher : MonoBehaviour
 
     public void _closeLoginMenu()
     {
-        if (_loginMenu != null)
+        if (_loginMenu == null || _isClosingMenu || !_loginMenu.activeInHierarchy)
+            return;
+
+        _isClosingMenu = true;
+        StartCoroutine(_fadeOutLoginMenuRoutine());
+    }
+
+    private IEnumerator _fadeOutLoginMenuRoutine()
+    {
+        if (_loginMenuCanvasGroup == null)
+        {
             _loginMenu.SetActive(false);
+            yield break;
+        }
+
+        _loginMenuCanvasGroup.interactable = false;
+        _loginMenuCanvasGroup.blocksRaycasts = false;
+
+        float _elapsed = 0f;
+        float _startAlpha = _loginMenuCanvasGroup.alpha;
+
+        while (_elapsed < _menuFadeDuration)
+        {
+            _elapsed += Time.unscaledDeltaTime;
+            float _t = _menuFadeDuration > 0f ? Mathf.Clamp01(_elapsed / _menuFadeDuration) : 1f;
+            _loginMenuCanvasGroup.alpha = Mathf.Lerp(_startAlpha, 0f, _t);
+            yield return null;
+        }
+
+        _loginMenuCanvasGroup.alpha = 0f;
+        _loginMenu.SetActive(false);
     }
 
     public async void JoinGame()

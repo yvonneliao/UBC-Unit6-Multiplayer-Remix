@@ -30,6 +30,7 @@ public class RelayLauncher : MonoBehaviour
     [SerializeField] private GameObject _startClientButton;
     [SerializeField] private GameObject _loginMenu;
     [SerializeField] private float _dimmedJoinCodeAlpha = 0.3f;
+    [SerializeField] private float _hostMenuCloseDelay = 2f;
 
     private CanvasGroup _joinCodeCanvasGroup;
     private bool _isHostPlayer = true;
@@ -135,7 +136,7 @@ public class RelayLauncher : MonoBehaviour
                 }
 #endif
 
-                _closeLoginMenu();
+                StartCoroutine(_closeLoginMenuDelayed(_hostMenuCloseDelay));
             }
             else
             {
@@ -151,6 +152,12 @@ public class RelayLauncher : MonoBehaviour
         {
             isBusy = false;
         }
+    }
+
+    private IEnumerator _closeLoginMenuDelayed(float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
+        _closeLoginMenu();
     }
 
     private void _showJoinCode(string _code)

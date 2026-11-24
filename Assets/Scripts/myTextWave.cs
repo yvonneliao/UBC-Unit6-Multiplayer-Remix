@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(TMP_Text))]
 public class myTextWave : MonoBehaviour
 {
-    [SerializeField] private float _startDelay = 1f;
+    [SerializeField] private float _startDelay = 2f;
     [SerializeField] private float _maxScale = 1.5f;
     [SerializeField] private float _waveSpeed = 5f;
     [SerializeField] private float _waveWidth = 1.6f;

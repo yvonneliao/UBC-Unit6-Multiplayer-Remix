@@ -674,7 +674,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &36966773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,6 +746,10 @@ MonoBehaviour:
   _maxSpawnRadius: 9.5
   _minSpawnRadius: 6
   _spawnY: -0.27
+  _clearRadius: 2.5
+  _checkCenterOffsetY: 0.8
+  _angleJitter: 30
+  _maxSpawnAttempts: 25
 --- !u!1 &84212888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,7 +2488,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &371294941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3319,7 +3323,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &435368867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,7 +3469,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &438663381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5042,7 +5046,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &690485522
 GameObject:
   m_ObjectHideFlags: 0
@@ -6392,7 +6396,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &779848898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7289,7 +7293,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &853796309
 GameObject:
   m_ObjectHideFlags: 0
@@ -7435,7 +7439,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &863514816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7815,7 +7819,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &911116628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8814,7 +8818,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1003619200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10948,7 +10952,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1422590178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11431,7 +11435,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1543564769
 GameObject:
   m_ObjectHideFlags: 0
@@ -11674,7 +11678,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1566397431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12529,7 +12533,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1695457513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1825960760633310, guid: 097c26aede8f73e41a32d546bd00e97f, type: 3}
@@ -13047,7 +13051,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1756981422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14125,6 +14129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5134a0403f34f02a1c149ad5103a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::myTextWave
+  _startDelay: 2
   _maxScale: 1.7
   _waveSpeed: 12
   _waveWidth: 3
@@ -14721,7 +14726,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1915130828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14904,7 +14909,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1936511116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15065,7 +15070,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1944313467
 GameObject:
   m_ObjectHideFlags: 0
@@ -15211,7 +15216,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1950359499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25089,7 +25094,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &3998209076357144973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31583,7 +31588,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &7665484229394404825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32140,7 +32145,7 @@ MonoBehaviour:
   _popupOrigin: 2
   _centerOffsetRatio: 0.65
   _useCustomPopupColor: 1
-  _customPopupColor: {r: 0.99949646, g: 1, b: 0.8632076, a: 1}
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &7781501514437406306
 MonoBehaviour:
   m_ObjectHideFlags: 0

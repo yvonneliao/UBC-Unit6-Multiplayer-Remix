@@ -102,8 +102,6 @@ public class NetworkStats : NetworkBehaviour
             return;
 
         CurrentHealth.Value = Mathf.Max(0, CurrentHealth.Value - amount);
-        Score.Value = Mathf.Max(0, Score.Value - _damageScoreLoss);
-        _spawnScorePopupRpc(-_damageScoreLoss, _getTopSurfacePosition(), false);
 
         if (TryGetComponent(out myFoodDropper _dropper))
         {
@@ -325,6 +323,26 @@ public class NetworkStats : NetworkBehaviour
 
     [Rpc(SendTo.Everyone)]
     public void _spawnScorePopupRpc(int _delta, Vector3 _popupPosition, bool _moveDownward, bool _useCustomColor = false, Color _customColor = default)
+    {
+        _spawnLocalPopup(_delta, _popupPosition, _moveDownward, _useCustomColor, _customColor);
+    }
+
+    public void _modifyScoreWithOwnerPopup(int _delta, Vector3 _popupPosition, bool _moveDownward = false, bool _useCustomColor = false, Color _customColor = default)
+    {
+        if (!IsServer)
+            return;
+
+        _modifyScore(_delta);
+        _spawnOwnerScorePopupRpc(_delta, _popupPosition, _moveDownward, _useCustomColor, _customColor);
+    }
+
+    [Rpc(SendTo.Owner)]
+    public void _spawnOwnerScorePopupRpc(int _delta, Vector3 _popupPosition, bool _moveDownward, bool _useCustomColor = false, Color _customColor = default)
+    {
+        _spawnLocalPopup(_delta, _popupPosition, _moveDownward, _useCustomColor, _customColor);
+    }
+
+    private void _spawnLocalPopup(int _delta, Vector3 _popupPosition, bool _moveDownward, bool _useCustomColor, Color _customColor)
     {
         if (_scorePopupPrefab == null || _delta == 0)
             return;

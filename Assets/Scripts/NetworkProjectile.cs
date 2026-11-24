@@ -8,6 +8,7 @@ public class NetworkProjectile : NetworkBehaviour
     public float lifetime = 4f;
     public float radius = 0.125f;
     public int damage = 25;
+    [SerializeField] private int _playerHitPoints = 100;
     private float timeRemaining;
 
     [SerializeField] GameObject explosion_vfx;
@@ -56,7 +57,7 @@ public class NetworkProjectile : NetworkBehaviour
             NetworkStats _hitPlayer = _hitCollider.GetComponentInParent<NetworkStats>();
             if (_hitPlayer != null)
             {
-                _awardShooter(100, _getTopSurface(_hitCollider), false);
+                _awardShooter(_playerHitPoints, _getTopSurface(_hitCollider), false);
                 _hitPlayer.TakeDamage(damage, OwnerClientId);
             }
             else

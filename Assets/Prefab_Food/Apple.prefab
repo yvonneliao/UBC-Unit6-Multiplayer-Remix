@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6388398908962209306}
   - component: {fileID: 1054865388105585210}
   - component: {fileID: -1385793621974059429}
-  - component: {fileID: 307116137603831028}
+  - component: {fileID: 2018985545180420952}
   - component: {fileID: 5226864124737466122}
   - component: {fileID: -5041116082954551583}
   - component: {fileID: 2374949989558297188}
@@ -115,7 +115,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -220,8 +220,8 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!135 &307116137603831028
-SphereCollider:
+--- !u!65 &2018985545180420952
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -239,8 +239,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.10177614
-  m_Center: {x: 0.00000028861197, y: 0.08504756, z: 0.0027930485}
+  m_Size: {x: 0.17717847, y: 0.18072069, z: 0.15647931}
+  m_Center: {x: 0.00000030547378, y: 0.08504754, z: 0.0027930473}
 --- !u!135 &5226864124737466122
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -277,6 +277,8 @@ MonoBehaviour:
   _points: 999
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2374949989558297188
 MonoBehaviour:
   m_ObjectHideFlags: 0

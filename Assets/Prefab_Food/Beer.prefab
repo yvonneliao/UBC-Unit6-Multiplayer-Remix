@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6944828977955446360}
   - component: {fileID: -305765419493717853}
   - component: {fileID: 9158585093650841940}
+  - component: {fileID: 2790782298914330886}
   - component: {fileID: 3475684892580655165}
   - component: {fileID: 4353352827748261230}
   - component: {fileID: 3703381174382395324}
@@ -115,7 +116,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 792127909
+  GlobalObjectIdHash: 3593753326
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -237,12 +238,33 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1.0095928
   m_Height: 3.5909286
   m_Direction: 1
   m_Center: {x: -0.00001168251, y: 0.12876749, z: 0.0000026226044}
+--- !u!65 &2790782298914330886
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149324}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0045552, y: 3.3333936, z: 2.0191855}
+  m_Center: {x: -0.000011742115, y: 0, z: 0.000002682209}
 --- !u!135 &3475684892580655165
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -279,6 +301,8 @@ MonoBehaviour:
   _points: 999
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &3703381174382395324
 MonoBehaviour:
   m_ObjectHideFlags: 0

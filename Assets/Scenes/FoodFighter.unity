@@ -5195,7 +5195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myTextPulse
   _minAlpha: 0.2
   _maxAlpha: 1
-  _pulseSpeed: 1
+  _pulseSpeed: 5
 --- !u!1001 &693515316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6246,7 +6246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::myTextPulse
   _minAlpha: 0.2
   _maxAlpha: 1
-  _pulseSpeed: 1
+  _pulseSpeed: 5
 --- !u!1 &777903206
 GameObject:
   m_ObjectHideFlags: 0
@@ -11161,6 +11161,7 @@ MonoBehaviour:
   _loginMenu: {fileID: 2105858770}
   _dimmedJoinCodeAlpha: 0.3
   _hostMenuCloseDelay: 2
+  _menuFadeDuration: 1
 --- !u!1001 &1524178701
 PrefabInstance:
   m_ObjectHideFlags: 0

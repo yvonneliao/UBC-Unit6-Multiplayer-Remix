@@ -30155,6 +30155,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1842996498114726702, guid: 385c55be449b645cfb5b68026e046122, type: 3}
+      propertyPath: m_text
+      value: "\u200B"
+      objectReference: {fileID: 0}
     - target: {fileID: 2606545266045164022, guid: 385c55be449b645cfb5b68026e046122, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -30238,6 +30242,26 @@ PrefabInstance:
     - target: {fileID: 5892099165438679605, guid: 385c55be449b645cfb5b68026e046122, type: 3}
       propertyPath: m_Name
       value: JoinCode
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396505808479365912, guid: 385c55be449b645cfb5b68026e046122, type: 3}
+      propertyPath: m_text
+      value: Join Code
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396505808479365912, guid: 385c55be449b645cfb5b68026e046122, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.43529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396505808479365912, guid: 385c55be449b645cfb5b68026e046122, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.1882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396505808479365912, guid: 385c55be449b645cfb5b68026e046122, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.05490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396505808479365912, guid: 385c55be449b645cfb5b68026e046122, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4285476878
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

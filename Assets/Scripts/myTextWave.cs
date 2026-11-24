@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(TMP_Text))]
 public class myTextWave : MonoBehaviour
 {
+    [SerializeField] private float _startDelay = 1f;
     [SerializeField] private float _maxScale = 1.5f;
     [SerializeField] private float _waveSpeed = 5f;
     [SerializeField] private float _waveWidth = 1.6f;
@@ -12,6 +13,7 @@ public class myTextWave : MonoBehaviour
 
     private TMP_Text _text;
     private myCurvedText _curvedText;
+    private float _startTime;
 
     private void Awake()
     {
@@ -19,9 +21,18 @@ public class myTextWave : MonoBehaviour
         _curvedText = GetComponent<myCurvedText>();
     }
 
+    private void OnEnable()
+    {
+        _startTime = Time.unscaledTime;
+    }
+
     private void LateUpdate()
     {
         if (_text == null)
+            return;
+
+        float _elapsed = Time.unscaledTime - _startTime - _startDelay;
+        if (_elapsed < 0f)
             return;
 
         if (_curvedText == null)
@@ -43,7 +54,7 @@ public class myTextWave : MonoBehaviour
             return;
 
         float _cycleLength = _visibleCount + _waveWidth * 2f + _loopPause;
-        float _wavePos = (Time.unscaledTime * _waveSpeed) % _cycleLength - _waveWidth;
+        float _wavePos = (_elapsed * _waveSpeed) % _cycleLength - _waveWidth;
 
         int _visibleIndex = 0;
         for (int _i = 0; _i < _charCount; _i++)

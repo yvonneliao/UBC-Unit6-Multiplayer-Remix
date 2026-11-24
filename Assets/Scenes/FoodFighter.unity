@@ -11160,8 +11160,8 @@ MonoBehaviour:
   _startClientButton: {fileID: 443158803}
   _loginMenu: {fileID: 2105858770}
   _dimmedJoinCodeAlpha: 0.3
-  _hostMenuCloseDelay: 2
-  _menuFadeDuration: 1
+  _hostMenuCloseDelay: 3
+  _menuFadeDuration: 0.7
 --- !u!1001 &1524178701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14125,7 +14125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5134a0403f34f02a1c149ad5103a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::myTextWave
-  _startDelay: 2
+  _startDelay: 3
   _maxScale: 1.7
   _waveSpeed: 12
   _waveWidth: 3

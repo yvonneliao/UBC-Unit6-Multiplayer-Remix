@@ -693,9 +693,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NetworkStats
   ShowTopMostFoldoutHeaderGroup: 1
-  MaxHealth: 100000
+  MaxHealth: 1000
   RespawnDelay: 5
-  _damageScoreLoss: 20
+  _damageScoreLoss: 250
   _scorePopupPrefab: {fileID: 2678082287639569630, guid: 1039d807b146941dcb2397137e583845, type: 3}
   CurrentHealth:
     UpdateTraits:

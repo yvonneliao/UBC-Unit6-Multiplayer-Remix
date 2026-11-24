@@ -234,5 +234,5 @@ MonoBehaviour:
   lifetime: 4
   radius: 0.125
   damage: 25
-  _playerHitPoints: 2222
+  _playerHitPoints: 2370
   explosion_vfx: {fileID: 5162910912013668194, guid: cf82839c411151342a7b2337bda9fb34, type: 3}

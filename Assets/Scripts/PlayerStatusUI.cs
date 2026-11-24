@@ -14,6 +14,7 @@ public class PlayerStatusUI : MonoBehaviour
     [SerializeField] TMP_Text scoreText;
 
     private NetworkStats stats;
+    private NetworkedPlayerController _controller;
 
     public void Bind(NetworkStats statsScript)
     {
@@ -26,6 +27,15 @@ public class PlayerStatusUI : MonoBehaviour
             stats.CurrentHealth.OnValueChanged += OnHealthChanged;      
             stats.Lives.OnValueChanged += OnLivesChanged;
             stats.Score.OnValueChanged += OnScoreChanged;
+
+            if (stats.TryGetComponent(out _controller))
+            {
+                _controller._onPlayerColorChanged += _setHealthColor;
+                if (_controller._tryGetPlayerColor(out Color _color))
+                {
+                    _setHealthColor(_color);
+                }
+            }
         }        
 
         Refresh();
@@ -39,6 +49,12 @@ public class PlayerStatusUI : MonoBehaviour
             stats.CurrentHealth.OnValueChanged -= OnHealthChanged;
             stats.Lives.OnValueChanged -= OnLivesChanged;
             stats.Score.OnValueChanged -= OnScoreChanged;
+        }
+
+        if (_controller != null)
+        {
+            _controller._onPlayerColorChanged -= _setHealthColor;
+            _controller = null;
         }
     }
 
@@ -81,6 +97,14 @@ public class PlayerStatusUI : MonoBehaviour
         healthbar.fillAmount = (float)health / 100f;
         livesText.text = lives.ToString();
         scoreText.text = score.ToString();
+    }
+
+    public void _setHealthColor(Color _color)
+    {
+        if (healthbar != null)
+        {
+            healthbar.color = _color;
+        }
     }
 
     private void OnDestroy()

@@ -10,6 +10,7 @@ public class Scoreboard : MonoBehaviour
 
     private readonly Dictionary<ulong, PlayerStatusUI> rows = new();
     private readonly Dictionary<ulong, NetworkStats> players = new();
+    private readonly Dictionary<ulong, System.Action<Color>> _colorHandlers = new();
 
     public void RegisterPlayer(NetworkStats player)
     {
@@ -30,6 +31,18 @@ public class Scoreboard : MonoBehaviour
         player.Lives.OnValueChanged += (oldValue, newValue) => RefreshPlayer(id);
         player.Score.OnValueChanged += (oldValue, newValue) => RefreshPlayer(id);
 
+        if (player.TryGetComponent(out NetworkedPlayerController _controller))
+        {
+            if (_controller._tryGetPlayerColor(out Color _color))
+            {
+                row._setHealthColor(_color);
+            }
+
+            System.Action<Color> _handler = row._setHealthColor;
+            _colorHandlers[id] = _handler;
+            _controller._onPlayerColorChanged += _handler;
+        }
+
         RefreshPlayer(id);
     }
 
@@ -37,6 +50,16 @@ public class Scoreboard : MonoBehaviour
     {
         if (!players.ContainsKey(id))
             return;
+
+        if (_colorHandlers.TryGetValue(id, out System.Action<Color> _handler))
+        {
+            if (players.TryGetValue(id, out NetworkStats _player) && _player != null &&
+                _player.TryGetComponent(out NetworkedPlayerController _controller))
+            {
+                _controller._onPlayerColorChanged -= _handler;
+            }
+            _colorHandlers.Remove(id);
+        }
 
         players.Remove(id);
 

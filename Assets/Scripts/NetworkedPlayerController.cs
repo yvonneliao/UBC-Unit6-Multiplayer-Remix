@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,6 +30,9 @@ public class NetworkedPlayerController : NetworkBehaviour
     private NetworkStats stats;
     private Rigidbody _rb;
     [SerializeField] private Material[] _playerMaterials;
+    private Color _playerColor;
+    private bool _hasPlayerColor;
+    public event Action<Color> _onPlayerColorChanged;
 
     // - Networked Variables
     private readonly NetworkVariable<float> turretAngle = new NetworkVariable<float>(
@@ -49,11 +53,25 @@ public class NetworkedPlayerController : NetworkBehaviour
         if (_playerMaterials == null || _playerMaterials.Length == 0 || _index < 0)
             return;
 
+        Material _mat = _playerMaterials[_index % _playerMaterials.Length];
+        if (_mat == null)
+            return;
+
         MeshRenderer _renderer = _bodyRenderer != null ? _bodyRenderer : GetComponentInChildren<MeshRenderer>();
         if (_renderer != null)
         {
-            _renderer.material = _playerMaterials[_index % _playerMaterials.Length];
+            _renderer.material = _mat;
         }
+
+        _playerColor = _mat.HasProperty("_BaseColor") ? _mat.GetColor("_BaseColor") : _mat.color;
+        _hasPlayerColor = true;
+        _onPlayerColorChanged?.Invoke(_playerColor);
+    }
+
+    public bool _tryGetPlayerColor(out Color _color)
+    {
+        _color = _playerColor;
+        return _hasPlayerColor;
     }
 
     private void Start()

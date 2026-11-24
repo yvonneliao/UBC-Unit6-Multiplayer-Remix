@@ -9,6 +9,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float _maxSpawnRadius = 9.5f;
     [SerializeField] float _minSpawnRadius = 6f;
     [SerializeField] float _spawnY = -0.27f;
+
+    [Header("Clearance Check")]
+    [SerializeField] private float _clearRadius = 2.5f;
+    [SerializeField] private float _checkCenterOffsetY = 0.8f;
+    [SerializeField] private float _angleJitter = 30f;
+    [SerializeField] private int _maxSpawnAttempts = 25;
+
     private readonly List<int> _availableIndices = new List<int>();
 
     private void Awake()
@@ -29,15 +36,60 @@ public class SpawnManager : MonoBehaviour
         {
             if (spawnPoints[i] == null) continue;
 
-            float _angleRad = (_baseAngle + _step * i) * Mathf.Deg2Rad;
+            float _sectorAngle = _baseAngle + _step * i;
+            spawnPoints[i].position = _findClearPosition(_sectorAngle);
+        }
+    }
+
+    private Vector3 _findClearPosition(float _baseAngleDeg)
+    {
+        Vector3 _fallback = Vector3.zero;
+
+        for (int _attempt = 0; _attempt < _maxSpawnAttempts; _attempt++)
+        {
+            float _jitter = _attempt == 0 ? 0f : Random.Range(-_angleJitter, _angleJitter);
+            float _angleRad = (_baseAngleDeg + _jitter) * Mathf.Deg2Rad;
             float _radius = Random.Range(_minSpawnRadius, _maxSpawnRadius);
 
-            spawnPoints[i].position = new Vector3(
+            Vector3 _candidate = new Vector3(
                 Mathf.Cos(_angleRad) * _radius,
                 _spawnY,
-                Mathf.Sin(_angleRad) * _radius
-            );
+                Mathf.Sin(_angleRad) * _radius);
+
+            if (_attempt == 0)
+                _fallback = _candidate;
+
+            if (_isPositionClear(_candidate))
+                return _candidate;
         }
+
+        return _fallback;
+    }
+
+    private bool _isPositionClear(Vector3 _pos)
+    {
+        Vector3 _center = _pos + Vector3.up * _checkCenterOffsetY;
+        Collider[] _hits = Physics.OverlapSphere(_center, _clearRadius, ~0, QueryTriggerInteraction.Collide);
+
+        foreach (Collider _col in _hits)
+        {
+            if (_col == null)
+                continue;
+
+            if (_col.CompareTag("Reward") || _col.CompareTag("Obstacle"))
+                return false;
+
+            if (_col.GetComponentInParent<myScoreValue>() != null
+                || _col.GetComponentInParent<myRespawnableReward>() != null
+                || _col.GetComponentInParent<myQuestionTransform>() != null
+                || _col.GetComponentInParent<mySingleUseReward>() != null
+                || _col.GetComponentInParent<NetworkStats>() != null)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void _refillIndices()
@@ -71,7 +123,13 @@ public class SpawnManager : MonoBehaviour
 
         Transform selected = spawnPoints[_spawnIndex];
         position = selected.position;
+
+        if (!_isPositionClear(position))
+        {
+            float _angle = Mathf.Atan2(position.z, position.x) * Mathf.Rad2Deg;
+            position = _findClearPosition(_angle);
+        }
+
         rotation = selected.rotation;
     }
-
 }

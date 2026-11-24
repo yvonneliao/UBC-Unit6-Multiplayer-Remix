@@ -7,6 +7,10 @@ public class myRespawnableReward : NetworkBehaviour
     [SerializeField] private float _respawnDelay = 5f;
     [SerializeField] private float _spinSpeed = 90f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _collectSfx;
+    [SerializeField, Range(0f, 1f)] private float _sfxVolume = 1f;
+
     private readonly NetworkVariable<bool> _isAvailable = new NetworkVariable<bool>(
         true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
@@ -65,6 +69,11 @@ public class myRespawnableReward : NetworkBehaviour
 
     private void _onAvailabilityChanged(bool _previous, bool _current)
     {
+        if (_previous && !_current && _collectSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(_collectSfx, transform.position, _sfxVolume);
+        }
+
         _applyAvailability(_current);
     }
 

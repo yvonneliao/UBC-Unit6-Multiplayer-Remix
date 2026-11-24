@@ -157,3 +157,5 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   _respawnDelay: 10
   _spinSpeed: 90
+  _collectSfx: {fileID: 8300000, guid: 1792d58b6cabc4fb28389a51220bd6fc, type: 3}
+  _sfxVolume: 1

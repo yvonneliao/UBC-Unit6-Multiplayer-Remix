@@ -46,6 +46,9 @@ public class RelayLauncher : MonoBehaviour
         if (_startClientButton != null)
             _startClientButton.SetActive(!_isHostPlayer);
 
+        if (_loginMenu == null && codeInputField != null && codeInputField.transform.parent != null)
+            _loginMenu = codeInputField.transform.parent.gameObject;
+
         if (codeInputField != null)
         {
             _joinCodeCanvasGroup = codeInputField.GetComponent<CanvasGroup>();

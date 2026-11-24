@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using System.Collections;
+using System.IO;
 using System.Threading.Tasks;
 
 using Unity.Netcode;
@@ -68,6 +70,17 @@ public class RelayLauncher : MonoBehaviour
                 codeInputField.readOnly = false;
             }
         }
+
+#if UNITY_EDITOR
+        if (_isHostPlayer)
+        {
+            _clearSharedJoinCode();
+        }
+        else
+        {
+            StartCoroutine(_pollJoinCodeRoutine());
+        }
+#endif
     }
 
     private void OnDestroy()
@@ -76,6 +89,13 @@ public class RelayLauncher : MonoBehaviour
         {
             NetworkManager.Singleton.OnClientConnectedCallback -= _onClientConnected;
         }
+
+#if UNITY_EDITOR
+        if (_isHostPlayer)
+        {
+            _clearSharedJoinCode();
+        }
+#endif
     }
 
     private async Task InitializeServices()
@@ -125,6 +145,13 @@ public class RelayLauncher : MonoBehaviour
                 {
                     codeInputField.text = JoinCode;
                 }
+
+#if UNITY_EDITOR
+                if (_isHostPlayer)
+                {
+                    _writeSharedJoinCode(JoinCode);
+                }
+#endif
 
                 NetworkManager.Singleton.OnClientConnectedCallback += _onClientConnected;
             }
@@ -209,4 +236,63 @@ public class RelayLauncher : MonoBehaviour
             isBusy = false;
         }
     }
+
+#if UNITY_EDITOR
+    private string _getSharedJoinCodePath()
+    {
+        string _projectRoot = Directory.GetParent(Application.dataPath).FullName;
+        return Path.Combine(_projectRoot, "Temp", "relay_join_code.txt");
+    }
+
+    private void _writeSharedJoinCode(string _code)
+    {
+        try
+        {
+            string _path = _getSharedJoinCodePath();
+            File.WriteAllText(_path, _code);
+        }
+        catch (Exception _e)
+        {
+            Debug.LogWarning("Failed to write shared join code: " + _e.Message);
+        }
+    }
+
+    private void _clearSharedJoinCode()
+    {
+        try
+        {
+            string _path = _getSharedJoinCodePath();
+            if (File.Exists(_path))
+                File.Delete(_path);
+        }
+        catch (Exception _e)
+        {
+            Debug.LogWarning("Failed to clear shared join code: " + _e.Message);
+        }
+    }
+
+    private IEnumerator _pollJoinCodeRoutine()
+    {
+        WaitForSeconds _wait = new WaitForSeconds(0.5f);
+        string _path = _getSharedJoinCodePath();
+
+        while (NetworkManager.Singleton == null || !NetworkManager.Singleton.IsListening)
+        {
+            if (codeInputField != null && !codeInputField.isFocused && string.IsNullOrEmpty(codeInputField.text))
+            {
+                if (File.Exists(_path))
+                {
+                    string _code = File.ReadAllText(_path).Trim();
+                    if (!string.IsNullOrEmpty(_code))
+                    {
+                        codeInputField.text = _code;
+                        yield break;
+                    }
+                }
+            }
+
+            yield return _wait;
+        }
+    }
+#endif
 }

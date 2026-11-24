@@ -12,9 +12,6 @@ using Unity.Services.Relay.Models;
 
 using TMPro;
 using UnityEngine.UI;
-#if UNITY_EDITOR
-
-#endif
 
 public class RelayLauncher : MonoBehaviour
 {
@@ -30,11 +27,16 @@ public class RelayLauncher : MonoBehaviour
     [SerializeField] TMP_InputField codeInputField;
     [SerializeField] private GameObject _startHostButton;
     [SerializeField] private GameObject _startClientButton;
+    [SerializeField] private GameObject _loginMenu;
+    [SerializeField] private float _hostJoinCodeAlpha = 0.3f;
+
+    private CanvasGroup _joinCodeCanvasGroup;
+    private bool _isHostPlayer = true;
     // ============================================
 
     private void Start()
     {
-        bool _isHostPlayer = true;
+        _isHostPlayer = true;
 #if UNITY_EDITOR
         _isHostPlayer = Unity.Multiplayer.PlayMode.CurrentPlayer.IsMainEditor;
 #endif
@@ -43,6 +45,34 @@ public class RelayLauncher : MonoBehaviour
 
         if (_startClientButton != null)
             _startClientButton.SetActive(!_isHostPlayer);
+
+        if (codeInputField != null)
+        {
+            _joinCodeCanvasGroup = codeInputField.GetComponent<CanvasGroup>();
+            if (_joinCodeCanvasGroup == null)
+                _joinCodeCanvasGroup = codeInputField.gameObject.AddComponent<CanvasGroup>();
+
+            if (_isHostPlayer)
+            {
+                _joinCodeCanvasGroup.alpha = _hostJoinCodeAlpha;
+                _joinCodeCanvasGroup.interactable = false;
+                codeInputField.readOnly = true;
+            }
+            else
+            {
+                _joinCodeCanvasGroup.alpha = 1f;
+                _joinCodeCanvasGroup.interactable = true;
+                codeInputField.readOnly = false;
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (NetworkManager.Singleton != null)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback -= _onClientConnected;
+        }
     }
 
     private async Task InitializeServices()
@@ -87,6 +117,13 @@ public class RelayLauncher : MonoBehaviour
             {
                 Debug.Log("Host started successfully.");
                 Debug.Log("Relay Join Code: " + JoinCode);
+
+                if (_isHostPlayer && codeInputField != null)
+                {
+                    codeInputField.text = JoinCode;
+                }
+
+                NetworkManager.Singleton.OnClientConnectedCallback += _onClientConnected;
             }
             else
             {
@@ -102,6 +139,24 @@ public class RelayLauncher : MonoBehaviour
         {
             isBusy = false;
         }
+    }
+
+    private void _onClientConnected(ulong _clientId)
+    {
+        if (!NetworkManager.Singleton.IsHost)
+            return;
+
+        if (_clientId != NetworkManager.Singleton.LocalClientId)
+        {
+            _closeLoginMenu();
+            NetworkManager.Singleton.OnClientConnectedCallback -= _onClientConnected;
+        }
+    }
+
+    public void _closeLoginMenu()
+    {
+        if (_loginMenu != null)
+            _loginMenu.SetActive(false);
     }
 
     public async void JoinGame()
@@ -134,6 +189,7 @@ public class RelayLauncher : MonoBehaviour
             if (NetworkManager.Singleton.StartClient())
             {
                 Debug.Log("Client connected successfully.");
+                _closeLoginMenu();
             }
             else
             {
@@ -150,5 +206,4 @@ public class RelayLauncher : MonoBehaviour
             isBusy = false;
         }
     }
-
 }

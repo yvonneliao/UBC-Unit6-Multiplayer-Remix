@@ -8341,7 +8341,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Poly Ranch is running out of grub!
 
-    Snatch up the snacks.
+    Outsnack your rivals.
 
     Score
     10,000 points to win!'
@@ -14444,15 +14444,15 @@ RectTransform:
   m_GameObject: {fileID: 1825095355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.92044, y: 0.92044, z: 0.92044}
+  m_LocalScale: {x: 0.77865493, y: 0.77865493, z: 0.77865493}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 786674602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 168.74602}
-  m_SizeDelta: {x: 1300, y: 100}
+  m_AnchoredPosition: {x: 0.79438, y: 146.91}
+  m_SizeDelta: {x: 1500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1825095357
 MonoBehaviour:
@@ -14501,8 +14501,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 204.95
-  m_fontSizeBase: 204.95
+  m_fontSize: 223.6
+  m_fontSizeBase: 223.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16803,7 +16803,7 @@ RectTransform:
   m_GameObject: {fileID: 2105858770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.497672, y: 3.497672, z: 3.497672}
+  m_LocalScale: {x: 2.9588888, y: 2.9588888, z: 2.9588888}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 831942311}
@@ -16815,7 +16815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 108}
+  m_AnchoredPosition: {x: 0.79438, y: 98.691}
   m_SizeDelta: {x: 160, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2116084492

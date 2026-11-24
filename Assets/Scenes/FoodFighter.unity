@@ -8235,8 +8235,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Poly Ranch is running out of grub! Grab snacks by knocking them out of
-    your rivals. Outscore everyone to win!
+  m_text: Poly Farm is running out of grub! Grab snacks by knocking them out of your
+    rivals. Outscore everyone to win!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f908eaf19de24d66955abaee6df493f, type: 2}
   m_sharedMaterial: {fileID: 7482365769612585163, guid: 5f908eaf19de24d66955abaee6df493f, type: 2}
@@ -11161,7 +11161,7 @@ MonoBehaviour:
   _loginMenu: {fileID: 2105858770}
   _dimmedJoinCodeAlpha: 0.3
   _hostMenuCloseDelay: 3
-  _menuFadeDuration: 0.7
+  _menuFadeDuration: 0.5
 --- !u!1001 &1524178701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14125,7 +14125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5134a0403f34f02a1c149ad5103a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::myTextWave
-  _startDelay: 3
+  _startDelay: 5
   _maxScale: 1.7
   _waveSpeed: 12
   _waveWidth: 3

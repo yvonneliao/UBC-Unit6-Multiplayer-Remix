@@ -12,6 +12,10 @@ public class NetworkProjectile : NetworkBehaviour
     private float timeRemaining;
 
     [SerializeField] GameObject explosion_vfx;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip _obstacleHitSfx;
+    [SerializeField, Range(0f, 1f)] private float _obstacleSfxVolume = 1f;
     
     public override void OnNetworkSpawn()
     {
@@ -75,7 +79,7 @@ public class NetworkProjectile : NetworkBehaviour
             }
 
             Debug.Log("SPHERECAST HIT: " + _hitCollider.name);
-            TriggerExplosion();
+            TriggerExplosion(_isObstacleHit(_hitCollider));
             NetworkObject.Despawn();
             return;
         }
@@ -142,18 +146,32 @@ public class NetworkProjectile : NetworkBehaviour
         return new Vector3(_bounds.center.x, _bounds.max.y, _bounds.center.z);
     }
 
-    private void TriggerExplosion()
+    private bool _isObstacleHit(Collider _col)
+    {
+        if (_col.CompareTag("Obstacle"))
+            return true;
+
+        myScoreValue _scoreObj = _col.GetComponentInParent<myScoreValue>();
+        return _scoreObj != null && _scoreObj.CompareTag("Obstacle");
+    }
+
+    private void TriggerExplosion(bool _playObstacleSfx)
     {
         if (!IsServer)
             return;
 
-        PlayExplosionRpc(transform.position);
+        PlayExplosionRpc(transform.position, _playObstacleSfx);
     }
 
     [Rpc(SendTo.Everyone)]
-    private void PlayExplosionRpc(Vector3 position)
+    private void PlayExplosionRpc(Vector3 position, bool _playObstacleSfx)
     {
         GameObject explosion = Instantiate(explosion_vfx, position, Quaternion.identity);
         Destroy(explosion, 5f);
+
+        if (_playObstacleSfx && _obstacleHitSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(_obstacleHitSfx, position, _obstacleSfxVolume);
+        }
     }
 }

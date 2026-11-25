@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &156504
+--- !u!1 &187170
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 461308}
-  - component: {fileID: 3381526}
-  - component: {fileID: 2309836}
-  - component: {fileID: 64953526771186756}
-  - component: {fileID: 6506208324932080841}
-  - component: {fileID: 7669355058248804081}
-  - component: {fileID: 1159287312847085884}
-  - component: {fileID: 2886018977635056998}
-  - component: {fileID: 495784650985336372}
+  - component: {fileID: 450986}
+  - component: {fileID: 3308238}
+  - component: {fileID: 2360258}
+  - component: {fileID: 64849796509390824}
+  - component: {fileID: -753745660523460425}
+  - component: {fileID: -6338538462294019667}
+  - component: {fileID: 1210660933098969332}
+  - component: {fileID: 4802827536118347901}
+  - component: {fileID: -6576664197003370412}
+  - component: {fileID: 7573595556460917272}
+  - component: {fileID: 2731115844212071404}
+  - component: {fileID: 1746970252378325411}
+  - component: {fileID: 8605937935579770191}
   m_Layer: 0
-  m_Name: SM_Prop_LargeSign_Hotdog_01
-  m_TagString: Untagged
+  m_Name: Food-cheeseRound
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &461308
+--- !u!4 &450986
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156504}
+  m_GameObject: {fileID: 187170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3381526
+--- !u!33 &3308238
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156504}
-  m_Mesh: {fileID: 4300000, guid: 49babb1ffc0fd7d41a6254a9a6ea6d03, type: 3}
---- !u!23 &2309836
+  m_GameObject: {fileID: 187170}
+  m_Mesh: {fileID: 4300000, guid: 4f9b8fcb588636c43a657d5eafab3b8e, type: 3}
+--- !u!23 &2360258
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156504}
+  m_GameObject: {fileID: 187170}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -72,7 +76,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62e25ef75a2216f418d06453c9ad15cb, type: 2}
+  - {fileID: 2100000, guid: 880f89810f43de443898ff2ccd0fb5f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,14 +100,14 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64953526771186756
+--- !u!64 &64849796509390824
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156504}
-  m_Material: {fileID: 13400000, guid: 1ac2d2c3b288346459d47a17fb44f5c9, type: 2}
+  m_GameObject: {fileID: 187170}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -117,20 +121,47 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 43827043053351604, guid: 21d55246b98210448bd889b79a31954b, type: 2}
---- !u!114 &6506208324932080841
+  m_Mesh: {fileID: 43658161749702534, guid: 90953a78f7dfc2146a7111e79215fa40, type: 2}
+--- !u!54 &-753745660523460425
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187170}
+  serializedVersion: 5
+  m_Mass: 30
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-6338538462294019667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156504}
+  m_GameObject: {fileID: 187170}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3895132046
+  GlobalObjectIdHash: 1044503253
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -139,35 +170,34 @@ MonoBehaviour:
   SynchronizeTransform: 1
   m_InScenePlaced: 0
   ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 0
+  SceneMigrationSynchronization: 1
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &7669355058248804081
+--- !u!114 &1210660933098969332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156504}
+  m_GameObject: {fileID: 187170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7349d76c962e64be8b1b1e32f00b61ea, type: 3}
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::myFoodPickup
-  ShowTopMostFoldoutHeaderGroup: 1
-  _scoreValue: 200
-  _pickupDelay: 0.4
-  _lifetime: 25
---- !u!114 &1159287312847085884
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 999
+  _popupOrigin: 0
+  _centerOffsetRatio: 0.6
+--- !u!114 &4802827536118347901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156504}
+  m_GameObject: {fileID: 187170}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
@@ -207,40 +237,27 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!54 &2886018977635056998
-Rigidbody:
+--- !u!114 &-6576664197003370412
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156504}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!135 &495784650985336372
+  m_GameObject: {fileID: 187170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67dc294fc9c446cbb153bab282b5413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::mySingleUseReward
+  ShowTopMostFoldoutHeaderGroup: 1
+  _pickupDelay: 0.5
+--- !u!135 &7573595556460917272
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156504}
+  m_GameObject: {fileID: 187170}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -253,5 +270,72 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.1758971
-  m_Center: {x: -0.00000017029899, y: 0.7846388, z: 0.00000051089694}
+  m_Radius: 0.31366548
+  m_Center: {x: 0, y: 0.105289295, z: 0.00000008940697}
+--- !u!136 &2731115844212071404
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187170}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.09635172
+  m_Height: 0.22415677
+  m_Direction: 1
+  m_Center: {x: -0.22589193, y: 0.10385952, z: 0.21731405}
+--- !u!136 &1746970252378325411
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187170}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.10064082
+  m_Height: 0.20700042
+  m_Direction: 1
+  m_Center: {x: 0.22160292, y: 0.10671886, z: -0.21159473}
+--- !u!65 &8605937935579770191
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187170}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.49579915, y: 0.21057859, z: 0.4583737}
+  m_Center: {x: 0.0057189465, y: 0.105289295, z: -0.007148528}

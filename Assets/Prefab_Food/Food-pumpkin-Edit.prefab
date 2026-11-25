@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: -3997793417651231566}
   - component: {fileID: 3889582744702293524}
   m_Layer: 0
-  m_Name: pumpkin-Edit
+  m_Name: Food-pumpkin-Edit
   m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &152962
+--- !u!1 &121492
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 437920}
-  - component: {fileID: 3360368}
-  - component: {fileID: 2303836}
-  - component: {fileID: 64737447779944764}
-  - component: {fileID: 8849308654092284492}
-  - component: {fileID: 2698838490458541944}
-  - component: {fileID: 6618539617329297426}
-  - component: {fileID: 2461658957586042869}
-  - component: {fileID: 5305010208188591308}
+  - component: {fileID: 461522}
+  - component: {fileID: 3376712}
+  - component: {fileID: 2324208}
+  - component: {fileID: -7409152974622008151}
+  - component: {fileID: -109860011112127400}
+  - component: {fileID: 4848687006387657307}
+  - component: {fileID: 4874774774951783304}
+  - component: {fileID: 5607055160282263324}
+  - component: {fileID: -6995009556007100209}
+  - component: {fileID: -4881032263322319244}
   m_Layer: 0
-  m_Name: SM_Prop_LargeSign_Pizza_01
-  m_TagString: Untagged
+  m_Name: Food-Mushroom
+  m_TagString: Reward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &437920
+--- !u!4 &461522
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152962}
+  m_GameObject: {fileID: 121492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 12, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3360368
+--- !u!33 &3376712
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152962}
-  m_Mesh: {fileID: 4300000, guid: 8eb1e0ce59047ca44adcf1d3b18151d0, type: 3}
---- !u!23 &2303836
+  m_GameObject: {fileID: 121492}
+  m_Mesh: {fileID: 4300000, guid: 438d9318161c27f4c9a2c83836511408, type: 3}
+--- !u!23 &2324208
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152962}
+  m_GameObject: {fileID: 121492}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -72,7 +73,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62e25ef75a2216f418d06453c9ad15cb, type: 2}
+  - {fileID: 2100000, guid: 880f89810f43de443898ff2ccd0fb5f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,42 +97,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64737447779944764
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152962}
-  m_Material: {fileID: 13400000, guid: 1ac2d2c3b288346459d47a17fb44f5c9, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43631956978108578, guid: bd6c708785e352645a97b47fe1c5ac2f, type: 2}
---- !u!114 &8849308654092284492
+--- !u!114 &-7409152974622008151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152962}
-  m_Enabled: 1
+  m_GameObject: {fileID: 121492}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3702992244
-  InScenePlacedSourceGlobalObjectIdHash: 3702992244
+  GlobalObjectIdHash: 2445580050
+  InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -139,36 +118,20 @@ MonoBehaviour:
   SynchronizeTransform: 1
   m_InScenePlaced: 0
   ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 0
+  SceneMigrationSynchronization: 1
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &2698838490458541944
+--- !u!114 &-109860011112127400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7349d76c962e64be8b1b1e32f00b61ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::myFoodPickup
-  ShowTopMostFoldoutHeaderGroup: 1
-  _scoreValue: 200
-  _pickupDelay: 0.4
-  _lifetime: 25
---- !u!114 &6618539617329297426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152962}
-  m_Enabled: 1
+  m_GameObject: {fileID: 121492}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
   m_Name: 
@@ -207,15 +170,15 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!54 &2461658957586042869
+--- !u!54 &4848687006387657307
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152962}
+  m_GameObject: {fileID: 121492}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 30
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -234,13 +197,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &5305010208188591308
+--- !u!65 &4874774774951783304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121492}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.62762415, y: 0.60531765, z: 0.5440184}
+  m_Center: {x: -0.0000072568655, y: 0.23834106, z: 0.00022804737}
+--- !u!135 &5607055160282263324
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152962}
+  m_GameObject: {fileID: 121492}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -253,5 +237,34 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.8631887
-  m_Center: {x: -0.015073504, y: 0.2809724, z: -0.03194179}
+  m_Radius: 0.31381208
+  m_Center: {x: -0.0000072568655, y: 0.23834106, z: 0.00022804737}
+--- !u!114 &-6995009556007100209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87558371611b478ca17b741195ae438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::myScoreValue
+  _points: 999
+  _popupOrigin: 0
+  _centerOffsetRatio: 0.6
+--- !u!114 &-4881032263322319244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67dc294fc9c446cbb153bab282b5413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::mySingleUseReward
+  ShowTopMostFoldoutHeaderGroup: 1
+  _pickupDelay: 0.5

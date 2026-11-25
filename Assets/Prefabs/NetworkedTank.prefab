@@ -769,6 +769,8 @@ MonoBehaviour:
   _hitCooldown: 1
   _defaultRewardPoints: 150
   _defaultObstaclePenalty: -30
+  _obstacleHitSfx: {fileID: 8300000, guid: b24cecb4ea25840c39a5a33ff0ea3ef6, type: 3}
+  _obstacleSfxVolume: 1
 --- !u!114 &8785905883472934551
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5013612249410699421}
   - component: {fileID: 6122181341173846421}
   m_Layer: 0
-  m_Name: SM_Prop_LargeSign_Taco_01
+  m_Name: Food-Taco_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

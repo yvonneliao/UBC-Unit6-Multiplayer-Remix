@@ -8,6 +8,10 @@ public class myTankCollisionScore : NetworkBehaviour
     [SerializeField] private int _defaultRewardPoints = 10;
     [SerializeField] private int _defaultObstaclePenalty = -10;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _obstacleHitSfx;
+    [SerializeField, Range(0f, 1f)] private float _obstacleSfxVolume = 1f;
+
     private NetworkStats _stats;
     private readonly Dictionary<int, float> _cooldowns = new Dictionary<int, float>();
 
@@ -75,6 +79,29 @@ public class myTankCollisionScore : NetworkBehaviour
 
         _cooldowns[_targetId] = Time.time + _hitCooldown;
         _stats._modifyScoreWithPopup(_points, _popupPos, _moveDownward, _useCustomColor, _customColor);
+
+        if (_isObstacleHit(_other))
+        {
+            _playObstacleHitSfxRpc(_other.ClosestPoint(transform.position));
+        }
+    }
+
+    private bool _isObstacleHit(Collider _other)
+    {
+        if (_other.CompareTag("Obstacle"))
+            return true;
+
+        myScoreValue _scoreObj = _other.GetComponentInParent<myScoreValue>();
+        return _scoreObj != null && _scoreObj.CompareTag("Obstacle");
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void _playObstacleHitSfxRpc(Vector3 _position)
+    {
+        if (_obstacleHitSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(_obstacleHitSfx, _position, _obstacleSfxVolume);
+        }
     }
 
     private bool _tryGetHitData(

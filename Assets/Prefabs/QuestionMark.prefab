@@ -195,3 +195,5 @@ MonoBehaviour:
   _respawnDelay: 8
   _upwardForce: 1
   _outwardForce: 0
+  _transformSfx: {fileID: 8300000, guid: cd291dbd697199a4b8ded9bc601200dd, type: 3}
+  _sfxVolume: 1

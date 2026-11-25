@@ -756,10 +756,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 233b48f9b18e44b19aae78a265507d2e, type: 2}
   - {fileID: 2100000, guid: 515faf00ba53bcf49bab300fd8c2cd6e, type: 2}
   _turretRotateSfx: {fileID: 8300000, guid: c5bf9ee1dbd2743c9b9004a82706d9ee, type: 3}
-  _turretSfxVolume: 0.208
+  _turretSfxVolume: 0.106
   _continuousMoveSfx: {fileID: 8300000, guid: 6b3417efd711d43a1b564523b7e07ee6, type: 3}
-  _continuousMoveDuration: 4
-  _continuousMoveSfxVolume: 1
+  _continuousMoveDuration: 2.5
+  _continuousMoveSfxVolume: 0.589
 --- !u!114 &-4086943362771987443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,8 +824,8 @@ MonoBehaviour:
   - {fileID: 1518138860085944516, guid: 94ee31a3d58997f4788e26bcab5a03dc, type: 3}
   - {fileID: 8767452118978822873, guid: fe6f11fc019ec62418161c178bc03c9b, type: 3}
   _spawnHeightOffset: 1.5
-  _upwardForce: 5
-  _outwardForce: 4
+  _upwardForce: 3
+  _outwardForce: 2
 --- !u!54 &-9214910048438279000
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -6,6 +6,10 @@ public class mySingleUseReward : NetworkBehaviour
 {
     [SerializeField] private float _pickupDelay = 0.5f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _collectSfx;
+    [SerializeField, Range(0f, 1f)] private float _sfxVolume = 1f;
+
     private bool _collected;
     private float _spawnTime;
     private Action _onCollected;
@@ -34,7 +38,17 @@ public class mySingleUseReward : NetworkBehaviour
 
         _collected = true;
         _onCollected?.Invoke();
+        _playCollectSfxRpc(transform.position);
         NetworkObject.Despawn(true);
         return true;
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void _playCollectSfxRpc(Vector3 _position)
+    {
+        if (_collectSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(_collectSfx, _position, _sfxVolume);
+        }
     }
 }

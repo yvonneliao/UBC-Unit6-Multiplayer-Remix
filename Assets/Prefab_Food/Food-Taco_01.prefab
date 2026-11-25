@@ -161,6 +161,8 @@ MonoBehaviour:
   _scoreValue: 200
   _pickupDelay: 0.4
   _lifetime: 25
+  _collectSfx: {fileID: 8300000, guid: c918492391d11ae4da04d3a852702091, type: 3}
+  _sfxVolume: 1
 --- !u!114 &6969362312785337501
 MonoBehaviour:
   m_ObjectHideFlags: 0

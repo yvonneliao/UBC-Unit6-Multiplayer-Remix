@@ -7,6 +7,10 @@ public class myFoodPickup : NetworkBehaviour
     [SerializeField] private float _pickupDelay = 0.4f;
     [SerializeField] private float _lifetime = 25f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _collectSfx;
+    [SerializeField, Range(0f, 1f)] private float _sfxVolume = 1f;
+
     private ulong _dropperClientId;
     private bool _hasDropper;
     private bool _collected;
@@ -65,7 +69,17 @@ public class myFoodPickup : NetworkBehaviour
 
         _collected = true;
         _stats._modifyScoreWithPopup(_scoreValue, _getTopSurface());
+        _playCollectSfxRpc(transform.position);
         NetworkObject.Despawn();
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void _playCollectSfxRpc(Vector3 _position)
+    {
+        if (_collectSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(_collectSfx, _position, _sfxVolume);
+        }
     }
 
     private Vector3 _getTopSurface()

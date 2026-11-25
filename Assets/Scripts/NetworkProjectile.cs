@@ -16,6 +16,8 @@ public class NetworkProjectile : NetworkBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip _obstacleHitSfx;
     [SerializeField, Range(0f, 1f)] private float _obstacleSfxVolume = 1f;
+    [SerializeField] private AudioClip _targetHitSfx;
+    [SerializeField, Range(0f, 1f)] private float _targetSfxVolume = 1f;
     
     public override void OnNetworkSpawn()
     {
@@ -79,7 +81,7 @@ public class NetworkProjectile : NetworkBehaviour
             }
 
             Debug.Log("SPHERECAST HIT: " + _hitCollider.name);
-            TriggerExplosion(_isObstacleHit(_hitCollider));
+            TriggerExplosion(_isObstacleHit(_hitCollider), _isBullsEyeHit(_hitCollider));
             NetworkObject.Despawn();
             return;
         }
@@ -160,29 +162,53 @@ public class NetworkProjectile : NetworkBehaviour
         return false;
     }
 
-    private void TriggerExplosion(bool _playObstacleSfx)
+    private bool _isBullsEyeHit(Collider _col)
+    {
+        Transform _current = _col.transform;
+        while (_current != null)
+        {
+            if (_current.name == "BullsEye-Target")
+                return true;
+
+            _current = _current.parent;
+        }
+
+        return false;
+    }
+
+    private void TriggerExplosion(bool _playObstacleSfx, bool _playTargetSfx)
     {
         if (!IsServer)
             return;
 
-        PlayExplosionRpc(transform.position, _playObstacleSfx);
+        PlayExplosionRpc(transform.position, _playObstacleSfx, _playTargetSfx);
     }
 
     [Rpc(SendTo.Everyone)]
-    private void PlayExplosionRpc(Vector3 position, bool _playObstacleSfx)
+    private void PlayExplosionRpc(Vector3 position, bool _playObstacleSfx, bool _playTargetSfx)
     {
         GameObject explosion = Instantiate(explosion_vfx, position, Quaternion.identity);
         Destroy(explosion, 5f);
 
         if (_playObstacleSfx && _obstacleHitSfx != null)
         {
-            GameObject _sfxObj = new GameObject("ProjectileObstacleSfx");
-            AudioSource _source = _sfxObj.AddComponent<AudioSource>();
-            _source.clip = _obstacleHitSfx;
-            _source.volume = _obstacleSfxVolume;
-            _source.spatialBlend = 0f;
-            _source.Play();
-            Destroy(_sfxObj, _obstacleHitSfx.length);
+            _play2DSfx(_obstacleHitSfx, _obstacleSfxVolume, "ProjectileObstacleSfx");
         }
+
+        if (_playTargetSfx && _targetHitSfx != null)
+        {
+            _play2DSfx(_targetHitSfx, _targetSfxVolume, "ProjectileTargetSfx");
+        }
+    }
+
+    private void _play2DSfx(AudioClip _clip, float _volume, string _name)
+    {
+        GameObject _sfxObj = new GameObject(_name);
+        AudioSource _source = _sfxObj.AddComponent<AudioSource>();
+        _source.clip = _clip;
+        _source.volume = _volume;
+        _source.spatialBlend = 0f;
+        _source.Play();
+        Destroy(_sfxObj, _clip.length);
     }
 }

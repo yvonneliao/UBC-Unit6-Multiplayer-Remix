@@ -238,3 +238,5 @@ MonoBehaviour:
   explosion_vfx: {fileID: 5162910912013668194, guid: cf82839c411151342a7b2337bda9fb34, type: 3}
   _obstacleHitSfx: {fileID: 8300000, guid: 15ba3a5e6cb9a7f4eb73d1aa31bc9af8, type: 3}
   _obstacleSfxVolume: 1
+  _targetHitSfx: {fileID: 8300000, guid: 5a63e049d508ffa4aac1e7704949997e, type: 3}
+  _targetSfxVolume: 1

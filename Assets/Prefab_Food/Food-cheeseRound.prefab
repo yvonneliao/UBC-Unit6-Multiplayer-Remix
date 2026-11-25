@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1044503253
+  GlobalObjectIdHash: 2963804403
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -191,6 +191,8 @@ MonoBehaviour:
   _points: 999
   _popupOrigin: 0
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4802827536118347901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::mySingleUseReward
   ShowTopMostFoldoutHeaderGroup: 1
   _pickupDelay: 0.5
-  _collectSfx: {fileID: 8300000, guid: c918492391d11ae4da04d3a852702091, type: 3}
+  _collectSfx: {fileID: 8300000, guid: 1a06a4ac1bea7174194917f20d997891, type: 3}
   _sfxVolume: 1
 --- !u!135 &7573595556460917272
 SphereCollider:

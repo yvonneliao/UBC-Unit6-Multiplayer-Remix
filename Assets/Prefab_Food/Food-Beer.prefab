@@ -317,5 +317,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::mySingleUseReward
   ShowTopMostFoldoutHeaderGroup: 1
   _pickupDelay: 0.5
-  _collectSfx: {fileID: 8300000, guid: c918492391d11ae4da04d3a852702091, type: 3}
+  _collectSfx: {fileID: 8300000, guid: 1a06a4ac1bea7174194917f20d997891, type: 3}
   _sfxVolume: 1

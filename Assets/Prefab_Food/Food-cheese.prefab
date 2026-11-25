@@ -139,6 +139,8 @@ MonoBehaviour:
   _points: 999
   _popupOrigin: 2
   _centerOffsetRatio: 0.6
+  _useCustomPopupColor: 0
+  _customPopupColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &-1397205932710967554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::mySingleUseReward
   ShowTopMostFoldoutHeaderGroup: 1
   _pickupDelay: 0.5
-  _collectSfx: {fileID: 8300000, guid: c918492391d11ae4da04d3a852702091, type: 3}
+  _collectSfx: {fileID: 8300000, guid: 1a06a4ac1bea7174194917f20d997891, type: 3}
   _sfxVolume: 1
 --- !u!135 &262993541640549865
 SphereCollider:

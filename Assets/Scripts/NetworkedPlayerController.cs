@@ -37,6 +37,10 @@ public class NetworkedPlayerController : NetworkBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip _turretRotateSfx;
     [SerializeField, Range(0f, 1f)] private float _turretSfxVolume = 1f;
+    [SerializeField] private AudioClip _continuousMoveSfx;
+    [SerializeField] private float _continuousMoveDuration = 8f;
+    [SerializeField, Range(0f, 1f)] private float _continuousMoveSfxVolume = 1f;
+    private float _continuousMoveTime;
 
     // - Networked Variables
     private readonly NetworkVariable<float> turretAngle = new NetworkVariable<float>(
@@ -110,6 +114,7 @@ public class NetworkedPlayerController : NetworkBehaviour
 
         if (!stats.IsAlive.Value)
         {
+            _continuousMoveTime = 0f;
             if (_rb != null && !_rb.isKinematic)
             {
                 _rb.linearVelocity = Vector3.zero;
@@ -123,6 +128,20 @@ public class NetworkedPlayerController : NetworkBehaviour
     private void HandleMovement()
     {
         Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
+
+        if (Mathf.Abs(moveInput.y) > 0.01f)
+        {
+            _continuousMoveTime += Time.fixedDeltaTime;
+            if (_continuousMoveTime >= _continuousMoveDuration)
+            {
+                _continuousMoveTime = 0f;
+                _play2DSfx(_continuousMoveSfx, _continuousMoveSfxVolume, "ContinuousMoveSfx");
+            }
+        }
+        else
+        {
+            _continuousMoveTime = 0f;
+        }
 
         float move = moveInput.y;
         float rot = moveInput.x;
@@ -161,13 +180,21 @@ public class NetworkedPlayerController : NetworkBehaviour
 
     private void _playTurretRotateSfx()
     {
-        GameObject _sfxObj = new GameObject("TurretRotateSfx");
+        _play2DSfx(_turretRotateSfx, _turretSfxVolume, "TurretRotateSfx");
+    }
+
+    private void _play2DSfx(AudioClip _clip, float _volume, string _name)
+    {
+        if (_clip == null)
+            return;
+
+        GameObject _sfxObj = new GameObject(_name);
         AudioSource _source = _sfxObj.AddComponent<AudioSource>();
-        _source.clip = _turretRotateSfx;
-        _source.volume = _turretSfxVolume;
+        _source.clip = _clip;
+        _source.volume = _volume;
         _source.spatialBlend = 0f;
         _source.Play();
-        Destroy(_sfxObj, _turretRotateSfx.length);
+        Destroy(_sfxObj, _clip.length);
     }
 
     [Rpc(SendTo.Server)]

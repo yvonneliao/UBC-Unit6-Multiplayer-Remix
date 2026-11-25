@@ -757,6 +757,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 515faf00ba53bcf49bab300fd8c2cd6e, type: 2}
   _turretRotateSfx: {fileID: 8300000, guid: 7076afd20c9c046ae89556a3e2ec070e, type: 3}
   _turretSfxVolume: 0.208
+  _continuousMoveSfx: {fileID: 8300000, guid: 6b3417efd711d43a1b564523b7e07ee6, type: 3}
+  _continuousMoveDuration: 8
+  _continuousMoveSfxVolume: 1
 --- !u!114 &-4086943362771987443
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -743,7 +743,7 @@ MonoBehaviour:
   turretRotationAction: {fileID: 7676471842710793691, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   moveSpeed: 25
   rotationSpeed: 150
-  turretRotationSpeed: 1
+  turretRotationSpeed: 10
   turretPivot: {fileID: 7074705115080452739}
   muzzlePoint: {fileID: 209145275619173999}
   projectilePrefab: {fileID: 563732593915081973, guid: 9577a14c7e792204bbb04c5dd81f8e71, type: 3}
@@ -756,7 +756,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 233b48f9b18e44b19aae78a265507d2e, type: 2}
   - {fileID: 2100000, guid: 515faf00ba53bcf49bab300fd8c2cd6e, type: 2}
   _turretRotateSfx: {fileID: 8300000, guid: 7076afd20c9c046ae89556a3e2ec070e, type: 3}
-  _turretSfxVolume: 1
+  _turretSfxVolume: 0.208
 --- !u!114 &-4086943362771987443
 MonoBehaviour:
   m_ObjectHideFlags: 0

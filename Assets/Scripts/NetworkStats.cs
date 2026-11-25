@@ -30,6 +30,8 @@ public class NetworkStats : NetworkBehaviour
     [SerializeField] private GameObject _pumpkinPrefab;
     [SerializeField] private GameObject[] _tankVisualsToHide;
     [SerializeField] private int _pumpkinRewardPoints = 300;
+    [SerializeField] private AudioClip _pumpkinCollectSfx;
+    [SerializeField, Range(0f, 1f)] private float _pumpkinSfxVolume = 1f;
     private GameObject _spawnedPumpkin;
     private bool _pumpkinCollected;
 
@@ -224,6 +226,17 @@ public class NetworkStats : NetworkBehaviour
         {
             Destroy(_spawnedPumpkin);
             _spawnedPumpkin = null;
+        }
+
+        if (_pumpkinCollectSfx != null)
+        {
+            GameObject _sfxObj = new GameObject("PumpkinCollectSfx");
+            AudioSource _source = _sfxObj.AddComponent<AudioSource>();
+            _source.clip = _pumpkinCollectSfx;
+            _source.volume = _pumpkinSfxVolume;
+            _source.spatialBlend = 0f;
+            _source.Play();
+            Destroy(_sfxObj, _pumpkinCollectSfx.length);
         }
     }
 

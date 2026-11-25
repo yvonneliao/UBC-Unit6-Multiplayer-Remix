@@ -723,6 +723,8 @@ MonoBehaviour:
   - {fileID: 184706145088118571}
   - {fileID: 5196779997762791994}
   _pumpkinRewardPoints: 10000
+  _pumpkinCollectSfx: {fileID: 8300000, guid: 9e5d63326bf582140b7fc28c4b6aec02, type: 3}
+  _pumpkinSfxVolume: 1
 --- !u!114 &-6797450454173509814
 MonoBehaviour:
   m_ObjectHideFlags: 0

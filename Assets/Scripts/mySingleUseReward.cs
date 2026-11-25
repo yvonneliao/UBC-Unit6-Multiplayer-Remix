@@ -48,7 +48,13 @@ public class mySingleUseReward : NetworkBehaviour
     {
         if (_collectSfx != null)
         {
-            AudioSource.PlayClipAtPoint(_collectSfx, _position, _sfxVolume);
+            GameObject _sfxObj = new GameObject("FoodPickupSfx");
+            AudioSource _source = _sfxObj.AddComponent<AudioSource>();
+            _source.clip = _collectSfx;
+            _source.volume = _sfxVolume;
+            _source.spatialBlend = 0f;
+            _source.Play();
+            Destroy(_sfxObj, _collectSfx.length);
         }
     }
 }

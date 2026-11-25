@@ -240,3 +240,5 @@ MonoBehaviour:
   _obstacleSfxVolume: 1
   _targetHitSfx: {fileID: 8300000, guid: 5a63e049d508ffa4aac1e7704949997e, type: 3}
   _targetSfxVolume: 1
+  _playerHitSfx: {fileID: 8300000, guid: 9a8cbab31cc796144b1b6da14758de6c, type: 3}
+  _playerSfxVolume: 1

@@ -18,6 +18,8 @@ public class NetworkProjectile : NetworkBehaviour
     [SerializeField, Range(0f, 1f)] private float _obstacleSfxVolume = 1f;
     [SerializeField] private AudioClip _targetHitSfx;
     [SerializeField, Range(0f, 1f)] private float _targetSfxVolume = 1f;
+    [SerializeField] private AudioClip _playerHitSfx;
+    [SerializeField, Range(0f, 1f)] private float _playerSfxVolume = 1f;
     
     public override void OnNetworkSpawn()
     {
@@ -81,7 +83,7 @@ public class NetworkProjectile : NetworkBehaviour
             }
 
             Debug.Log("SPHERECAST HIT: " + _hitCollider.name);
-            TriggerExplosion(_isObstacleHit(_hitCollider), _isBullsEyeHit(_hitCollider));
+            TriggerExplosion(_isObstacleHit(_hitCollider), _isBullsEyeHit(_hitCollider), _hitPlayer != null);
             NetworkObject.Despawn();
             return;
         }
@@ -176,16 +178,16 @@ public class NetworkProjectile : NetworkBehaviour
         return false;
     }
 
-    private void TriggerExplosion(bool _playObstacleSfx, bool _playTargetSfx)
+    private void TriggerExplosion(bool _playObstacleSfx, bool _playTargetSfx, bool _playPlayerSfx)
     {
         if (!IsServer)
             return;
 
-        PlayExplosionRpc(transform.position, _playObstacleSfx, _playTargetSfx);
+        PlayExplosionRpc(transform.position, _playObstacleSfx, _playTargetSfx, _playPlayerSfx);
     }
 
     [Rpc(SendTo.Everyone)]
-    private void PlayExplosionRpc(Vector3 position, bool _playObstacleSfx, bool _playTargetSfx)
+    private void PlayExplosionRpc(Vector3 position, bool _playObstacleSfx, bool _playTargetSfx, bool _playPlayerSfx)
     {
         GameObject explosion = Instantiate(explosion_vfx, position, Quaternion.identity);
         Destroy(explosion, 5f);
@@ -198,6 +200,11 @@ public class NetworkProjectile : NetworkBehaviour
         if (_playTargetSfx && _targetHitSfx != null)
         {
             _play2DSfx(_targetHitSfx, _targetSfxVolume, "ProjectileTargetSfx");
+        }
+
+        if (_playPlayerSfx && _playerHitSfx != null)
+        {
+            _play2DSfx(_playerHitSfx, _playerSfxVolume, "ProjectilePlayerSfx");
         }
     }
 

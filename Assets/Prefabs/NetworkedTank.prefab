@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3671539308
+  GlobalObjectIdHash: 2831858207
   InScenePlacedSourceGlobalObjectIdHash: 2831858207
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -723,7 +723,7 @@ MonoBehaviour:
   - {fileID: 184706145088118571}
   - {fileID: 5196779997762791994}
   _pumpkinRewardPoints: 10000
-  _pumpkinCollectSfx: {fileID: 8300000, guid: 9e5d63326bf582140b7fc28c4b6aec02, type: 3}
+  _pumpkinCollectSfx: {fileID: 8300000, guid: 1a06a4ac1bea7174194917f20d997891, type: 3}
   _pumpkinSfxVolume: 1
 --- !u!114 &-6797450454173509814
 MonoBehaviour:

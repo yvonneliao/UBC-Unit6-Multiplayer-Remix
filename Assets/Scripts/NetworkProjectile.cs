@@ -148,11 +148,16 @@ public class NetworkProjectile : NetworkBehaviour
 
     private bool _isObstacleHit(Collider _col)
     {
-        if (_col.CompareTag("Obstacle"))
-            return true;
+        Transform _current = _col.transform;
+        while (_current != null)
+        {
+            if (_current.CompareTag("Obstacle"))
+                return true;
 
-        myScoreValue _scoreObj = _col.GetComponentInParent<myScoreValue>();
-        return _scoreObj != null && _scoreObj.CompareTag("Obstacle");
+            _current = _current.parent;
+        }
+
+        return false;
     }
 
     private void TriggerExplosion(bool _playObstacleSfx)
@@ -171,7 +176,13 @@ public class NetworkProjectile : NetworkBehaviour
 
         if (_playObstacleSfx && _obstacleHitSfx != null)
         {
-            AudioSource.PlayClipAtPoint(_obstacleHitSfx, position, _obstacleSfxVolume);
+            GameObject _sfxObj = new GameObject("ProjectileObstacleSfx");
+            AudioSource _source = _sfxObj.AddComponent<AudioSource>();
+            _source.clip = _obstacleHitSfx;
+            _source.volume = _obstacleSfxVolume;
+            _source.spatialBlend = 0f;
+            _source.Play();
+            Destroy(_sfxObj, _obstacleHitSfx.length);
         }
     }
 }

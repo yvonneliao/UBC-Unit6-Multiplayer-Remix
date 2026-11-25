@@ -755,10 +755,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 9849055d88659413185198a1fda6edf7, type: 2}
   - {fileID: 2100000, guid: 233b48f9b18e44b19aae78a265507d2e, type: 2}
   - {fileID: 2100000, guid: 515faf00ba53bcf49bab300fd8c2cd6e, type: 2}
-  _turretRotateSfx: {fileID: 8300000, guid: 7076afd20c9c046ae89556a3e2ec070e, type: 3}
+  _turretRotateSfx: {fileID: 8300000, guid: c5bf9ee1dbd2743c9b9004a82706d9ee, type: 3}
   _turretSfxVolume: 0.208
   _continuousMoveSfx: {fileID: 8300000, guid: 6b3417efd711d43a1b564523b7e07ee6, type: 3}
-  _continuousMoveDuration: 5
+  _continuousMoveDuration: 4
   _continuousMoveSfxVolume: 1
 --- !u!114 &-4086943362771987443
 MonoBehaviour:

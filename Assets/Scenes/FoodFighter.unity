@@ -3846,7 +3846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b7639d75e4849c19c634a79cc90ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::myButtonSfx
-  _clickSfx: {fileID: 8300000, guid: 7616abc64a81183419b448c1ba7078e4, type: 3}
+  _hoverSfx: {fileID: 8300000, guid: 7616abc64a81183419b448c1ba7078e4, type: 3}
+  _clickSfx: {fileID: 8300000, guid: 4ce61b8a00381db40b27a4f13338c2ef, type: 3}
   _sfxVolume: 1
 --- !u!1 &470476096
 GameObject:

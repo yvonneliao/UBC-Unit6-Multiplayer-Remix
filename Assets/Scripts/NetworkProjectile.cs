@@ -7,7 +7,7 @@ public class NetworkProjectile : NetworkBehaviour
     public float speed = 18f;
     public float lifetime = 4f;
     public float radius = 0.125f;
-    public int damage = 25;
+    public int damage = 250;
     [SerializeField] private int _playerHitPoints = 100;
     private float timeRemaining;
 

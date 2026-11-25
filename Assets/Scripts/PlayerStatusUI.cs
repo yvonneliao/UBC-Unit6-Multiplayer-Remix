@@ -115,20 +115,38 @@ public class PlayerStatusUI : MonoBehaviour
         {
             nameText.text = $"Player {stats.OwnerClientId}";
             healthText.text = $"{stats.CurrentHealth.Value} / {stats.MaxHealth}";
-            healthbar.fillAmount = stats.CurrentHealth.Value / stats.MaxHealth;
+            _setHealthBarRatio(Mathf.Clamp01(stats.CurrentHealth.Value / Mathf.Max(1f, stats.MaxHealth)));
 
             livesText.text = $"{stats.Lives.Value}";
             _updateScoreDisplay(stats.Score.Value);
         }
     }
 
-    public void UpdateContent(string name, int health, int lives, int score)
+    public void UpdateContent(string name, int health, int lives, int score, float maxHealth = 1000f)
     {
         nameText.text = $"Player {name}";
-        healthText.text = health + " / 100";
-        healthbar.fillAmount = (float)health / 100f;
+        healthText.text = $"{health} / {maxHealth}";
+        _setHealthBarRatio(Mathf.Clamp01(health / Mathf.Max(1f, maxHealth)));
         livesText.text = lives.ToString();
         _updateScoreDisplay(score);
+    }
+
+    private void _setHealthBarRatio(float _ratio)
+    {
+        if (healthbar == null)
+            return;
+
+        if (healthbar.type == Image.Type.Filled)
+        {
+            healthbar.fillAmount = _ratio;
+        }
+        else
+        {
+            Vector2 _anchorMax = healthbar.rectTransform.anchorMax;
+            _anchorMax.x = _ratio;
+            healthbar.rectTransform.anchorMax = _anchorMax;
+            healthbar.enabled = _ratio > 0f;
+        }
     }
 
     private void _updateScoreDisplay(int _newScore)

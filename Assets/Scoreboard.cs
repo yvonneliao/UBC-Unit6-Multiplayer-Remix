@@ -78,6 +78,6 @@ public class Scoreboard : MonoBehaviour
         if (!rows.TryGetValue(id, out PlayerStatusUI row))
             return;
 
-        row.UpdateContent($"{id}", (int)player.CurrentHealth.Value, player.Lives.Value, player.Score.Value);
+        row.UpdateContent($"{id}", (int)player.CurrentHealth.Value, player.Lives.Value, player.Score.Value, player.MaxHealth);
     }
 }

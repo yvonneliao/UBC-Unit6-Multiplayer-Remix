@@ -184,6 +184,14 @@ MonoBehaviour:
   - {fileID: 149324, guid: c64c1c913095fb64db3fd1ac114e9b80, type: 3}
   - {fileID: 178364, guid: 419d48a3ccca1474ab18ed62c87ead45, type: 3}
   - {fileID: 187170, guid: 43578e9321cdf104991a337104abcf84, type: 3}
+  - {fileID: 197498, guid: 96d2057686904ad4baef89b50eb9c9e8, type: 3}
+  - {fileID: 156504, guid: f52a5629a2062924bafe8d5ad7a3c5f5, type: 3}
+  - {fileID: 188904, guid: 1c0370843c27f3241b125cb9187073d6, type: 3}
+  - {fileID: 179348, guid: c2226e896b2ff804a8d2d3398574b20f, type: 3}
+  - {fileID: 162776, guid: 6f80e919ce3f15944905cac373e3b447, type: 3}
+  - {fileID: 152962, guid: eba1f7ece2536204bb30cc7ab64ae8bf, type: 3}
+  - {fileID: 190832, guid: 44cce66fc039e314183f60c57567cd3c, type: 3}
+  - {fileID: 156368, guid: fe6f11fc019ec62418161c178bc03c9b, type: 3}
   _respawnDelay: 8
-  _upwardForce: 2
+  _upwardForce: 1
   _outwardForce: 0

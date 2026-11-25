@@ -254,7 +254,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   _pickupDelay: 0.5
   _collectSfx: {fileID: 8300000, guid: daf393cde35314c398c0ba3ab2685c53, type: 3}
-  _sfxVolume: 1
+  _sfxVolume: 0.3
 --- !u!135 &7573595556460917272
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -9,6 +9,10 @@ public class myQuestionTransform : NetworkBehaviour
     [SerializeField] private float _upwardForce = 0f;
     [SerializeField] private float _outwardForce = 0f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _transformSfx;
+    [SerializeField, Range(0f, 1f)] private float _sfxVolume = 1f;
+
     private readonly NetworkVariable<bool> _isAvailable = new NetworkVariable<bool>(
         true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
@@ -116,6 +120,17 @@ public class myQuestionTransform : NetworkBehaviour
 
     private void _onAvailabilityChanged(bool _previous, bool _current)
     {
+        if (_previous && !_current && _transformSfx != null)
+        {
+            GameObject _sfxObj = new GameObject("QuestionMarkSfx");
+            AudioSource _source = _sfxObj.AddComponent<AudioSource>();
+            _source.clip = _transformSfx;
+            _source.volume = _sfxVolume;
+            _source.spatialBlend = 0f;
+            _source.Play();
+            Destroy(_sfxObj, _transformSfx.length);
+        }
+
         _applyAvailability(_current);
     }
 

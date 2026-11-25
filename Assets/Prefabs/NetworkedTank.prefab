@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3671539308
+  GlobalObjectIdHash: 2831858207
   InScenePlacedSourceGlobalObjectIdHash: 2831858207
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
   turretRotationAction: {fileID: 7676471842710793691, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   moveSpeed: 25
   rotationSpeed: 150
-  turretRotationSpeed: 150
+  turretRotationSpeed: 300
   turretPivot: {fileID: 7074705115080452739}
   muzzlePoint: {fileID: 209145275619173999}
   projectilePrefab: {fileID: 563732593915081973, guid: 9577a14c7e792204bbb04c5dd81f8e71, type: 3}

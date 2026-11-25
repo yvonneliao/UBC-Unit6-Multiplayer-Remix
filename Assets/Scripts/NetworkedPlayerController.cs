@@ -34,6 +34,10 @@ public class NetworkedPlayerController : NetworkBehaviour
     private bool _hasPlayerColor;
     public event Action<Color> _onPlayerColorChanged;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _turretRotateSfx;
+    [SerializeField, Range(0f, 1f)] private float _turretSfxVolume = 1f;
+
     // - Networked Variables
     private readonly NetworkVariable<float> turretAngle = new NetworkVariable<float>(
         0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
@@ -142,12 +146,28 @@ public class NetworkedPlayerController : NetworkBehaviour
         if (turretPivot == null)
             return;
 
+        if (turretRotationAction.action.WasPressedThisFrame() && _turretRotateSfx != null)
+        {
+            _playTurretRotateSfx();
+        }
+
         // - Up Direction * turn input * rotation speed * Time/s
         float turn = turretRotationAction.action.ReadValue<float>();
         turretPivot.transform.Rotate(transform.up * turn * rotationSpeed * Time.deltaTime);
 
         // - Set the network variable value
         UpdateTurretRpc(turretPivot.localEulerAngles.y);
+    }
+
+    private void _playTurretRotateSfx()
+    {
+        GameObject _sfxObj = new GameObject("TurretRotateSfx");
+        AudioSource _source = _sfxObj.AddComponent<AudioSource>();
+        _source.clip = _turretRotateSfx;
+        _source.volume = _turretSfxVolume;
+        _source.spatialBlend = 0f;
+        _source.Play();
+        Destroy(_sfxObj, _turretRotateSfx.length);
     }
 
     [Rpc(SendTo.Server)]

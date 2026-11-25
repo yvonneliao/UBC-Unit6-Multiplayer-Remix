@@ -37,6 +37,8 @@ public class RelayLauncher : MonoBehaviour
     private CanvasGroup _loginMenuCanvasGroup;
     private bool _isHostPlayer = true;
     private bool _isClosingMenu;
+    private TMP_Text _startHostLabel;
+    private string _startHostDefaultText = "Start Host";
     // ============================================
 
     private void Start()
@@ -46,7 +48,12 @@ public class RelayLauncher : MonoBehaviour
         _isHostPlayer = Unity.Multiplayer.PlayMode.CurrentPlayer.IsMainEditor;
 #endif
         if (_startHostButton != null)
+        {
             _startHostButton.SetActive(_isHostPlayer);
+            _startHostLabel = _startHostButton.GetComponentInChildren<TMP_Text>(true);
+            if (_startHostLabel != null)
+                _startHostDefaultText = _startHostLabel.text;
+        }
 
         if (_startClientButton != null)
             _startClientButton.SetActive(!_isHostPlayer);
@@ -118,6 +125,8 @@ public class RelayLauncher : MonoBehaviour
             return;
 
         isBusy = true;
+        if (_startHostLabel != null)
+            _startHostLabel.text = "wait...";
 
         try
         {
@@ -155,12 +164,16 @@ public class RelayLauncher : MonoBehaviour
             else
             {
                 Debug.LogError("Failed to start host.");
+                if (_startHostLabel != null)
+                    _startHostLabel.text = _startHostDefaultText;
             }
         }
 
         catch (Exception e)
         {
             Debug.LogError("Relay Host Error: " + e.Message);
+            if (_startHostLabel != null)
+                _startHostLabel.text = _startHostDefaultText;
         }
         finally
         {

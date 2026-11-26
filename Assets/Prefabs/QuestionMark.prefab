@@ -192,6 +192,7 @@ MonoBehaviour:
   - {fileID: 152962, guid: eba1f7ece2536204bb30cc7ab64ae8bf, type: 3}
   - {fileID: 190832, guid: 44cce66fc039e314183f60c57567cd3c, type: 3}
   - {fileID: 156368, guid: fe6f11fc019ec62418161c178bc03c9b, type: 3}
+  - {fileID: 130748, guid: c4dc818a3d0107c43a6ad73bdfca8766, type: 3}
   _respawnDelay: 8
   _upwardForce: 1
   _outwardForce: 0

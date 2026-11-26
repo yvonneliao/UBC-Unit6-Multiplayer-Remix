@@ -115,3 +115,5 @@ InitTestScene*.unity*
 .vscode/settings.json
 Assets/SyntyStudios/PolygonStarter/.DS_Store
 Assets/.DS_Store
+.DS_Store
+Assets/.DS_Store
